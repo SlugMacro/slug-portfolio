@@ -21,7 +21,7 @@
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation | 0/3 | Planned | - |
+| 1. Foundation | 2/3 | In progress | - |
 | 2. Layout & Content | 0/? | Not started | - |
 | 3. Animation Layer | 0/? | Not started | - |
 | 4. Polish & Distribution | 0/? | Not started | - |
@@ -48,8 +48,8 @@
 **Plans:** 3 plans
 
 Plans:
-- [ ] 01-01-PLAN.md -- Theme verification, package install, folder structure, TypeScript declarations
-- [ ] 01-02-PLAN.md -- Animation variants, AnimatedSection component, useScrollLock hook
+- [x] 01-01-PLAN.md -- Theme verification, package install, folder structure, TypeScript declarations
+- [x] 01-02-PLAN.md -- Animation variants, AnimatedSection component, useScrollLock hook
 - [ ] 01-03-PLAN.md -- Markdown content pipeline (Zod schemas, loader, seed markdown files, contact data)
 
 ---
@@ -121,8 +121,8 @@ Plans:
 | ARCH-02 | Phase 1 | Pending |
 | ARCH-03 | Phase 1 | Pending |
 | ARCH-04 | Phase 1 | Pending |
-| ARCH-05 | Phase 1 | Pending |
-| ARCH-06 | Phase 1 | Pending |
+| ARCH-05 | Phase 1 | Done |
+| ARCH-06 | Phase 1 | Done |
 | ARCH-07 | Phase 1 | Pending |
 | LAYO-01 | Phase 2 | Pending |
 | LAYO-02 | Phase 2 | Pending |

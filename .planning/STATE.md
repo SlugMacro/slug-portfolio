@@ -1,7 +1,7 @@
 # Project State: Slug Portfolio v2
 
 **Last updated:** 2026-03-02
-**Session:** Initial roadmap creation
+**Session:** Execute phase 01-foundation, plan 02
 
 ---
 
@@ -17,19 +17,22 @@
 
 ## Current Position
 
-**Current phase:** Phase 1 (Foundation) — planned, awaiting execution
-**Current plan:** 01-01 through 01-03
-**Status:** Phase 1 planned (3 plans in 2 waves)
+**Current phase:** Phase 1 (Foundation) — in progress
+**Current plan:** 01-03 (next to execute)
+**Status:** Phase 1 — 2/3 plans complete
 
 **Progress:**
 ```
-Phase 1 [Foundation]          [~] Planned (3 plans, 2 waves)
+Phase 1 [Foundation]          [~] In progress (2/3 plans done)
+  [x] 01-01 Theme, packages, folder structure
+  [x] 01-02 Animation variants, AnimatedSection, useScrollLock
+  [ ] 01-03 Markdown content pipeline
 Phase 2 [Layout & Content]    [ ] Not started
 Phase 3 [Animation Layer]     [ ] Not started
 Phase 4 [Polish & Distribution] [ ] Not started
 ```
 
-**Overall:** 0% complete (0/4 phases done)
+**Overall:** ~8% complete (2/3 Phase 1 plans done, 0/4 phases fully complete)
 
 ---
 
@@ -39,7 +42,7 @@ Phase 4 [Polish & Distribution] [ ] Not started
 |--------|--------|---------|
 | Requirements mapped | 38/38 | 38/38 |
 | Phases complete | 4 | 0 |
-| Plans complete | TBD | 0 |
+| Plans complete | TBD | 2 |
 
 ---
 
@@ -51,9 +54,12 @@ Phase 4 [Polish & Distribution] [ ] Not started
 - **Animation imports:** Migrate all imports to `"motion/react"` (framer-motion v12 = motion v12). Do this before writing any animation code.
 - **AnimatePresence pattern:** Use `useOutlet()` + `React.cloneElement(element, { key: location.pathname })` with `mode="wait"`. Must be set up at Phase 3 start before per-page animations.
 - **Modal rendering:** `ProjectModal` must render via React Portal to `document.body` to avoid stacking context conflicts with Framer Motion opacity animations.
-- **Scroll lock:** Implement centralized `useScrollLock` hook (reference-counted). Eliminate all direct `document.body.style.overflow` writes.
+- **Scroll lock:** IMPLEMENTED — centralized `useScrollLock` hook (reference-counted) at `src/hooks/useScrollLock.ts`. Eliminates all direct `document.body.style.overflow` writes.
 - **Animation properties:** Only animate `transform` + `opacity`. Never animate `width`, `height`, `padding`, `left`, `top` — causes jank.
 - **whileInView:** Use `viewport={{ once: true }}` on all `whileInView` animations to prevent replay on scroll-back.
+- **Animation variants:** IMPLEMENTED — single source of truth at `src/lib/animations.ts` (fadeUp, fadeIn, staggerContainer, cardVariants, pageVariants).
+- **AnimatedSection:** IMPLEMENTED — reusable scroll-reveal wrapper at `src/components/common/AnimatedSection.tsx`.
+- **pageVariants naming:** `initial/animate/exit` naming for AnimatePresence; `hidden/visible` for whileInView — different because different Framer Motion APIs expect different key names.
 - **Grid isolation:** Apply `isolation: isolate` to the grid container. Keep the fixed hero element outside the animation tree.
 - **React keys:** Use `project.slug` as key on project cards. Never use array index.
 - **Tailwind v4 borders:** Always write explicit border color classes. `border` alone defaults to `currentColor` (not gray-200 like v3).
@@ -65,7 +71,7 @@ Phase 4 [Polish & Distribution] [ ] Not started
 2. Unlayered CSS overrides all Tailwind v4 utilities — prevention: enforce `@layer base` from Phase 1
 3. Framer Motion opacity creates stacking contexts breaking modal z-index — prevention: Portal (address at Phase 3 start)
 4. `gray-matter` returns `any`, frontmatter errors fail silently — prevention: Zod validation at parse time (Phase 1)
-5. Scroll lock race condition from v1's `setTimeout(900ms)` — prevention: centralized `useScrollLock` (Phase 1)
+5. Scroll lock race condition from v1's `setTimeout(900ms)` — RESOLVED: centralized `useScrollLock` implemented (Plan 01-02)
 
 ### Open Questions
 
@@ -86,7 +92,9 @@ Phase 4 [Polish & Distribution] [ ] Not started
 1. Read this STATE.md file first
 2. Read `.planning/ROADMAP.md` for phase structure
 3. Check which phase is current (see "Current Position" above)
-4. Run `/gsd:plan-phase [N]` for the current phase
+4. Run `/gsd:execute-plan 01-03` to execute the markdown content pipeline plan
+
+**Stopped at:** Completed 01-02-PLAN.md — animation infrastructure
 
 ### File Index
 
