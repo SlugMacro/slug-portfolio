@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
 import type { ParsedProject } from "@/lib/markdown";
 import { useScrollLock } from "@/hooks/useScrollLock";
@@ -190,6 +191,17 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                     }}
                   />
                 </div>
+              </div>
+
+              {/* Link to full case study */}
+              <div className="mt-12 border-t border-border pt-8 md:mt-16">
+                <Link
+                  to={`/case-studies/${project.meta.slug}`}
+                  onClick={onClose}
+                  className="text-[18px] text-text-secondary transition-colors duration-300 hover:text-accent md:text-[20px]"
+                >
+                  View full case study →
+                </Link>
               </div>
             </div>
           </div>

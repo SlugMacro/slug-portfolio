@@ -25,7 +25,7 @@ export default function Navbar() {
         {navItems.map((item) => {
           const isActive =
             item.to === "/"
-              ? location.pathname === "/"
+              ? location.pathname === "/" || location.pathname.startsWith("/case-studies")
               : location.pathname.startsWith(item.to);
 
           return (
