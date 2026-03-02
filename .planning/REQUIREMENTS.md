@@ -28,11 +28,11 @@ Requirements for the rebuild. Each maps to roadmap phases.
 
 ### Responsive
 
-- [ ] **RESP-01**: Mobile layout (< 768px) with single-column grid, hamburger or simplified nav
-- [ ] **RESP-02**: Tablet layout (768px–1024px) with adapted grid and nav
-- [ ] **RESP-03**: Desktop layout (> 1024px) with full 2-column staggered grid
-- [ ] **RESP-04**: All text sizes scale appropriately across breakpoints
-- [ ] **RESP-05**: Touch-friendly interaction targets on mobile (min 44px)
+- [x] **RESP-01**: Mobile layout (< 768px) with single-column grid, hamburger or simplified nav
+- [x] **RESP-02**: Tablet layout (768px–1024px) with adapted grid and nav
+- [x] **RESP-03**: Desktop layout (> 1024px) with full 2-column staggered grid
+- [x] **RESP-04**: All text sizes scale appropriately across breakpoints
+- [x] **RESP-05**: Touch-friendly interaction targets on mobile (min 44px)
 
 ### Animations
 
@@ -126,11 +126,11 @@ Deferred to future release. Tracked but not in current roadmap.
 | CONT-03 | Phase 2 | Complete |
 | CTCT-01 | Phase 2 | Pending |
 | CTCT-02 | Phase 2 | Pending |
-| RESP-01 | Phase 2 | Pending |
-| RESP-02 | Phase 2 | Pending |
-| RESP-03 | Phase 2 | Pending |
-| RESP-04 | Phase 2 | Pending |
-| RESP-05 | Phase 2 | Pending |
+| RESP-01 | Phase 2 | Complete |
+| RESP-02 | Phase 2 | Complete |
+| RESP-03 | Phase 2 | Complete |
+| RESP-04 | Phase 2 | Complete |
+| RESP-05 | Phase 2 | Complete |
 | ANIM-01 | Phase 3 | Pending |
 | ANIM-02 | Phase 3 | Pending |
 | ANIM-03 | Phase 3 | Pending |

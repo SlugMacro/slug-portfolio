@@ -2,23 +2,23 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-current_phase: Phase 2 (Layout & Content) — in progress
-current_plan: 02-01 (complete)
-status: in_progress
-stopped_at: Completed 02-01-PLAN.md — home page content migration.
-last_updated: "2026-03-02T07:39:14Z"
+current_phase: Phase 2 (Layout & Content) — complete
+current_plan: 02-04 (complete)
+status: phase_complete
+stopped_at: Completed 02-04-PLAN.md — responsive audit. Phase 2 fully complete (4/4 plans done).
+last_updated: "2026-03-02T08:15:09Z"
 progress:
   total_phases: 4
-  completed_phases: 1
+  completed_phases: 2
   total_plans: 7
-  completed_plans: 4
-  percent: 57
+  completed_plans: 7
+  percent: 100
 ---
 
 # Project State: Slug Portfolio v2
 
 **Last updated:** 2026-03-02
-**Session:** Execute phase 02-layout-content, plan 01
+**Session:** Execute phase 02-layout-content, plan 04
 
 ---
 
@@ -34,25 +34,25 @@ progress:
 
 ## Current Position
 
-**Current phase:** Phase 2 (Layout & Content) — in progress
-**Current plan:** 02-01 (complete)
-**Status:** In progress
+**Current phase:** Phase 2 (Layout & Content) — complete
+**Current plan:** 02-04 (complete)
+**Status:** Phase complete
 
 **Progress:**
-[█████░░░░░] 57% (4/7 plans complete)
+[██████████] 100% (7/7 plans complete)
 Phase 1 [Foundation]          [x] Complete (3/3 plans done)
   [x] 01-01 Theme, packages, folder structure
   [x] 01-02 Animation variants, AnimatedSection, useScrollLock
   [x] 01-03 Markdown content pipeline
-Phase 2 [Layout & Content]    [~] In progress (1/4 plans done)
+Phase 2 [Layout & Content]    [x] Complete (4/4 plans done)
   [x] 02-01 Install packages, migrate home page to content loader
-  [ ] 02-02 CaseStudyPage with markdown rendering
-  [ ] 02-03 AboutPage migration, Formspree contact form
-  [ ] 02-04 Responsive audit
+  [x] 02-02 CaseStudyPage with markdown rendering
+  [x] 02-03 AboutPage migration, Formspree contact form
+  [x] 02-04 Responsive audit
 Phase 3 [Animation Layer]     [ ] Not started
 Phase 4 [Polish & Distribution] [ ] Not started
 
-**Overall:** ~35% complete (Phase 1 done, Phase 2 in progress 1/4)
+**Overall:** ~50% complete (Phases 1-2 done, Phases 3-4 remaining)
 
 ---
 
@@ -61,12 +61,15 @@ Phase 4 [Polish & Distribution] [ ] Not started
 | Metric | Target | Current |
 |--------|--------|---------|
 | Requirements mapped | 38/38 | 38/38 |
-| Phases complete | 4 | 0 |
-| Plans complete | TBD | 4 |
+| Phases complete | 4 | 2 |
+| Plans complete | TBD | 7 |
 
 ---
 | Phase 01-foundation P01 | 1 | 2 tasks | 4 files |
 | Phase 02-layout-content P01 | 2min | 2 tasks | 8 files |
+| Phase 02-layout-content P02 | 2min | 2 tasks | 6 files |
+| Phase 02-layout-content P03 | 2min | 2 tasks | 4 files |
+| Phase 02-layout-content P04 | 2min | 1 task | 8 files |
 
 ## Accumulated Context
 
@@ -90,6 +93,11 @@ Phase 4 [Polish & Distribution] [ ] Not started
 - **Typography plugin:** Activated via `@plugin "@tailwindcss/typography"` in `src/index.css`. Prose classes available for markdown rendering.
 - **Tailwind v4 borders:** Always write explicit border color classes. `border` alone defaults to `currentColor` (not gray-200 like v3).
 - **Tailwind v4 layers:** ALL global resets and base rules go inside `@layer base {}`. Unlayered CSS beats all utilities.
+- **Prose styling:** Use `prose` (not `prose-invert`) for markdown rendering — dark theme uses custom Tailwind color tokens via prose modifier classes. `prose-invert` would conflict.
+- **Route code splitting:** CaseStudyPage uses `React.lazy()` + `React.Suspense` with `fallback={null}` — no loading spinner needed for bundled code-split chunks.
+- **Navbar active state:** "Case studies" nav item is active when `pathname === "/"` OR `pathname.startsWith("/case-studies")` to cover all case study sub-routes.
+- **Grid breakpoint at lg: not md:** Moved ProjectGrid and Hero breakpoints from `md:` (768px) to `lg:` (1024px). At 768px the 2-column staggered grid with 25% hero offset was too cramped (~287px per column). Tablet now shows single-column layout. Phase 3 animations should respect this.
+- **Touch target minimum:** All interactive elements use `min-h-[44px]` for mobile touch friendliness. Pattern: `min-h-[44px] py-3` on form inputs, buttons, and important links.
 
 ### Known Risks (from research)
 
@@ -101,7 +109,7 @@ Phase 4 [Polish & Distribution] [ ] Not started
 
 ### Open Questions
 
-- Tailwind typography plugin v4 compatibility: verify `prose-invert` renders correctly when building `CaseStudyContent` in Phase 2. Small spike, not a blocker.
+- ~~Tailwind typography plugin v4 compatibility~~ RESOLVED: Used `prose` (not `prose-invert`) with custom color tokens via prose modifier classes. Works correctly with dark theme.
 - OG tag implementation approach for Phase 4: neither `react-helmet` nor Vite HTML plugin deeply researched. Verify before committing to one approach.
 
 ### Todos
@@ -118,9 +126,9 @@ Phase 4 [Polish & Distribution] [ ] Not started
 1. Read this STATE.md file first
 2. Read `.planning/ROADMAP.md` for phase structure
 3. Check which phase is current (see "Current Position" above)
-4. Continue with Phase 2 plan 02 (`02-02-PLAN.md` — CaseStudyPage with markdown rendering)
+4. Continue with Phase 3 (Animation Layer) — plan/execute next
 
-**Stopped at:** Completed 02-01-PLAN.md — home page content migration. Phase 2 in progress (1/4 plans done).
+**Stopped at:** Completed 02-04-PLAN.md — responsive audit. Phase 2 fully complete (4/4 plans done). Ready for Phase 3.
 
 ### File Index
 

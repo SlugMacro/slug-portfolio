@@ -11,7 +11,7 @@
 ## Phases
 
 - [x] **Phase 1: Foundation** - Establish theme, architecture, and project scaffold with typed markdown pipeline
-- [ ] **Phase 2: Layout & Content** - Deliver every page with real content, responsive layouts, and working contact form
+- [x] **Phase 2: Layout & Content** - Deliver every page with real content, responsive layouts, and working contact form
 - [ ] **Phase 3: Animation Layer** - Layer Framer Motion animations across all components with accessibility support
 - [ ] **Phase 4: Polish & Distribution** - Add SEO meta tags, OG images, and finalize for deployment
 
@@ -22,7 +22,7 @@
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation | 3/3 | Complete | 2026-03-02 |
-| 2. Layout & Content | 1/4 | In Progress | - |
+| 2. Layout & Content | 4/4 | Complete | 2026-03-02 |
 | 3. Animation Layer | 0/? | Not started | - |
 | 4. Polish & Distribution | 0/? | Not started | - |
 
@@ -73,9 +73,9 @@ Plans:
 
 Plans:
 - [x] 02-01-PLAN.md -- Install packages, activate typography plugin, migrate home page to content loader data
-- [ ] 02-02-PLAN.md -- Build CaseStudyPage with markdown rendering, add route, update Navbar and ProjectModal
-- [ ] 02-03-PLAN.md -- Migrate AboutPage to markdown, wire Formspree contact form
-- [ ] 02-04-PLAN.md -- Responsive audit and visual verification across all breakpoints
+- [x] 02-02-PLAN.md -- Build CaseStudyPage with markdown rendering, add route, update Navbar and ProjectModal
+- [x] 02-03-PLAN.md -- Migrate AboutPage to markdown, wire Formspree contact form
+- [x] 02-04-PLAN.md -- Responsive audit and visual verification across all breakpoints
 
 ---
 
@@ -131,21 +131,21 @@ Plans:
 | ARCH-06 | Phase 1 | Done |
 | ARCH-07 | Phase 1 | Done |
 | LAYO-01 | Phase 2 | Done |
-| LAYO-02 | Phase 2 | Pending |
+| LAYO-02 | Phase 2 | Done |
 | LAYO-03 | Phase 2 | Done |
 | LAYO-04 | Phase 2 | Done |
 | LAYO-05 | Phase 2 | Pending |
-| LAYO-06 | Phase 2 | Pending |
+| LAYO-06 | Phase 2 | Done |
 | CONT-01 | Phase 2 | Done |
-| CONT-02 | Phase 2 | Pending |
+| CONT-02 | Phase 2 | Done |
 | CONT-03 | Phase 2 | Done |
 | CTCT-01 | Phase 2 | Pending |
 | CTCT-02 | Phase 2 | Pending |
-| RESP-01 | Phase 2 | Pending |
-| RESP-02 | Phase 2 | Pending |
-| RESP-03 | Phase 2 | Pending |
-| RESP-04 | Phase 2 | Pending |
-| RESP-05 | Phase 2 | Pending |
+| RESP-01 | Phase 2 | Done |
+| RESP-02 | Phase 2 | Done |
+| RESP-03 | Phase 2 | Done |
+| RESP-04 | Phase 2 | Done |
+| RESP-05 | Phase 2 | Done |
 | ANIM-01 | Phase 3 | Pending |
 | ANIM-02 | Phase 3 | Pending |
 | ANIM-03 | Phase 3 | Pending |
