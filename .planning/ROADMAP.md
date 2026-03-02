@@ -22,7 +22,7 @@
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation | 3/3 | Complete | 2026-03-02 |
-| 2. Layout & Content | 0/4 | Planned | - |
+| 2. Layout & Content | 1/4 | In Progress | - |
 | 3. Animation Layer | 0/? | Not started | - |
 | 4. Polish & Distribution | 0/? | Not started | - |
 
@@ -72,7 +72,7 @@ Plans:
 **Plans:** 4 plans
 
 Plans:
-- [ ] 02-01-PLAN.md -- Install packages, activate typography plugin, migrate home page to content loader data
+- [x] 02-01-PLAN.md -- Install packages, activate typography plugin, migrate home page to content loader data
 - [ ] 02-02-PLAN.md -- Build CaseStudyPage with markdown rendering, add route, update Navbar and ProjectModal
 - [ ] 02-03-PLAN.md -- Migrate AboutPage to markdown, wire Formspree contact form
 - [ ] 02-04-PLAN.md -- Responsive audit and visual verification across all breakpoints
@@ -130,15 +130,15 @@ Plans:
 | ARCH-05 | Phase 1 | Done |
 | ARCH-06 | Phase 1 | Done |
 | ARCH-07 | Phase 1 | Done |
-| LAYO-01 | Phase 2 | Pending |
+| LAYO-01 | Phase 2 | Done |
 | LAYO-02 | Phase 2 | Pending |
-| LAYO-03 | Phase 2 | Pending |
-| LAYO-04 | Phase 2 | Pending |
+| LAYO-03 | Phase 2 | Done |
+| LAYO-04 | Phase 2 | Done |
 | LAYO-05 | Phase 2 | Pending |
 | LAYO-06 | Phase 2 | Pending |
-| CONT-01 | Phase 2 | Pending |
+| CONT-01 | Phase 2 | Done |
 | CONT-02 | Phase 2 | Pending |
-| CONT-03 | Phase 2 | Pending |
+| CONT-03 | Phase 2 | Done |
 | CTCT-01 | Phase 2 | Pending |
 | CTCT-02 | Phase 2 | Pending |
 | RESP-01 | Phase 2 | Pending |

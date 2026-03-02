@@ -19,10 +19,10 @@ Requirements for the rebuild. Each maps to roadmap phases.
 
 ### Layout
 
-- [ ] **LAYO-01**: Fixed hero + scrolling grid parallax layout (sam-smith.design pattern)
+- [x] **LAYO-01**: Fixed hero + scrolling grid parallax layout (sam-smith.design pattern)
 - [ ] **LAYO-02**: 4-column navbar (SM | Case studies | About | Let's collaborate) with active indicator
-- [ ] **LAYO-03**: Staggered 2-column project grid with 1px divider
-- [ ] **LAYO-04**: Max-width 1800px, left-aligned container
+- [x] **LAYO-03**: Staggered 2-column project grid with 1px divider
+- [x] **LAYO-04**: Max-width 1800px, left-aligned container
 - [ ] **LAYO-05**: Footer with accent background and branding
 - [ ] **LAYO-06**: Project modal via query params for quick-look
 
@@ -47,9 +47,9 @@ Requirements for the rebuild. Each maps to roadmap phases.
 
 ### Content
 
-- [ ] **CONT-01**: Project markdown files with frontmatter (title, slug, year, color, tags, description, thumbnail)
+- [x] **CONT-01**: Project markdown files with frontmatter (title, slug, year, color, tags, description, thumbnail)
 - [ ] **CONT-02**: Markdown content renders correctly with proper typography (headings, lists, code blocks, images)
-- [ ] **CONT-03**: Frontmatter metadata drives project cards on home page (title, year, color, thumbnail)
+- [x] **CONT-03**: Frontmatter metadata drives project cards on home page (title, year, color, thumbnail)
 
 ### Contact
 
@@ -115,15 +115,15 @@ Deferred to future release. Tracked but not in current roadmap.
 | THEM-02 | Phase 1 | Complete |
 | THEM-03 | Phase 1 | Complete |
 | THEM-04 | Phase 1 | Complete |
-| LAYO-01 | Phase 2 | Pending |
+| LAYO-01 | Phase 2 | Complete |
 | LAYO-02 | Phase 2 | Pending |
-| LAYO-03 | Phase 2 | Pending |
-| LAYO-04 | Phase 2 | Pending |
+| LAYO-03 | Phase 2 | Complete |
+| LAYO-04 | Phase 2 | Complete |
 | LAYO-05 | Phase 2 | Pending |
 | LAYO-06 | Phase 2 | Pending |
-| CONT-01 | Phase 2 | Pending |
+| CONT-01 | Phase 2 | Complete |
 | CONT-02 | Phase 2 | Pending |
-| CONT-03 | Phase 2 | Pending |
+| CONT-03 | Phase 2 | Complete |
 | CTCT-01 | Phase 2 | Pending |
 | CTCT-02 | Phase 2 | Pending |
 | RESP-01 | Phase 2 | Pending |

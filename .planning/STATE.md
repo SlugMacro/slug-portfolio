@@ -2,23 +2,23 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-current_phase: Phase 1 (Foundation) — complete
-current_plan: 01-03 (complete — Phase 1 done)
-status: completed
-stopped_at: Completed 01-03-PLAN.md — markdown content pipeline. Phase 1 (Foundation) complete.
-last_updated: "2026-03-02T07:13:54.096Z"
+current_phase: Phase 2 (Layout & Content) — in progress
+current_plan: 02-01 (complete)
+status: in_progress
+stopped_at: Completed 02-01-PLAN.md — home page content migration.
+last_updated: "2026-03-02T07:39:14Z"
 progress:
-  total_phases: 1
+  total_phases: 4
   completed_phases: 1
-  total_plans: 3
-  completed_plans: 3
-  percent: 100
+  total_plans: 7
+  completed_plans: 4
+  percent: 57
 ---
 
 # Project State: Slug Portfolio v2
 
 **Last updated:** 2026-03-02
-**Session:** Execute phase 01-foundation, plan 03
+**Session:** Execute phase 02-layout-content, plan 01
 
 ---
 
@@ -34,21 +34,25 @@ progress:
 
 ## Current Position
 
-**Current phase:** Phase 1 (Foundation) — complete
-**Current plan:** 01-03 (complete — Phase 1 done)
-**Status:** Milestone complete
+**Current phase:** Phase 2 (Layout & Content) — in progress
+**Current plan:** 02-01 (complete)
+**Status:** In progress
 
 **Progress:**
-[██████████] 100% (Phase 1 complete)
+[█████░░░░░] 57% (4/7 plans complete)
 Phase 1 [Foundation]          [x] Complete (3/3 plans done)
   [x] 01-01 Theme, packages, folder structure
   [x] 01-02 Animation variants, AnimatedSection, useScrollLock
   [x] 01-03 Markdown content pipeline
-Phase 2 [Layout & Content]    [ ] Not started
+Phase 2 [Layout & Content]    [~] In progress (1/4 plans done)
+  [x] 02-01 Install packages, migrate home page to content loader
+  [ ] 02-02 CaseStudyPage with markdown rendering
+  [ ] 02-03 AboutPage migration, Formspree contact form
+  [ ] 02-04 Responsive audit
 Phase 3 [Animation Layer]     [ ] Not started
 Phase 4 [Polish & Distribution] [ ] Not started
 
-**Overall:** ~25% complete (Phase 1 fully done, 0/3 remaining phases complete)
+**Overall:** ~35% complete (Phase 1 done, Phase 2 in progress 1/4)
 
 ---
 
@@ -58,10 +62,11 @@ Phase 4 [Polish & Distribution] [ ] Not started
 |--------|--------|---------|
 | Requirements mapped | 38/38 | 38/38 |
 | Phases complete | 4 | 0 |
-| Plans complete | TBD | 2 |
+| Plans complete | TBD | 4 |
 
 ---
 | Phase 01-foundation P01 | 1 | 2 tasks | 4 files |
+| Phase 02-layout-content P01 | 2min | 2 tasks | 8 files |
 
 ## Accumulated Context
 
@@ -79,7 +84,10 @@ Phase 4 [Polish & Distribution] [ ] Not started
 - **AnimatedSection:** IMPLEMENTED — reusable scroll-reveal wrapper at `src/components/common/AnimatedSection.tsx`.
 - **pageVariants naming:** `initial/animate/exit` naming for AnimatePresence; `hidden/visible` for whileInView — different because different Framer Motion APIs expect different key names.
 - **Grid isolation:** Apply `isolation: isolate` to the grid container. Keep the fixed hero element outside the animation tree.
-- **React keys:** Use `project.slug` as key on project cards. Never use array index.
+- **React keys:** Use `project.meta.slug` as key on project cards. Never use array index.
+- **Content migration pattern:** All components import from `@/content/loader`, access `.meta` for frontmatter fields. Old `src/data/projects.ts` deleted.
+- **ProjectModal data shape:** Receives full `ParsedProject` (not just `ProjectMeta`) to enable body content rendering in future plans.
+- **Typography plugin:** Activated via `@plugin "@tailwindcss/typography"` in `src/index.css`. Prose classes available for markdown rendering.
 - **Tailwind v4 borders:** Always write explicit border color classes. `border` alone defaults to `currentColor` (not gray-200 like v3).
 - **Tailwind v4 layers:** ALL global resets and base rules go inside `@layer base {}`. Unlayered CSS beats all utilities.
 
@@ -98,7 +106,7 @@ Phase 4 [Polish & Distribution] [ ] Not started
 
 ### Todos
 
-- [ ] Confirm whether `react-markdown` v10 peer dep warning needs `--legacy-peer-deps` or `pnpm.overrides` workaround (Phase 2)
+- [x] Confirm whether `react-markdown` v10 peer dep warning needs `--legacy-peer-deps` or `pnpm.overrides` workaround (Phase 2) — RESOLVED: pnpm installed without peer dep issues
 - [ ] Verify `React.lazy()` on `CaseStudyPage` splits markdown content out of main bundle (`pnpm build` inspection) during Phase 4
 
 ---
@@ -110,9 +118,9 @@ Phase 4 [Polish & Distribution] [ ] Not started
 1. Read this STATE.md file first
 2. Read `.planning/ROADMAP.md` for phase structure
 3. Check which phase is current (see "Current Position" above)
-4. Run `/gsd:plan-phase 02-layout` to plan Phase 2 (Layout & Content)
+4. Continue with Phase 2 plan 02 (`02-02-PLAN.md` — CaseStudyPage with markdown rendering)
 
-**Stopped at:** Completed 01-03-PLAN.md — markdown content pipeline. Phase 1 (Foundation) complete.
+**Stopped at:** Completed 02-01-PLAN.md — home page content migration. Phase 2 in progress (1/4 plans done).
 
 ### File Index
 
