@@ -1,3 +1,4 @@
+import React from "react";
 import type { PageMetaData } from "./pageMetaMap";
 
 const PageTemplate: React.FC<PageMetaData> = ({
