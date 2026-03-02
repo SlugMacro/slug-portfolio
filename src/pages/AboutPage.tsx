@@ -1,4 +1,6 @@
-import { aboutData } from "@/data/about";
+import Markdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import { about } from "@/content/loader";
 
 export default function AboutPage() {
   return (
@@ -13,52 +15,21 @@ export default function AboutPage() {
       {/* Scrolling content */}
       <div className="relative z-10 w-full px-6 pb-24 md:ml-auto md:w-[75%] md:pt-[70vh] md:pr-8 md:pl-0">
         <div className="bg-bg pt-8 md:pl-8 md:pt-16">
-          <section className="max-w-[720px]">
-            <p className="text-[18px] leading-[28px] text-text-primary md:text-[20px] md:leading-[30px]">
-              {aboutData.intro}
-            </p>
-            <p className="mt-6 text-[18px] leading-[28px] text-text-secondary md:text-[20px] md:leading-[30px]">
-              {aboutData.extendedIntro}
-            </p>
-          </section>
-
-          <section className="mt-16 max-w-[720px] md:mt-24">
-            <h2 className="mb-6 text-[14px] uppercase tracking-[0.1em] text-text-secondary md:mb-8">
-              Strengths
-            </h2>
-            <ul className="space-y-0">
-              {aboutData.strengths.map((item, i) => (
-                <li
-                  key={i}
-                  className="border-t border-border py-4 text-[18px] leading-[28px] text-text-primary md:py-5 md:text-[20px] md:leading-[30px]"
-                >
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </section>
-
-          <section className="mt-16 max-w-[720px] md:mt-24">
-            <h2 className="mb-6 text-[14px] uppercase tracking-[0.1em] text-text-secondary md:mb-8">
-              Product Philosophy
-            </h2>
-            <p className="text-[18px] leading-[28px] text-text-primary md:text-[20px] md:leading-[30px]">
-              {aboutData.philosophy.intro}
-            </p>
-            <ul className="mt-6 space-y-0 md:mt-8">
-              {aboutData.philosophy.points.map((point, i) => (
-                <li
-                  key={i}
-                  className="border-t border-border py-4 text-[18px] leading-[28px] text-text-primary md:py-5 md:text-[20px] md:leading-[30px]"
-                >
-                  {point}
-                </li>
-              ))}
-            </ul>
-            <p className="mt-10 border-t border-border pt-6 text-[18px] leading-[28px] text-text-secondary md:mt-12 md:pt-8 md:text-[20px] md:leading-[30px]">
-              {aboutData.philosophy.closing}
-            </p>
-          </section>
+          <div
+            className="prose prose-lg max-w-[720px]
+              prose-headings:font-medium prose-headings:text-text-secondary
+              prose-headings:text-[14px] prose-headings:uppercase prose-headings:tracking-[0.1em]
+              prose-headings:mt-16 md:prose-headings:mt-24 prose-headings:mb-6 md:prose-headings:mb-8
+              prose-p:text-[18px] prose-p:leading-[28px] prose-p:text-text-primary md:prose-p:text-[20px] md:prose-p:leading-[30px]
+              prose-li:text-[18px] prose-li:leading-[28px] prose-li:text-text-primary md:prose-li:text-[20px] md:prose-li:leading-[30px]
+              prose-ul:list-none prose-ul:pl-0
+              prose-li:border-t prose-li:border-border prose-li:py-4 md:prose-li:py-5
+              prose-strong:text-text-primary
+              prose-hr:border-border
+            "
+          >
+            <Markdown remarkPlugins={[remarkGfm]}>{about.body}</Markdown>
+          </div>
         </div>
       </div>
     </div>
