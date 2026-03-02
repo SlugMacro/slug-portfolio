@@ -92,7 +92,7 @@ export default function ContactPage() {
                   name="name"
                   value={form.name}
                   onChange={handleChange}
-                  className="w-full border-b border-border bg-transparent py-2 text-[18px] text-text-primary outline-none transition-colors duration-300 focus:border-accent md:text-[20px]"
+                  className="w-full min-h-[44px] border-b border-border bg-transparent py-3 text-[18px] text-text-primary outline-none transition-colors duration-300 focus:border-accent md:text-[20px]"
                   placeholder="Your name"
                 />
                 {errors.name && (
@@ -111,7 +111,7 @@ export default function ContactPage() {
                   name="email"
                   value={form.email}
                   onChange={handleChange}
-                  className="w-full border-b border-border bg-transparent py-2 text-[18px] text-text-primary outline-none transition-colors duration-300 focus:border-accent md:text-[20px]"
+                  className="w-full min-h-[44px] border-b border-border bg-transparent py-3 text-[18px] text-text-primary outline-none transition-colors duration-300 focus:border-accent md:text-[20px]"
                   placeholder="your@email.com"
                 />
                 {errors.email && (
@@ -130,7 +130,7 @@ export default function ContactPage() {
                   value={form.message}
                   onChange={handleChange}
                   rows={4}
-                  className="w-full resize-none border-b border-border bg-transparent py-2 text-[18px] text-text-primary outline-none transition-colors duration-300 focus:border-accent md:text-[20px]"
+                  className="w-full min-h-[44px] resize-none border-b border-border bg-transparent py-3 text-[18px] text-text-primary outline-none transition-colors duration-300 focus:border-accent md:text-[20px]"
                   placeholder="Tell me about your project..."
                 />
                 {errors.message && (

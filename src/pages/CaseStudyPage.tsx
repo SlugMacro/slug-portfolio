@@ -12,7 +12,7 @@ export default function CaseStudyPage() {
   }
 
   return (
-    <article className="px-6 pt-16 pb-24 md:px-8 md:pt-[130px]">
+    <article className="px-6 pt-20 pb-24 md:px-8 md:pt-[130px]">
       <CaseStudyHeader meta={project.meta} />
       <CaseStudyContent body={project.body} />
     </article>

@@ -21,7 +21,7 @@ export default function CaseStudyHeader({ meta }: CaseStudyHeaderProps) {
         <h1 className="text-[clamp(32px,4vw,64px)] leading-[1.1] tracking-tight font-medium text-text-primary">
           {meta.title}
         </h1>
-        <p className="mt-4 text-[18px] text-text-secondary">{meta.subtitle}</p>
+        <p className="mt-4 text-[18px] leading-[28px] text-text-secondary md:text-[20px] md:leading-[30px]">{meta.subtitle}</p>
       </header>
 
       <div className="mt-8 max-w-[720px] grid grid-cols-2 gap-6 md:grid-cols-4 border-t border-b border-border py-6">

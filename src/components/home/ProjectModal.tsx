@@ -61,7 +61,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
             <div className="sticky top-0 z-20 flex h-16 items-center border-b border-border bg-bg-card px-6 md:h-[130px]">
               <button
                 onClick={onClose}
-                className="flex items-center gap-2 text-[16px] text-text-secondary transition-colors duration-300 hover:text-text-primary"
+                className="flex min-h-[44px] items-center gap-2 text-[16px] text-text-secondary transition-colors duration-300 hover:text-text-primary"
               >
                 ← Close
               </button>
@@ -198,7 +198,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                 <Link
                   to={`/case-studies/${project.meta.slug}`}
                   onClick={onClose}
-                  className="text-[18px] text-text-secondary transition-colors duration-300 hover:text-accent md:text-[20px]"
+                  className="inline-block py-3 text-[18px] text-text-secondary transition-colors duration-300 hover:text-accent md:text-[20px]"
                 >
                   View full case study →
                 </Link>
