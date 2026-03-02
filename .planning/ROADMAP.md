@@ -24,7 +24,7 @@
 | 1. Foundation | 3/3 | Complete | 2026-03-02 |
 | 2. Layout & Content | 4/4 | Complete | 2026-03-02 |
 | 3. Animation Layer | 3/3 | Complete | 2026-03-02 |
-| 4. Polish & Distribution | 0/? | Not started | - |
+| 4. Polish & Distribution | 0/2 | Not started | - |
 
 ---
 
@@ -116,7 +116,11 @@ Plans:
   2. Pasting a case study URL into a Slack or LinkedIn message preview shows the correct project title, description, and thumbnail image from the project's frontmatter
   3. Running `pnpm build` completes without errors and the output `dist/` folder contains the site with correct asset references; opening `dist/index.html` locally loads the site without broken links
 
-**Plans**: TBD
+**Plans:** 2 plans
+
+Plans:
+- [ ] 04-01-PLAN.md -- SEO data layer, favicon, React 19 runtime title tags for all pages
+- [ ] 04-02-PLAN.md -- Wire vite-plugin-react-meta-map for build-time OG HTML, verify production build
 
 ---
 
@@ -168,4 +172,4 @@ Plans:
 ---
 
 *Roadmap created: 2026-03-02*
-*Last updated: 2026-03-02 -- Phase 3 complete (3/3 plans done)*
+*Last updated: 2026-03-02 -- Phase 4 planned (2 plans created)*
