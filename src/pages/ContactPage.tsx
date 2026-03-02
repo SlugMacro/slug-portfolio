@@ -1,10 +1,68 @@
 import { useState } from "react";
+import { contactData } from "@/data/contact";
+
+type FormStatus = "idle" | "submitting" | "success" | "error";
 
 export default function ContactPage() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [errors, setErrors] = useState<
+    Partial<Record<"name" | "email" | "message", string>>
+  >({});
+  const [status, setStatus] = useState<FormStatus>("idle");
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    setErrors((prev) => ({ ...prev, [e.target.name]: undefined }));
+    if (status === "error" || status === "success") {
+      setStatus("idle");
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    // Client-side validation
+    const newErrors: typeof errors = {};
+    if (!form.name.trim()) newErrors.name = "Name is required";
+    if (
+      !form.email.trim() ||
+      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)
+    ) {
+      newErrors.email = "Valid email is required";
+    }
+    if (!form.message.trim()) newErrors.message = "Message is required";
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+
+    setErrors({});
+    setStatus("submitting");
+    try {
+      const res = await fetch(contactData.formspreeEndpoint, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          message: form.message,
+        }),
+      });
+      if (res.ok) {
+        setStatus("success");
+        setForm({ name: "", email: "", message: "" });
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
   };
 
   return (
@@ -24,7 +82,7 @@ export default function ContactPage() {
               Have a project in mind? Let's create something great together.
             </p>
 
-            <form onSubmit={(e) => e.preventDefault()} className="space-y-0">
+            <form onSubmit={handleSubmit} className="space-y-0">
               <div className="border-t border-border py-5 md:py-6">
                 <label className="mb-2 block text-[14px] uppercase tracking-[0.1em] text-text-secondary">
                   Name
@@ -37,6 +95,11 @@ export default function ContactPage() {
                   className="w-full border-b border-border bg-transparent py-2 text-[18px] text-text-primary outline-none transition-colors duration-300 focus:border-accent md:text-[20px]"
                   placeholder="Your name"
                 />
+                {errors.name && (
+                  <p className="mt-1 text-[13px] text-red-500">
+                    {errors.name}
+                  </p>
+                )}
               </div>
 
               <div className="border-t border-border py-5 md:py-6">
@@ -51,6 +114,11 @@ export default function ContactPage() {
                   className="w-full border-b border-border bg-transparent py-2 text-[18px] text-text-primary outline-none transition-colors duration-300 focus:border-accent md:text-[20px]"
                   placeholder="your@email.com"
                 />
+                {errors.email && (
+                  <p className="mt-1 text-[13px] text-red-500">
+                    {errors.email}
+                  </p>
+                )}
               </div>
 
               <div className="border-t border-border py-5 md:py-6">
@@ -65,18 +133,37 @@ export default function ContactPage() {
                   className="w-full resize-none border-b border-border bg-transparent py-2 text-[18px] text-text-primary outline-none transition-colors duration-300 focus:border-accent md:text-[20px]"
                   placeholder="Tell me about your project..."
                 />
+                {errors.message && (
+                  <p className="mt-1 text-[13px] text-red-500">
+                    {errors.message}
+                  </p>
+                )}
               </div>
 
               <div className="border-t border-border pt-8">
                 <button
                   type="submit"
-                  className="text-[18px] tracking-[-0.02em] text-text-secondary transition-colors duration-300 hover:text-accent md:text-[20px]"
-                  style={{ transitionTimingFunction: "cubic-bezier(1, 0, 0, 1)" }}
+                  disabled={status === "submitting"}
+                  className="min-h-[44px] py-3 text-[18px] tracking-[-0.02em] text-text-secondary transition-colors duration-300 hover:text-accent disabled:opacity-50 md:text-[20px]"
+                  style={{
+                    transitionTimingFunction: "cubic-bezier(1, 0, 0, 1)",
+                  }}
                 >
-                  Send Message →
+                  {status === "submitting" ? "Sending..." : "Send Message →"}
                 </button>
               </div>
             </form>
+
+            {status === "success" && (
+              <p className="mt-6 text-[16px] text-green-600">
+                Message sent successfully! I'll get back to you soon.
+              </p>
+            )}
+            {status === "error" && (
+              <p className="mt-6 text-[16px] text-red-500">
+                Something went wrong. Please try again or email me directly.
+              </p>
+            )}
           </div>
         </div>
       </div>
