@@ -36,12 +36,12 @@ Requirements for the rebuild. Each maps to roadmap phases.
 
 ### Animations
 
-- [ ] **ANIM-01**: Scroll-driven fade-in/slide-up on project cards as they enter viewport
-- [ ] **ANIM-02**: Staggered grid animation — cards enter in sequence, not all at once
+- [x] **ANIM-01**: Scroll-driven fade-in/slide-up on project cards as they enter viewport
+- [x] **ANIM-02**: Staggered grid animation — cards enter in sequence, not all at once
 - [x] **ANIM-03**: Page transition animations between routes (fade/slide with AnimatePresence)
-- [ ] **ANIM-04**: Hero parallax effect using useScroll + useTransform
-- [ ] **ANIM-05**: Hover micro-interactions on project cards (scale, shadow, arrow reveal)
-- [ ] **ANIM-06**: Hover micro-interactions on nav items (color transition, subtle movement)
+- [x] **ANIM-04**: Hero parallax effect using useScroll + useTransform
+- [x] **ANIM-05**: Hover micro-interactions on project cards (scale, shadow, arrow reveal)
+- [x] **ANIM-06**: Hover micro-interactions on nav items (color transition, subtle movement)
 - [x] **ANIM-07**: Respect `prefers-reduced-motion` — disable animations for users who prefer reduced motion
 - [x] **ANIM-08**: Smooth scroll behavior for in-page navigation
 
@@ -131,10 +131,10 @@ Deferred to future release. Tracked but not in current roadmap.
 | RESP-03 | Phase 2 | Complete |
 | RESP-04 | Phase 2 | Complete |
 | RESP-05 | Phase 2 | Complete |
-| ANIM-01 | Phase 3 | Pending |
-| ANIM-02 | Phase 3 | Pending |
+| ANIM-01 | Phase 3 | Complete |
+| ANIM-02 | Phase 3 | Complete |
 | ANIM-03 | Phase 3 | Complete |
-| ANIM-04 | Phase 3 | Pending |
+| ANIM-04 | Phase 3 | Complete |
 | ANIM-05 | Phase 3 | Pending |
 | ANIM-06 | Phase 3 | Pending |
 | ANIM-07 | Phase 3 | Complete |

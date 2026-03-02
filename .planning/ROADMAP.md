@@ -12,7 +12,7 @@
 
 - [x] **Phase 1: Foundation** - Establish theme, architecture, and project scaffold with typed markdown pipeline
 - [x] **Phase 2: Layout & Content** - Deliver every page with real content, responsive layouts, and working contact form
-- [ ] **Phase 3: Animation Layer** - Layer Framer Motion animations across all components with accessibility support
+- [x] **Phase 3: Animation Layer** - Layer Framer Motion animations across all components with accessibility support
 - [ ] **Phase 4: Polish & Distribution** - Add SEO meta tags, OG images, and finalize for deployment
 
 ---
@@ -23,7 +23,7 @@
 |-------|----------------|--------|-----------|
 | 1. Foundation | 3/3 | Complete | 2026-03-02 |
 | 2. Layout & Content | 4/4 | Complete | 2026-03-02 |
-| 3. Animation Layer | 1/3 | In progress | - |
+| 3. Animation Layer | 3/3 | Complete | 2026-03-02 |
 | 4. Polish & Distribution | 0/? | Not started | - |
 
 ---
@@ -98,8 +98,8 @@ Plans:
 
 Plans:
 - [x] 03-01-PLAN.md -- Fix RootLayout imports, add MotionConfig + ScrollRestoration, page transitions, reduced-motion CSS, Portal modal
-- [ ] 03-02-PLAN.md -- Staggered scroll-reveal on project grid, hero parallax with useScroll + useTransform
-- [ ] 03-03-PLAN.md -- Hover micro-interactions on project cards and nav items
+- [x] 03-02-PLAN.md -- Staggered scroll-reveal on project grid, hero parallax with useScroll + useTransform
+- [x] 03-03-PLAN.md -- Hover micro-interactions on project cards and nav items
 
 ---
 
@@ -151,14 +151,14 @@ Plans:
 | RESP-03 | Phase 2 | Done |
 | RESP-04 | Phase 2 | Done |
 | RESP-05 | Phase 2 | Done |
-| ANIM-01 | Phase 3 | Pending |
-| ANIM-02 | Phase 3 | Pending |
-| ANIM-03 | Phase 3 | Pending |
-| ANIM-04 | Phase 3 | Pending |
-| ANIM-05 | Phase 3 | Pending |
-| ANIM-06 | Phase 3 | Pending |
-| ANIM-07 | Phase 3 | Pending |
-| ANIM-08 | Phase 3 | Pending |
+| ANIM-01 | Phase 3 | Done |
+| ANIM-02 | Phase 3 | Done |
+| ANIM-03 | Phase 3 | Done |
+| ANIM-04 | Phase 3 | Done |
+| ANIM-05 | Phase 3 | Done |
+| ANIM-06 | Phase 3 | Done |
+| ANIM-07 | Phase 3 | Done |
+| ANIM-08 | Phase 3 | Done |
 | META-01 | Phase 4 | Pending |
 | META-02 | Phase 4 | Pending |
 | META-03 | Phase 4 | Pending |
@@ -168,4 +168,4 @@ Plans:
 ---
 
 *Roadmap created: 2026-03-02*
-*Last updated: 2026-03-02 -- Phase 3 planned (3 plans in 2 waves)*
+*Last updated: 2026-03-02 -- Phase 3 complete (3/3 plans done)*

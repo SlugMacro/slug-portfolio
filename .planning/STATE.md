@@ -2,23 +2,23 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-current_phase: Phase 3 (Animation Layer) — in progress
-current_plan: 03-01 (complete)
+current_phase: Phase 3 (Animation Layer) — complete
+current_plan: 03-03 (complete)
 status: in_progress
-stopped_at: Completed 03-01-PLAN.md — animation infrastructure (MotionConfig, page transitions, Portal modal)
-last_updated: "2026-03-02T08:45:01Z"
+stopped_at: Completed 03-03-PLAN.md — hover micro-interactions (ProjectCard, Navbar). Phase 3 complete. Ready for Phase 4.
+last_updated: "2026-03-02T08:50:05Z"
 progress:
   total_phases: 4
-  completed_phases: 2
+  completed_phases: 3
   total_plans: 10
-  completed_plans: 8
-  percent: 80
+  completed_plans: 10
+  percent: 100
 ---
 
 # Project State: Slug Portfolio v2
 
 **Last updated:** 2026-03-02
-**Session:** Execute phase 03-animation-layer, plan 01
+**Session:** Execute phase 03-animation-layer, plan 03
 
 ---
 
@@ -34,12 +34,12 @@ progress:
 
 ## Current Position
 
-**Current phase:** Phase 3 (Animation Layer) — in progress
-**Current plan:** 03-01 (complete)
+**Current phase:** Phase 3 (Animation Layer) — complete
+**Current plan:** 03-03 (complete)
 **Status:** In progress
 
 **Progress:**
-[████████░░] 80% (8/10 plans complete)
+[██████████] 100% (10/10 plans complete)
 Phase 1 [Foundation]          [x] Complete (3/3 plans done)
   [x] 01-01 Theme, packages, folder structure
   [x] 01-02 Animation variants, AnimatedSection, useScrollLock
@@ -49,13 +49,13 @@ Phase 2 [Layout & Content]    [x] Complete (4/4 plans done)
   [x] 02-02 CaseStudyPage with markdown rendering
   [x] 02-03 AboutPage migration, Formspree contact form
   [x] 02-04 Responsive audit
-Phase 3 [Animation Layer]     [ ] In progress (1/3 plans done)
+Phase 3 [Animation Layer]     [x] Complete (3/3 plans done)
   [x] 03-01 Animation infrastructure (MotionConfig, page transitions, Portal modal)
-  [ ] 03-02 Staggered scroll-reveal, hero parallax
-  [ ] 03-03 Hover micro-interactions
+  [x] 03-02 Staggered scroll-reveal, hero parallax
+  [x] 03-03 Hover micro-interactions
 Phase 4 [Polish & Distribution] [ ] Not started
 
-**Overall:** ~80% complete (Phases 1-2 done, Phase 3 in progress)
+**Overall:** ~100% complete (Phases 1-3 done, ready for Phase 4)
 
 ---
 
@@ -64,8 +64,8 @@ Phase 4 [Polish & Distribution] [ ] Not started
 | Metric | Target | Current |
 |--------|--------|---------|
 | Requirements mapped | 38/38 | 38/38 |
-| Phases complete | 4 | 2 |
-| Plans complete | TBD | 8 |
+| Phases complete | 4 | 3 |
+| Plans complete | TBD | 10 |
 
 ---
 | Phase 01-foundation P01 | 1 | 2 tasks | 4 files |
@@ -74,6 +74,8 @@ Phase 4 [Polish & Distribution] [ ] Not started
 | Phase 02-layout-content P03 | 2min | 2 tasks | 4 files |
 | Phase 02-layout-content P04 | 2min | 1 task | 8 files |
 | Phase 03-animation-layer P01 | 4min | 2 tasks | 5 files |
+| Phase 03-animation-layer P02 | 2min | 2 tasks | 2 files |
+| Phase 03-animation-layer P03 | 1min | 2 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -105,6 +107,11 @@ Phase 4 [Polish & Distribution] [ ] Not started
 - **MotionConfig wrapper:** `<MotionConfig reducedMotion="user">` wraps the entire app in RootLayout. All Framer Motion components automatically respect `prefers-reduced-motion`.
 - **motion package vs framer-motion:** `motion@12.34.3` is the direct dependency; `framer-motion` is kept only as a transitive dependency. Import from `"motion/react"`, never `"framer-motion"`.
 - **Ease type literals:** Use `as const` on string-valued `ease` properties in animation variants (e.g., `ease: "easeOut" as const`). The `motion` package's `Easing` type is stricter than `framer-motion`'s and rejects widened `string`.
+- **Scroll-reveal stagger pattern:** IMPLEMENTED — `motion.div` with `staggerContainer` variants wraps children with `cardVariants`. `whileInView="visible"` + `viewport={{ once: true, amount: 0.05 }}` triggers at 5% visibility, fires once only. Applied to both desktop columns and mobile column in ProjectGrid.
+- **Hero parallax values:** IMPLEMENTED — `useScroll()` + `useTransform(scrollY, [0, 600], [0, -100])` for 1:6 scroll-to-translate ratio. Opacity fades from 1 to 0.3 over 400px. Desktop only; mobile hero stays static.
+- **Grid isolation:** IMPLEMENTED — `isolate` class on grid container prevents animated card stacking contexts from leaking into the hero's fixed stacking context.
+- **Hover micro-interaction scale values:** IMPLEMENTED — ProjectCard uses scale 1.015 (not larger) because big surfaces amplify scale changes. Navbar text uses x: 2px shift. Both subtle by design.
+- **CSS + motion coexistence:** CSS `transition-colors` and motion `whileHover` operate on different properties and coexist without conflict. Applied in both ProjectCard (group-hover arrow) and Navbar (color transition + x-shift).
 
 ### Known Risks (from research)
 
@@ -133,9 +140,9 @@ Phase 4 [Polish & Distribution] [ ] Not started
 1. Read this STATE.md file first
 2. Read `.planning/ROADMAP.md` for phase structure
 3. Check which phase is current (see "Current Position" above)
-4. Continue with Phase 3, Plan 02 (staggered scroll-reveal, hero parallax)
+4. Phase 3 is complete. Continue with Phase 4 (Polish & Distribution).
 
-**Stopped at:** Completed 03-01-PLAN.md — animation infrastructure (MotionConfig, page transitions, Portal modal). Continue with 03-02.
+**Stopped at:** Completed 03-03-PLAN.md — hover micro-interactions (ProjectCard, Navbar). Phase 3 Animation Layer complete. Ready for Phase 4.
 
 ### File Index
 
