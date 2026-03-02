@@ -4,7 +4,9 @@ import { about } from "@/content/loader";
 
 export default function AboutPage() {
   return (
-    <div className="relative">
+    <>
+      <title>About | Slug Macro</title>
+      <div className="relative">
       {/* Hero text: static on mobile, fixed on desktop */}
       <div className="relative z-0 flex min-h-[50vh] w-full items-end px-6 pb-12 pt-24 md:fixed md:top-0 md:left-0 md:w-[25%] md:max-w-[450px] md:items-start md:px-8 md:pt-[180px]">
         <h1 className="text-[clamp(56px,6vw,88px)] leading-[1.05] tracking-[-0.16vw] font-bold text-text-primary">
@@ -33,5 +35,6 @@ export default function AboutPage() {
         </div>
       </div>
     </div>
+    </>
   );
 }

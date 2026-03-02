@@ -13,6 +13,7 @@ export default function CaseStudyPage() {
 
   return (
     <article className="px-6 pt-20 pb-24 md:px-8 md:pt-[130px]">
+      <title>{`${project.meta.title} | Slug Macro`}</title>
       <CaseStudyHeader meta={project.meta} />
       <CaseStudyContent body={project.body} />
     </article>

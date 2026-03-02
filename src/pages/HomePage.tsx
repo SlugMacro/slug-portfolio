@@ -23,6 +23,7 @@ export default function HomePage() {
 
   return (
     <>
+      <title>Slug Macro | Product Designer</title>
       <Hero />
       <ProjectGrid onProjectClick={handleProjectClick} />
       <ProjectModal project={activeProject} onClose={handleClose} />
