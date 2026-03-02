@@ -21,7 +21,7 @@
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation | 2/3 | In progress | - |
+| 1. Foundation | 2/3 | In Progress|  |
 | 2. Layout & Content | 0/? | Not started | - |
 | 3. Animation Layer | 0/? | Not started | - |
 | 4. Polish & Distribution | 0/? | Not started | - |
@@ -45,7 +45,7 @@
   4. Adding a markdown file with invalid or missing frontmatter fields throws a Zod validation error at parse time (visible in console or build output), not a silent runtime failure
   5. `AnimatedSection`, animation variants in `lib/animations.ts`, and the `useScrollLock` hook exist as importable modules with TypeScript types intact
 
-**Plans:** 3 plans
+**Plans:** 2/3 plans executed
 
 Plans:
 - [x] 01-01-PLAN.md -- Theme verification, package install, folder structure, TypeScript declarations

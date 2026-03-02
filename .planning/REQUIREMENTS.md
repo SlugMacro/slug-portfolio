@@ -9,7 +9,7 @@ Requirements for the rebuild. Each maps to roadmap phases.
 
 ### Architecture
 
-- [ ] **ARCH-01**: Project uses clean folder structure with clear separation of concerns (components, content, lib, pages, data)
+- [x] **ARCH-01**: Project uses clean folder structure with clear separation of concerns (components, content, lib, pages, data)
 - [ ] **ARCH-02**: All project data lives in markdown files with frontmatter, not hardcoded in components
 - [ ] **ARCH-03**: About page content sourced from markdown file
 - [ ] **ARCH-04**: Contact page data (links, info) sourced from markdown/data file
@@ -64,10 +64,10 @@ Requirements for the rebuild. Each maps to roadmap phases.
 
 ### Theme
 
-- [ ] **THEM-01**: Light theme — bg #fafafa, borders #e0e0e0, text #1a1a1a, accent #4c48ff
-- [ ] **THEM-02**: Aeonik Pro font system (400, 500, 700) loaded from local woff2
-- [ ] **THEM-03**: Tailwind CSS v4 with @theme custom properties
-- [ ] **THEM-04**: CSS variables for all theme values (easy to maintain)
+- [x] **THEM-01**: Light theme — bg #fafafa, borders #e0e0e0, text #1a1a1a, accent #4c48ff
+- [x] **THEM-02**: Aeonik Pro font system (400, 500, 700) loaded from local woff2
+- [x] **THEM-03**: Tailwind CSS v4 with @theme custom properties
+- [x] **THEM-04**: CSS variables for all theme values (easy to maintain)
 
 ## v2 Requirements
 
@@ -104,17 +104,17 @@ Deferred to future release. Tracked but not in current roadmap.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| ARCH-01 | Phase 1 | Pending |
+| ARCH-01 | Phase 1 | Complete |
 | ARCH-02 | Phase 1 | Pending |
 | ARCH-03 | Phase 1 | Pending |
 | ARCH-04 | Phase 1 | Pending |
 | ARCH-05 | Phase 1 | Pending |
 | ARCH-06 | Phase 1 | Pending |
 | ARCH-07 | Phase 1 | Pending |
-| THEM-01 | Phase 1 | Pending |
-| THEM-02 | Phase 1 | Pending |
-| THEM-03 | Phase 1 | Pending |
-| THEM-04 | Phase 1 | Pending |
+| THEM-01 | Phase 1 | Complete |
+| THEM-02 | Phase 1 | Complete |
+| THEM-03 | Phase 1 | Complete |
+| THEM-04 | Phase 1 | Complete |
 | LAYO-01 | Phase 2 | Pending |
 | LAYO-02 | Phase 2 | Pending |
 | LAYO-03 | Phase 2 | Pending |
