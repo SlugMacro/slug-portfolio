@@ -2,23 +2,23 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-current_phase: Phase 1 (Foundation) — in progress
-current_plan: 01-03 (next to execute)
+current_phase: Phase 1 (Foundation) — complete
+current_plan: 01-03 (complete)
 status: completed
-stopped_at: Completed 01-foundation-01-PLAN.md
-last_updated: "2026-03-02T07:03:46.372Z"
+stopped_at: Completed 01-03-PLAN.md — markdown content pipeline
+last_updated: "2026-03-02T07:08:00Z"
 progress:
   total_phases: 1
-  completed_phases: 0
+  completed_phases: 1
   total_plans: 3
-  completed_plans: 2
-  percent: 67
+  completed_plans: 3
+  percent: 100
 ---
 
 # Project State: Slug Portfolio v2
 
 **Last updated:** 2026-03-02
-**Session:** Execute phase 01-foundation, plan 02
+**Session:** Execute phase 01-foundation, plan 03
 
 ---
 
@@ -34,22 +34,21 @@ progress:
 
 ## Current Position
 
-**Current phase:** Phase 1 (Foundation) — in progress
-**Current plan:** 01-03 (next to execute)
-**Status:** Phase 1 — 2/3 plans complete
+**Current phase:** Phase 1 (Foundation) — complete
+**Current plan:** 01-03 (complete — Phase 1 done)
+**Status:** Phase 1 — 3/3 plans complete
 
 **Progress:**
-[███████░░░] 67%
-Phase 1 [Foundation]          [~] In progress (2/3 plans done)
+[██████████] 100% (Phase 1 complete)
+Phase 1 [Foundation]          [x] Complete (3/3 plans done)
   [x] 01-01 Theme, packages, folder structure
   [x] 01-02 Animation variants, AnimatedSection, useScrollLock
-  [ ] 01-03 Markdown content pipeline
+  [x] 01-03 Markdown content pipeline
 Phase 2 [Layout & Content]    [ ] Not started
 Phase 3 [Animation Layer]     [ ] Not started
 Phase 4 [Polish & Distribution] [ ] Not started
-```
 
-**Overall:** ~8% complete (2/3 Phase 1 plans done, 0/4 phases fully complete)
+**Overall:** ~25% complete (Phase 1 fully done, 0/3 remaining phases complete)
 
 ---
 
@@ -68,7 +67,8 @@ Phase 4 [Polish & Distribution] [ ] Not started
 
 ### Architecture Decisions
 
-- **Content system:** Use `gray-matter` + Vite `?raw` imports + manual Zod validation. Do NOT use `@content-collections` unless the manual loader becomes burdensome. Simpler is correct for < 20 projects.
+- **Content system:** IMPLEMENTED — `gray-matter` + Vite `?raw` imports + manual `Zod.parse()` at `src/content/loader.ts`. `zod-matter` not used (exports `parse()` not `matter()`). Explicit per-file imports for intentional grid order.
+- **Contact data:** TypeScript file (not markdown) at `src/data/contact.ts` — pure structured data with no prose body. formspreeEndpoint is a placeholder; user updates in Phase 2.
 - **Animation imports:** Migrate all imports to `"motion/react"` (framer-motion v12 = motion v12). Do this before writing any animation code.
 - **AnimatePresence pattern:** Use `useOutlet()` + `React.cloneElement(element, { key: location.pathname })` with `mode="wait"`. Must be set up at Phase 3 start before per-page animations.
 - **Modal rendering:** `ProjectModal` must render via React Portal to `document.body` to avoid stacking context conflicts with Framer Motion opacity animations.
@@ -88,7 +88,7 @@ Phase 4 [Polish & Distribution] [ ] Not started
 1. AnimatePresence exit animations break with `<Outlet>` — prevention: `useOutlet()` pattern (address at Phase 3 start)
 2. Unlayered CSS overrides all Tailwind v4 utilities — prevention: enforce `@layer base` from Phase 1
 3. Framer Motion opacity creates stacking contexts breaking modal z-index — prevention: Portal (address at Phase 3 start)
-4. `gray-matter` returns `any`, frontmatter errors fail silently — prevention: Zod validation at parse time (Phase 1)
+4. `gray-matter` returns `any`, frontmatter errors fail silently — RESOLVED: Zod validation at parse time implemented in Plan 01-03 (`ProjectSchema.parse(data)` throws ZodError if invalid)
 5. Scroll lock race condition from v1's `setTimeout(900ms)` — RESOLVED: centralized `useScrollLock` implemented (Plan 01-02)
 
 ### Open Questions
@@ -110,9 +110,9 @@ Phase 4 [Polish & Distribution] [ ] Not started
 1. Read this STATE.md file first
 2. Read `.planning/ROADMAP.md` for phase structure
 3. Check which phase is current (see "Current Position" above)
-4. Run `/gsd:execute-plan 01-03` to execute the markdown content pipeline plan
+4. Run `/gsd:plan-phase 02-layout` to plan Phase 2 (Layout & Content)
 
-**Stopped at:** Completed 01-foundation-01-PLAN.md
+**Stopped at:** Completed 01-03-PLAN.md — markdown content pipeline. Phase 1 (Foundation) complete.
 
 ### File Index
 

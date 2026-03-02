@@ -10,7 +10,7 @@
 
 ## Phases
 
-- [ ] **Phase 1: Foundation** - Establish theme, architecture, and project scaffold with typed markdown pipeline
+- [x] **Phase 1: Foundation** - Establish theme, architecture, and project scaffold with typed markdown pipeline
 - [ ] **Phase 2: Layout & Content** - Deliver every page with real content, responsive layouts, and working contact form
 - [ ] **Phase 3: Animation Layer** - Layer Framer Motion animations across all components with accessibility support
 - [ ] **Phase 4: Polish & Distribution** - Add SEO meta tags, OG images, and finalize for deployment
@@ -21,7 +21,7 @@
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation | 2/3 | In Progress|  |
+| 1. Foundation | 3/3 | Complete | 2026-03-02 |
 | 2. Layout & Content | 0/? | Not started | - |
 | 3. Animation Layer | 0/? | Not started | - |
 | 4. Polish & Distribution | 0/? | Not started | - |
@@ -45,12 +45,12 @@
   4. Adding a markdown file with invalid or missing frontmatter fields throws a Zod validation error at parse time (visible in console or build output), not a silent runtime failure
   5. `AnimatedSection`, animation variants in `lib/animations.ts`, and the `useScrollLock` hook exist as importable modules with TypeScript types intact
 
-**Plans:** 2/3 plans executed
+**Plans:** 3/3 plans executed
 
 Plans:
 - [x] 01-01-PLAN.md -- Theme verification, package install, folder structure, TypeScript declarations
 - [x] 01-02-PLAN.md -- Animation variants, AnimatedSection component, useScrollLock hook
-- [ ] 01-03-PLAN.md -- Markdown content pipeline (Zod schemas, loader, seed markdown files, contact data)
+- [x] 01-03-PLAN.md -- Markdown content pipeline (Zod schemas, loader, seed markdown files, contact data)
 
 ---
 
@@ -118,12 +118,12 @@ Plans:
 | THEM-03 | Phase 1 | Pending |
 | THEM-04 | Phase 1 | Pending |
 | ARCH-01 | Phase 1 | Pending |
-| ARCH-02 | Phase 1 | Pending |
-| ARCH-03 | Phase 1 | Pending |
-| ARCH-04 | Phase 1 | Pending |
+| ARCH-02 | Phase 1 | Done |
+| ARCH-03 | Phase 1 | Done |
+| ARCH-04 | Phase 1 | Done |
 | ARCH-05 | Phase 1 | Done |
 | ARCH-06 | Phase 1 | Done |
-| ARCH-07 | Phase 1 | Pending |
+| ARCH-07 | Phase 1 | Done |
 | LAYO-01 | Phase 2 | Pending |
 | LAYO-02 | Phase 2 | Pending |
 | LAYO-03 | Phase 2 | Pending |
@@ -157,4 +157,4 @@ Plans:
 ---
 
 *Roadmap created: 2026-03-02*
-*Last updated: 2026-03-02 after initial creation*
+*Last updated: 2026-03-02 — Phase 1 complete (3/3 plans)*
