@@ -2,23 +2,23 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
-current_phase: Phase 2 (Layout & Content) — complete
-current_plan: 02-04 (complete)
-status: phase_complete
-stopped_at: Completed 02-04-PLAN.md — responsive audit. Phase 2 fully complete (4/4 plans done).
-last_updated: "2026-03-02T08:15:09Z"
+current_phase: Phase 3 (Animation Layer) — in progress
+current_plan: 03-01 (complete)
+status: in_progress
+stopped_at: Completed 03-01-PLAN.md — animation infrastructure (MotionConfig, page transitions, Portal modal)
+last_updated: "2026-03-02T08:45:01Z"
 progress:
   total_phases: 4
   completed_phases: 2
-  total_plans: 7
-  completed_plans: 7
-  percent: 100
+  total_plans: 10
+  completed_plans: 8
+  percent: 80
 ---
 
 # Project State: Slug Portfolio v2
 
 **Last updated:** 2026-03-02
-**Session:** Execute phase 02-layout-content, plan 04
+**Session:** Execute phase 03-animation-layer, plan 01
 
 ---
 
@@ -34,12 +34,12 @@ progress:
 
 ## Current Position
 
-**Current phase:** Phase 2 (Layout & Content) — complete
-**Current plan:** 02-04 (complete)
-**Status:** Phase complete
+**Current phase:** Phase 3 (Animation Layer) — in progress
+**Current plan:** 03-01 (complete)
+**Status:** In progress
 
 **Progress:**
-[██████████] 100% (7/7 plans complete)
+[████████░░] 80% (8/10 plans complete)
 Phase 1 [Foundation]          [x] Complete (3/3 plans done)
   [x] 01-01 Theme, packages, folder structure
   [x] 01-02 Animation variants, AnimatedSection, useScrollLock
@@ -49,10 +49,13 @@ Phase 2 [Layout & Content]    [x] Complete (4/4 plans done)
   [x] 02-02 CaseStudyPage with markdown rendering
   [x] 02-03 AboutPage migration, Formspree contact form
   [x] 02-04 Responsive audit
-Phase 3 [Animation Layer]     [ ] Not started
+Phase 3 [Animation Layer]     [ ] In progress (1/3 plans done)
+  [x] 03-01 Animation infrastructure (MotionConfig, page transitions, Portal modal)
+  [ ] 03-02 Staggered scroll-reveal, hero parallax
+  [ ] 03-03 Hover micro-interactions
 Phase 4 [Polish & Distribution] [ ] Not started
 
-**Overall:** ~50% complete (Phases 1-2 done, Phases 3-4 remaining)
+**Overall:** ~80% complete (Phases 1-2 done, Phase 3 in progress)
 
 ---
 
@@ -62,7 +65,7 @@ Phase 4 [Polish & Distribution] [ ] Not started
 |--------|--------|---------|
 | Requirements mapped | 38/38 | 38/38 |
 | Phases complete | 4 | 2 |
-| Plans complete | TBD | 7 |
+| Plans complete | TBD | 8 |
 
 ---
 | Phase 01-foundation P01 | 1 | 2 tasks | 4 files |
@@ -70,6 +73,7 @@ Phase 4 [Polish & Distribution] [ ] Not started
 | Phase 02-layout-content P02 | 2min | 2 tasks | 6 files |
 | Phase 02-layout-content P03 | 2min | 2 tasks | 4 files |
 | Phase 02-layout-content P04 | 2min | 1 task | 8 files |
+| Phase 03-animation-layer P01 | 4min | 2 tasks | 5 files |
 
 ## Accumulated Context
 
@@ -77,9 +81,9 @@ Phase 4 [Polish & Distribution] [ ] Not started
 
 - **Content system:** IMPLEMENTED — `gray-matter` + Vite `?raw` imports + manual `Zod.parse()` at `src/content/loader.ts`. `zod-matter` not used (exports `parse()` not `matter()`). Explicit per-file imports for intentional grid order.
 - **Contact data:** TypeScript file (not markdown) at `src/data/contact.ts` — pure structured data with no prose body. formspreeEndpoint is a placeholder; user updates in Phase 2.
-- **Animation imports:** Migrate all imports to `"motion/react"` (framer-motion v12 = motion v12). Do this before writing any animation code.
+- **Animation imports:** IMPLEMENTED — All imports use `"motion/react"`. `motion` package installed as direct dependency; `framer-motion` is transitive only. Completed in Plan 03-01.
 - **AnimatePresence pattern:** Use `useOutlet()` + `React.cloneElement(element, { key: location.pathname })` with `mode="wait"`. Must be set up at Phase 3 start before per-page animations.
-- **Modal rendering:** `ProjectModal` must render via React Portal to `document.body` to avoid stacking context conflicts with Framer Motion opacity animations.
+- **Modal rendering:** IMPLEMENTED — `ProjectModal` renders via React Portal to `document.body`. Completed in Plan 03-01.
 - **Scroll lock:** IMPLEMENTED — centralized `useScrollLock` hook (reference-counted) at `src/hooks/useScrollLock.ts`. Eliminates all direct `document.body.style.overflow` writes.
 - **Animation properties:** Only animate `transform` + `opacity`. Never animate `width`, `height`, `padding`, `left`, `top` — causes jank.
 - **whileInView:** Use `viewport={{ once: true }}` on all `whileInView` animations to prevent replay on scroll-back.
@@ -98,12 +102,15 @@ Phase 4 [Polish & Distribution] [ ] Not started
 - **Navbar active state:** "Case studies" nav item is active when `pathname === "/"` OR `pathname.startsWith("/case-studies")` to cover all case study sub-routes.
 - **Grid breakpoint at lg: not md:** Moved ProjectGrid and Hero breakpoints from `md:` (768px) to `lg:` (1024px). At 768px the 2-column staggered grid with 25% hero offset was too cramped (~287px per column). Tablet now shows single-column layout. Phase 3 animations should respect this.
 - **Touch target minimum:** All interactive elements use `min-h-[44px]` for mobile touch friendliness. Pattern: `min-h-[44px] py-3` on form inputs, buttons, and important links.
+- **MotionConfig wrapper:** `<MotionConfig reducedMotion="user">` wraps the entire app in RootLayout. All Framer Motion components automatically respect `prefers-reduced-motion`.
+- **motion package vs framer-motion:** `motion@12.34.3` is the direct dependency; `framer-motion` is kept only as a transitive dependency. Import from `"motion/react"`, never `"framer-motion"`.
+- **Ease type literals:** Use `as const` on string-valued `ease` properties in animation variants (e.g., `ease: "easeOut" as const`). The `motion` package's `Easing` type is stricter than `framer-motion`'s and rejects widened `string`.
 
 ### Known Risks (from research)
 
 1. AnimatePresence exit animations break with `<Outlet>` — prevention: `useOutlet()` pattern (address at Phase 3 start)
 2. Unlayered CSS overrides all Tailwind v4 utilities — prevention: enforce `@layer base` from Phase 1
-3. Framer Motion opacity creates stacking contexts breaking modal z-index — prevention: Portal (address at Phase 3 start)
+3. Framer Motion opacity creates stacking contexts breaking modal z-index — RESOLVED: ProjectModal renders via React Portal to document.body (Plan 03-01)
 4. `gray-matter` returns `any`, frontmatter errors fail silently — RESOLVED: Zod validation at parse time implemented in Plan 01-03 (`ProjectSchema.parse(data)` throws ZodError if invalid)
 5. Scroll lock race condition from v1's `setTimeout(900ms)` — RESOLVED: centralized `useScrollLock` implemented (Plan 01-02)
 
@@ -126,9 +133,9 @@ Phase 4 [Polish & Distribution] [ ] Not started
 1. Read this STATE.md file first
 2. Read `.planning/ROADMAP.md` for phase structure
 3. Check which phase is current (see "Current Position" above)
-4. Continue with Phase 3 (Animation Layer) — plan/execute next
+4. Continue with Phase 3, Plan 02 (staggered scroll-reveal, hero parallax)
 
-**Stopped at:** Completed 02-04-PLAN.md — responsive audit. Phase 2 fully complete (4/4 plans done). Ready for Phase 3.
+**Stopped at:** Completed 03-01-PLAN.md — animation infrastructure (MotionConfig, page transitions, Portal modal). Continue with 03-02.
 
 ### File Index
 

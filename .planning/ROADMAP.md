@@ -23,7 +23,7 @@
 |-------|----------------|--------|-----------|
 | 1. Foundation | 3/3 | Complete | 2026-03-02 |
 | 2. Layout & Content | 4/4 | Complete | 2026-03-02 |
-| 3. Animation Layer | 0/3 | Planned | - |
+| 3. Animation Layer | 1/3 | In progress | - |
 | 4. Polish & Distribution | 0/? | Not started | - |
 
 ---
@@ -97,7 +97,7 @@ Plans:
 **Plans:** 3 plans
 
 Plans:
-- [ ] 03-01-PLAN.md -- Fix RootLayout imports, add MotionConfig + ScrollRestoration, page transitions, reduced-motion CSS, Portal modal
+- [x] 03-01-PLAN.md -- Fix RootLayout imports, add MotionConfig + ScrollRestoration, page transitions, reduced-motion CSS, Portal modal
 - [ ] 03-02-PLAN.md -- Staggered scroll-reveal on project grid, hero parallax with useScroll + useTransform
 - [ ] 03-03-PLAN.md -- Hover micro-interactions on project cards and nav items
 
