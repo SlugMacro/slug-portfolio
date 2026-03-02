@@ -104,50 +104,50 @@ Deferred to future release. Tracked but not in current roadmap.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| ARCH-01 | — | Pending |
-| ARCH-02 | — | Pending |
-| ARCH-03 | — | Pending |
-| ARCH-04 | — | Pending |
-| ARCH-05 | — | Pending |
-| ARCH-06 | — | Pending |
-| ARCH-07 | — | Pending |
-| LAYO-01 | — | Pending |
-| LAYO-02 | — | Pending |
-| LAYO-03 | — | Pending |
-| LAYO-04 | — | Pending |
-| LAYO-05 | — | Pending |
-| LAYO-06 | — | Pending |
-| RESP-01 | — | Pending |
-| RESP-02 | — | Pending |
-| RESP-03 | — | Pending |
-| RESP-04 | — | Pending |
-| RESP-05 | — | Pending |
-| ANIM-01 | — | Pending |
-| ANIM-02 | — | Pending |
-| ANIM-03 | — | Pending |
-| ANIM-04 | — | Pending |
-| ANIM-05 | — | Pending |
-| ANIM-06 | — | Pending |
-| ANIM-07 | — | Pending |
-| ANIM-08 | — | Pending |
-| CONT-01 | — | Pending |
-| CONT-02 | — | Pending |
-| CONT-03 | — | Pending |
-| CTCT-01 | — | Pending |
-| CTCT-02 | — | Pending |
-| META-01 | — | Pending |
-| META-02 | — | Pending |
-| META-03 | — | Pending |
-| THEM-01 | — | Pending |
-| THEM-02 | — | Pending |
-| THEM-03 | — | Pending |
-| THEM-04 | — | Pending |
+| ARCH-01 | Phase 1 | Pending |
+| ARCH-02 | Phase 1 | Pending |
+| ARCH-03 | Phase 1 | Pending |
+| ARCH-04 | Phase 1 | Pending |
+| ARCH-05 | Phase 1 | Pending |
+| ARCH-06 | Phase 1 | Pending |
+| ARCH-07 | Phase 1 | Pending |
+| THEM-01 | Phase 1 | Pending |
+| THEM-02 | Phase 1 | Pending |
+| THEM-03 | Phase 1 | Pending |
+| THEM-04 | Phase 1 | Pending |
+| LAYO-01 | Phase 2 | Pending |
+| LAYO-02 | Phase 2 | Pending |
+| LAYO-03 | Phase 2 | Pending |
+| LAYO-04 | Phase 2 | Pending |
+| LAYO-05 | Phase 2 | Pending |
+| LAYO-06 | Phase 2 | Pending |
+| CONT-01 | Phase 2 | Pending |
+| CONT-02 | Phase 2 | Pending |
+| CONT-03 | Phase 2 | Pending |
+| CTCT-01 | Phase 2 | Pending |
+| CTCT-02 | Phase 2 | Pending |
+| RESP-01 | Phase 2 | Pending |
+| RESP-02 | Phase 2 | Pending |
+| RESP-03 | Phase 2 | Pending |
+| RESP-04 | Phase 2 | Pending |
+| RESP-05 | Phase 2 | Pending |
+| ANIM-01 | Phase 3 | Pending |
+| ANIM-02 | Phase 3 | Pending |
+| ANIM-03 | Phase 3 | Pending |
+| ANIM-04 | Phase 3 | Pending |
+| ANIM-05 | Phase 3 | Pending |
+| ANIM-06 | Phase 3 | Pending |
+| ANIM-07 | Phase 3 | Pending |
+| ANIM-08 | Phase 3 | Pending |
+| META-01 | Phase 4 | Pending |
+| META-02 | Phase 4 | Pending |
+| META-03 | Phase 4 | Pending |
 
 **Coverage:**
-- v1 requirements: 37 total
-- Mapped to phases: 0
-- Unmapped: 37 ⚠️
+- v1 requirements: 38 total
+- Mapped to phases: 38
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-03-02*
-*Last updated: 2026-03-02 after initial definition*
+*Last updated: 2026-03-02 after roadmap creation — traceability complete*
