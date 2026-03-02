@@ -23,7 +23,7 @@
 |-------|----------------|--------|-----------|
 | 1. Foundation | 3/3 | Complete | 2026-03-02 |
 | 2. Layout & Content | 4/4 | Complete | 2026-03-02 |
-| 3. Animation Layer | 0/? | Not started | - |
+| 3. Animation Layer | 0/3 | Planned | - |
 | 4. Polish & Distribution | 0/? | Not started | - |
 
 ---
@@ -89,12 +89,17 @@ Plans:
 
 **Success Criteria** (what must be TRUE):
   1. Scrolling down the home page causes project cards to fade and slide up into view one after another in sequence — not all at once
-  2. Navigating between pages (home → about → contact) shows a visible transition animation; the outgoing page exits before the incoming page enters
+  2. Navigating between pages (home -> about -> contact) shows a visible transition animation; the outgoing page exits before the incoming page enters
   3. On a device or browser with `prefers-reduced-motion: reduce` enabled, all scroll and page transition animations are absent; the content still renders correctly
   4. Hovering over a project card shows a visible scale or shadow change and reveals the arrow indicator; hovering a nav item shows a color transition
   5. Slowly scrolling up and down while the hero is visible causes the hero content to move at a different rate than the scrolling grid, creating a parallax depth effect
 
-**Plans**: TBD
+**Plans:** 3 plans
+
+Plans:
+- [ ] 03-01-PLAN.md -- Fix RootLayout imports, add MotionConfig + ScrollRestoration, page transitions, reduced-motion CSS, Portal modal
+- [ ] 03-02-PLAN.md -- Staggered scroll-reveal on project grid, hero parallax with useScroll + useTransform
+- [ ] 03-03-PLAN.md -- Hover micro-interactions on project cards and nav items
 
 ---
 
@@ -163,4 +168,4 @@ Plans:
 ---
 
 *Roadmap created: 2026-03-02*
-*Last updated: 2026-03-02 — Phase 2 planned (4 plans in 3 waves)*
+*Last updated: 2026-03-02 -- Phase 3 planned (3 plans in 2 waves)*
