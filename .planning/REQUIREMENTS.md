@@ -135,8 +135,8 @@ Deferred to future release. Tracked but not in current roadmap.
 | ANIM-02 | Phase 3 | Complete |
 | ANIM-03 | Phase 3 | Complete |
 | ANIM-04 | Phase 3 | Complete |
-| ANIM-05 | Phase 3 | Pending |
-| ANIM-06 | Phase 3 | Pending |
+| ANIM-05 | Phase 3 | Complete |
+| ANIM-06 | Phase 3 | Complete |
 | ANIM-07 | Phase 3 | Complete |
 | ANIM-08 | Phase 3 | Complete |
 | META-01 | Phase 4 | Pending |
