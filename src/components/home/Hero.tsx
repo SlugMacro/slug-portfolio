@@ -1,36 +1,40 @@
-import { useScroll, useTransform, motion } from "motion/react";
+import { motion } from 'framer-motion'
+import Container from '@/components/layout/Container'
+import { getProfile } from '@/content/loader'
 
 export default function Hero() {
-  const { scrollY } = useScroll();
-  const heroY = useTransform(scrollY, [0, 600], [0, -100]);
-  const heroOpacity = useTransform(scrollY, [0, 400], [1, 0.3]);
+  const profile = getProfile()
 
   return (
-    <>
-      {/* Fixed hero text — visible through left 25% gap (desktop only, lg+) */}
-      <motion.div
-        className="fixed top-0 left-0 z-[1] hidden max-w-[1800px] items-start px-6 pt-[180px] lg:flex"
-        style={{ width: "min(1200px, 56%)", y: heroY, opacity: heroOpacity }}
-      >
-        <h1 className="text-[clamp(56px,5.5vw,88px)] leading-[1.05] tracking-[-0.16vw] font-medium text-text-primary">
-          Hi, I'm Slug Macro — a product builder designing and building complex systems, from trading infrastructure to AI-native products.
-        </h1>
-      </motion.div>
+    <section className="pt-16 pb-16 md:pt-24 md:pb-24">
+      <Container>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          className="grid grid-cols-1 gap-6 md:grid-cols-[1fr_3fr] md:gap-0"
+        >
+          {/* Left: role + coordinates */}
+          <div>
+            <p className="text-[13px] font-medium tracking-wide text-text-primary">
+              {profile.data.title}
+            </p>
+            <p className="mt-4 text-[13px] tracking-wide text-text-secondary">
+              {profile.data.coordinates}
+              <br />
+              {profile.data.location}
+            </p>
+            <p className="mt-4 text-[13px] tracking-wide text-accent">
+              Available for hire
+            </p>
+          </div>
 
-      {/* Mobile + Tablet hero — static, in flow */}
-      <div className="flex min-h-screen w-full items-end px-6 pb-12 pt-24 lg:hidden">
-        <div>
-          <h1 className="text-[clamp(32px,5vw,48px)] leading-[1.15] tracking-[-0.16vw] text-text-primary">
-            Product &amp; Systems Builder
-          </h1>
-          <p className="mt-6 text-[16px] leading-[1.5] text-text-secondary md:text-[18px]">
-            Trading Infrastructure &amp; AI Systems
+          {/* Right: intro paragraph */}
+          <p className="max-w-[55ch] text-[clamp(1.1rem,2vw,1.556rem)] leading-[1.4] font-light text-text-primary">
+            {profile.content}
           </p>
-        </div>
-      </div>
-
-      {/* Desktop spacer — pushes grid down in document flow (matches standfirst-holder) */}
-      <div className="hidden lg:block" style={{ height: "70vh" }} />
-    </>
-  );
+        </motion.div>
+      </Container>
+    </section>
+  )
 }

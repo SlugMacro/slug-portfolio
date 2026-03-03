@@ -1,0 +1,32 @@
+---
+slug: geo-report
+title: GeoReport
+subtitle: AI-Friendliness Audit Tool
+year: "2025"
+client: GeoReport
+type: Tool
+tags:
+  - AI
+  - SEO
+  - Audit
+role: Product Design
+featured: true
+featuredOrder: 4
+thumbnailImage: ""
+heroImage: ""
+galleryImages: []
+color: "#f59e0b"
+---
+
+Tool for evaluating whether a website is "AI-friendly" -- assessing how well content is structured for AI indexing and understanding.
+
+## Scope
+
+- Built AI-friendliness evaluation framework at system level (scoring logic, evaluation criteria, signal weighting)
+- Standardized report structure for SEO + AI indexing
+- UX focused on insight clarity rather than just metrics
+
+## Impact
+
+- Established systematic approach to evaluating AI-friendliness across multiple dimensions
+- Created actionable audit reports that bridge traditional SEO with AI optimization

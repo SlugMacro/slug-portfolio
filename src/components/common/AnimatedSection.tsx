@@ -1,30 +1,26 @@
-// src/components/common/AnimatedSection.tsx
-import { motion } from "motion/react";
-import type { ReactNode } from "react";
-import { fadeUp } from "@/lib/animations";
-import { cn } from "@/lib/cn";
+import { motion } from 'framer-motion'
+import { cn } from '@/lib/cn'
 
 interface AnimatedSectionProps {
-  children: ReactNode;
-  delay?: number;
-  className?: string;
+  children: React.ReactNode
+  className?: string
+  delay?: number
 }
 
-export default function AnimatedSection({
-  children,
-  delay = 0,
-  className,
-}: AnimatedSectionProps) {
+export default function AnimatedSection({ children, className, delay = 0 }: AnimatedSectionProps) {
   return (
     <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-50px' }}
+      transition={{
+        duration: 0.6,
+        delay,
+        ease: [0.25, 0.46, 0.45, 0.94],
+      }}
       className={cn(className)}
-      variants={fadeUp}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.5, ease: "easeOut", delay }}
     >
       {children}
     </motion.div>
-  );
+  )
 }

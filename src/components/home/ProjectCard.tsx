@@ -1,54 +1,55 @@
-import { motion } from "motion/react";
-import type { ProjectMeta } from "@/lib/markdown";
+import { Link } from 'react-router-dom'
+import type { WorkFrontmatter } from '@/content/schema'
 
 interface ProjectCardProps {
-  project: ProjectMeta;
-  onClick: () => void;
+  work: { data: WorkFrontmatter }
 }
 
-export default function ProjectCard({ project, onClick }: ProjectCardProps) {
+function hasImage(url?: string) {
+  return url && url.length > 0 && (url.startsWith('http') || url.startsWith('data:'))
+}
+
+export default function ProjectCard({ work }: ProjectCardProps) {
+  const { slug, title, type, thumbnailImage } = work.data
+
   return (
-    <motion.button
-      onClick={onClick}
-      className="group block w-full cursor-pointer border-b border-border bg-bg pb-12 pt-6 text-left md:px-6"
-      whileHover={{ scale: 1.015, boxShadow: "0 8px 30px rgba(0,0,0,0.08)" }}
-      whileTap={{ scale: 0.99 }}
-      transition={{ duration: 0.2, ease: "easeOut" }}
-    >
-      {/* 1:1 Square thumbnail */}
-      <div
-        className="aspect-square w-full overflow-hidden"
-        style={{
-          background: `linear-gradient(135deg, ${project.color}18, ${project.color}08)`,
-        }}
-      >
-        <div className="flex h-full items-center justify-center">
-          <span
-            className="text-[min(8vw,80px)] font-medium tracking-[-0.04em] opacity-15"
-            style={{ color: project.color }}
-          >
-            {project.title
-              .split(" ")
-              .map((w) => w[0])
-              .join("")}
+    <Link to={`/work/${slug}`} className="group block">
+      <div className="aspect-[4/5] w-full overflow-hidden bg-bg-secondary">
+        {hasImage(thumbnailImage) ? (
+          <img
+            src={thumbnailImage}
+            alt={title}
+            loading="lazy"
+            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+          />
+        ) : (
+          <div className="h-full w-full" />
+        )}
+      </div>
+      <div className="mt-3 flex items-start justify-between gap-4">
+        <div>
+          <span className="text-[13px] font-medium tracking-wide text-text-primary">
+            {title}
+          </span>
+          <span className="mt-1 block text-[13px] tracking-wide text-text-secondary">
+            {type}
           </span>
         </div>
-      </div>
 
-      {/* Title + Year + Arrow */}
-      <div className="mt-4 flex items-start justify-between gap-4">
-        <div>
-          <h3 className="text-[16px] leading-[24px] font-medium text-text-primary">
-            {project.title}
-          </h3>
-          <p className="mt-1 text-[13px] text-text-secondary">
-            {project.year}
-          </p>
-        </div>
-        <span className="mt-1 text-[16px] text-text-primary opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-          →
-        </span>
+        {/* Arrow — visible on hover */}
+        <svg
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          className="mt-0.5 shrink-0 -translate-x-2 text-text-secondary opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100"
+        >
+          <path d="M5 12h14" />
+          <path d="m12 5 7 7-7 7" />
+        </svg>
       </div>
-    </motion.button>
-  );
+    </Link>
+  )
 }

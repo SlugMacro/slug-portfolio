@@ -1,22 +1,20 @@
-// src/hooks/useScrollLock.ts
-import { useEffect } from "react";
+import { useEffect } from 'react'
 
-// Module-level reference count — survives across component instances
-const lockCount = { value: 0 };
-
-export function useScrollLock(active: boolean) {
+export function useScrollLock(locked: boolean) {
   useEffect(() => {
-    if (active) {
-      lockCount.value++;
-      document.body.style.overflow = "hidden";
-    }
-    return () => {
-      if (active) {
-        lockCount.value--;
-        if (lockCount.value === 0) {
-          document.body.style.overflow = "";
-        }
+    if (locked) {
+      const scrollY = window.scrollY
+      document.body.style.position = 'fixed'
+      document.body.style.top = `-${scrollY}px`
+      document.body.style.left = '0'
+      document.body.style.right = '0'
+      return () => {
+        document.body.style.position = ''
+        document.body.style.top = ''
+        document.body.style.left = ''
+        document.body.style.right = ''
+        window.scrollTo(0, scrollY)
       }
-    };
-  }, [active]);
+    }
+  }, [locked])
 }

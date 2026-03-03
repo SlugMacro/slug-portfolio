@@ -1,30 +1,32 @@
-import { Outlet, ScrollRestoration, useLocation } from "react-router-dom";
-import { AnimatePresence, motion, MotionConfig } from "motion/react";
-import { pageVariants } from "@/lib/animations";
-import Navbar from "./Navbar";
-import Footer from "./Footer";
+import { Outlet, useLocation } from 'react-router-dom'
+import { useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import Navbar from './Navbar'
 
 export default function RootLayout() {
-  const location = useLocation();
+  const location = useLocation()
+
+  // Scroll to top on route change
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [location.pathname])
 
   return (
-    <MotionConfig reducedMotion="user">
-      <div className="min-h-screen max-w-[1800px] border-r border-border bg-bg">
-        <Navbar />
+    <>
+      <Navbar />
+      <main className="pt-14">
         <AnimatePresence mode="wait">
-          <motion.main
+          <motion.div
             key={location.pathname}
-            variants={pageVariants}
-            initial="initial"
-            animate="animate"
-            exit="exit"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
           >
             <Outlet />
-            <Footer />
-          </motion.main>
+          </motion.div>
         </AnimatePresence>
-        <ScrollRestoration />
-      </div>
-    </MotionConfig>
-  );
+      </main>
+    </>
+  )
 }
