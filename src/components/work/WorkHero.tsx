@@ -3,27 +3,62 @@ import type { WorkFrontmatter } from '@/content/schema'
 
 interface WorkHeroProps {
   data: WorkFrontmatter
+  content: string
 }
 
 function hasImage(url?: string) {
   return url && url.length > 0 && (url.startsWith('http') || url.startsWith('data:'))
 }
 
-export default function WorkHero({ data }: WorkHeroProps) {
+export default function WorkHero({ data, content }: WorkHeroProps) {
+  // Extract first paragraph from markdown (before ## headings)
+  const intro = content
+    .split('\n')
+    .filter((l) => !l.startsWith('#') && !l.startsWith('-') && l.trim())
+    .join(' ')
+
   return (
-    <section className="py-16 md:py-24">
-      <Container>
-        <h1 className="text-[clamp(2rem,5vw,4.44rem)] leading-[1.08] font-normal tracking-[-0.02em]">
-          {data.title}
-        </h1>
-        <p className="mt-2 text-[clamp(1rem,2vw,1.5rem)] font-light text-text-secondary">
-          {data.subtitle}
-        </p>
-      </Container>
+    <>
+      {/* Text hero — same spacing as home hero */}
+      <section className="pt-16 pb-16 md:pt-24 md:pb-24">
+        <Container>
+          {/* Title */}
+          <h1 className="text-[clamp(2.5rem,5vw,5rem)] leading-[1.1] font-semibold tracking-[-0.03em] text-text-primary">
+            {data.title}
+          </h1>
+
+          {/* Description */}
+          <p className="mt-6 max-w-[55ch] text-[clamp(1.125rem,1.5vw,1.5rem)] leading-[1.4] font-light text-text-primary">
+            {intro}
+          </p>
+
+          {/* Meta: horizontal, left-aligned, below desc */}
+          <div className="mt-8 flex flex-wrap gap-x-8 gap-y-2">
+            <div>
+              <p className="text-[0.8125rem] tracking-wide text-text-secondary">Year</p>
+              <p className="mt-1 text-[0.8125rem] tracking-wide text-text-primary">
+                {data.year}
+              </p>
+            </div>
+            <div>
+              <p className="text-[0.8125rem] tracking-wide text-text-secondary">Role</p>
+              <p className="mt-1 text-[0.8125rem] tracking-wide text-text-primary">
+                {data.role}
+              </p>
+            </div>
+            <div>
+              <p className="text-[0.8125rem] tracking-wide text-text-secondary">Type</p>
+              <p className="mt-1 text-[0.8125rem] tracking-wide text-text-primary">
+                {data.type}
+              </p>
+            </div>
+          </div>
+        </Container>
+      </section>
 
       {/* Hero image */}
-      <Container className="mt-8">
-        <div className="aspect-[16/9] w-full overflow-hidden bg-bg-secondary">
+      <Container>
+        <div className="aspect-[8/5] w-full overflow-hidden bg-bg-secondary">
           {hasImage(data.heroImage) ? (
             <img
               src={data.heroImage}
@@ -35,6 +70,6 @@ export default function WorkHero({ data }: WorkHeroProps) {
           )}
         </div>
       </Container>
-    </section>
+    </>
   )
 }

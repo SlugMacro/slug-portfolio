@@ -1,7 +1,6 @@
 import { useParams, Navigate } from 'react-router-dom'
 import { getWorkBySlug } from '@/content/loader'
 import WorkHero from '@/components/work/WorkHero'
-import WorkMeta from '@/components/work/WorkMeta'
 import WorkGallery from '@/components/work/WorkGallery'
 import WorkContent from '@/components/work/WorkContent'
 
@@ -13,10 +12,9 @@ export default function WorkDetailPage() {
 
   return (
     <>
-      <WorkHero data={work.data} />
-      <WorkMeta data={work.data} />
-      <WorkGallery data={work.data} />
+      <WorkHero data={work.data} content={work.content} />
       <WorkContent content={work.content} />
+      <WorkGallery data={work.data} />
     </>
   )
 }
