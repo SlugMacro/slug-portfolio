@@ -24,7 +24,7 @@ export default function Navbar() {
             {/* Logo */}
             <Link
               to="/"
-              className="text-[13px] font-medium tracking-wide text-text-primary"
+              className="text-[0.8125rem] font-medium tracking-wide text-text-primary"
             >
               Slug Macro
             </Link>
@@ -37,7 +37,7 @@ export default function Navbar() {
                     key={link.to}
                     to={link.to}
                     className={cn(
-                      'text-[13px] tracking-wide transition-opacity duration-300 hover:opacity-60',
+                      'text-[0.8125rem] tracking-wide transition-opacity duration-300 hover:opacity-60',
                       location.pathname === link.to
                         ? 'text-text-primary'
                         : 'text-text-secondary'

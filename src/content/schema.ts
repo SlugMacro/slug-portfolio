@@ -38,9 +38,15 @@ export const profileFrontmatterSchema = z.object({
       role: z.string(),
       company: z.string(),
       location: z.string().optional(),
+      description: z.string().optional(),
     })
   ),
   clients: z.array(z.string()).default([]),
+  skills: z.object({
+    summary: z.string(),
+    items: z.array(z.string()),
+  }).optional(),
+  homeIntro: z.string().optional(),
 })
 
 export type WorkFrontmatter = z.infer<typeof workFrontmatterSchema>

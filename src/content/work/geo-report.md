@@ -14,11 +14,11 @@ featured: true
 featuredOrder: 4
 thumbnailImage: ""
 heroImage: ""
-galleryImages: []
+galleryImages: ["", "", "", "", "", ""]
 color: "#f59e0b"
 ---
 
-Tool for evaluating whether a website is "AI-friendly" -- assessing how well content is structured for AI indexing and understanding.
+Tool for evaluating whether a website is "AI-friendly" — assessing how well content is structured for AI indexing and understanding. Built the evaluation framework at system level including scoring logic, criteria weighting, and standardized report structure that bridges traditional SEO with emerging AI optimization.
 
 ## Scope
 

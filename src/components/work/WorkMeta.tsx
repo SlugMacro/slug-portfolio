@@ -19,10 +19,10 @@ export default function WorkMeta({ data }: WorkMetaProps) {
         <div className="grid grid-cols-2 gap-6 md:grid-cols-4">
           {meta.map((item) => (
             <div key={item.label}>
-              <p className="text-[13px] tracking-wide text-text-secondary">
+              <p className="text-[0.8125rem] tracking-wide text-text-secondary">
                 {item.label}
               </p>
-              <p className="mt-1 text-[13px] tracking-wide text-text-primary">
+              <p className="mt-1 text-[0.8125rem] tracking-wide text-text-primary">
                 {item.value}
               </p>
             </div>

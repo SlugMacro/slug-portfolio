@@ -11,29 +11,29 @@ export default function ContactInfo({ data }: ContactInfoProps) {
     <section className="border-t border-border py-12">
       <Container>
         <div className="grid grid-cols-1 gap-8 md:grid-cols-[1fr_3fr]">
-          <p className="text-[13px] tracking-wide text-text-secondary">
+          <p className="text-[0.8125rem] tracking-wide text-text-secondary">
             Contact Information
           </p>
 
           <div className="space-y-8">
             {/* Name + Title */}
             <div>
-              <p className="text-[13px] tracking-wide text-text-primary">
+              <p className="text-[0.8125rem] tracking-wide text-text-primary">
                 {data.name}
               </p>
-              <p className="text-[13px] tracking-wide text-text-secondary">
+              <p className="text-[0.8125rem] tracking-wide text-text-secondary">
                 {data.title}
               </p>
             </div>
 
             {/* Email */}
             <div className="grid grid-cols-1 gap-2 md:grid-cols-[1fr_2fr]">
-              <span className="text-[13px] tracking-wide text-text-secondary">
+              <span className="text-[0.8125rem] tracking-wide text-text-secondary">
                 Email
               </span>
               <a
                 href={`mailto:${data.email}`}
-                className="text-[13px] tracking-wide text-text-primary transition-opacity hover:opacity-60"
+                className="text-[0.8125rem] tracking-wide text-text-primary transition-opacity hover:opacity-60"
               >
                 {data.email}
               </a>
@@ -41,7 +41,7 @@ export default function ContactInfo({ data }: ContactInfoProps) {
 
             {/* Social */}
             <div className="grid grid-cols-1 gap-2 md:grid-cols-[1fr_2fr]">
-              <span className="text-[13px] tracking-wide text-text-secondary">
+              <span className="text-[0.8125rem] tracking-wide text-text-secondary">
                 Social
               </span>
               <div className="flex gap-4">
@@ -51,7 +51,7 @@ export default function ContactInfo({ data }: ContactInfoProps) {
                     href={link.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[13px] tracking-wide text-text-primary transition-opacity hover:opacity-60"
+                    className="text-[0.8125rem] tracking-wide text-text-primary transition-opacity hover:opacity-60"
                   >
                     {link.label} ↗
                   </a>
@@ -61,7 +61,7 @@ export default function ContactInfo({ data }: ContactInfoProps) {
 
             {/* Status */}
             <div className="grid grid-cols-1 gap-2 md:grid-cols-[1fr_2fr]">
-              <span className="text-[13px] tracking-wide text-text-secondary">
+              <span className="text-[0.8125rem] tracking-wide text-text-secondary">
                 Status
               </span>
               <AvailabilityBadge status={data.availability} />
@@ -69,14 +69,14 @@ export default function ContactInfo({ data }: ContactInfoProps) {
 
             {/* Location */}
             <div className="grid grid-cols-1 gap-2 md:grid-cols-[1fr_2fr]">
-              <span className="text-[13px] tracking-wide text-text-secondary">
+              <span className="text-[0.8125rem] tracking-wide text-text-secondary">
                 Location
               </span>
               <div>
-                <p className="text-[13px] tracking-wide text-text-primary">
+                <p className="text-[0.8125rem] tracking-wide text-text-primary">
                   {data.coordinates}
                 </p>
-                <p className="text-[13px] tracking-wide text-text-secondary">
+                <p className="text-[0.8125rem] tracking-wide text-text-secondary">
                   {data.location}
                 </p>
               </div>

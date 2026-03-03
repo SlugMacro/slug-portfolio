@@ -1,3 +1,4 @@
+import AnimatedSection from '@/components/common/AnimatedSection'
 import Hero from '@/components/home/Hero'
 import FeaturedGrid from '@/components/home/FeaturedGrid'
 import WorkTable from '@/components/home/WorkTable'
@@ -8,7 +9,9 @@ export default function HomePage() {
 
   return (
     <>
-      <Hero />
+      <AnimatedSection>
+        <Hero />
+      </AnimatedSection>
       <FeaturedGrid work={featured} />
       <WorkTable />
     </>

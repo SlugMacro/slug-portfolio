@@ -25,7 +25,7 @@ export default function MobileMenu({ open, onClose, links, theme, onToggleTheme 
         >
           {/* Header */}
           <div className="flex items-center justify-between px-[0.667rem] py-4">
-            <span className="text-[13px] font-medium tracking-wide text-text-primary">
+            <span className="text-[0.8125rem] font-medium tracking-wide text-text-primary">
               Slug Macro
             </span>
             <button
@@ -64,7 +64,7 @@ export default function MobileMenu({ open, onClose, links, theme, onToggleTheme 
           <div className="flex items-center justify-between px-[0.667rem] py-6">
             <button
               onClick={onToggleTheme}
-              className="text-[13px] text-text-secondary"
+              className="text-[0.8125rem] text-text-secondary"
             >
               {theme === 'light' ? 'Dark mode' : 'Light mode'}
             </button>

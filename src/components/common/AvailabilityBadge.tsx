@@ -5,18 +5,16 @@ interface AvailabilityBadgeProps {
   className?: string
 }
 
+const statusText: Record<AvailabilityBadgeProps['status'], string> = {
+  available: 'Open to Product / Systems Roles',
+  limited: 'Limited availability',
+  unavailable: 'Not available',
+}
+
 export default function AvailabilityBadge({ status, className }: AvailabilityBadgeProps) {
   return (
-    <span className={cn('inline-flex items-center gap-2 text-[13px] tracking-wide', className)}>
-      <span
-        className={cn(
-          'h-2 w-2 rounded-full',
-          status === 'available' && 'bg-accent',
-          status === 'limited' && 'bg-yellow-500',
-          status === 'unavailable' && 'bg-red-500'
-        )}
-      />
-      <span className="capitalize">{status}</span>
-    </span>
+    <p className={cn('text-[0.8125rem] tracking-wide text-accent', className)}>
+      {statusText[status]}
+    </p>
   )
 }

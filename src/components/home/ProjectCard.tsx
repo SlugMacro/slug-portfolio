@@ -28,10 +28,10 @@ export default function ProjectCard({ work }: ProjectCardProps) {
       </div>
       <div className="mt-3 flex items-start justify-between gap-4">
         <div>
-          <span className="text-[13px] font-medium tracking-wide text-text-primary">
+          <span className="text-[0.8125rem] font-medium tracking-wide text-text-primary">
             {title}
           </span>
-          <span className="mt-1 block text-[13px] tracking-wide text-text-secondary">
+          <span className="mt-1 block text-[0.8125rem] tracking-wide text-text-secondary">
             {type}
           </span>
         </div>

@@ -8,25 +8,47 @@ availability: available
 socialLinks:
   - label: LinkedIn
     url: https://linkedin.com/in/slugmacro
-  - label: Twitter
-    url: https://twitter.com/slugmacro
 services:
   - Trading Systems
   - AI-Native Products
   - Design Systems
   - Product Strategy
 experience:
-  - period: "2025–Present"
+  - period: "03.2023 – Present"
     role: Product Designer
-    company: Whales Market
-  - period: "2025–Present"
+    company: Remote
+    location: US
+    description: "Focused on UX flow, user interactions, visual development, and product direction for multi-user products. Responsible for building design systems, wireframes, user interfaces, and collaborating with the Dev team to ensure a cohesive user experience."
+  - period: "09.2022 – 03.2023"
     role: Product Designer
-    company: Mention Network
+    company: GalaxyOne – Sovico Group
+    location: HCMC
+    description: "Designed the OneTarget product, aimed at helping marketers segment their audience and create revenue-boosting advertising campaigns. Developed a consistent Design System for the company's product lines."
+  - period: "06.2022 – 08.2022"
+    role: Product Designer
+    company: OpenCommerce Group
+    location: Hanoi
+    description: "Worked on the Web Builder product, revamping its Layout, Color scheme, Typography, and Components for users with varying technical abilities. Established a Design System to maintain uniformity across all Web Builder products."
+  - period: "08.2008 – 06.2022"
+    role: Lead UI/UX Designer
+    company: JoomlArt
+    location: Hanoi
+    description: "Developed and designed diverse web products for the global market with over 200,000 regular users, spanning Business/Corporate, News/Magazine, E-commerce, Healthcare, and Lifestyle themes. Also contributed to web products such as Web Builder, Market, and Blockchain."
 clients:
   - Whales Market
   - Whales Predict
   - Mention Network
   - GeoReport
+skills:
+  summary: "Product Designer with strong experience in AI-driven and Web3 products, specializing in transforming complex data, models, and blockchain mechanics into clear, scalable user experiences."
+  items:
+    - "Product design for **AI-driven and Web3 platforms**"
+    - "UX/UI for complex systems: AI, data analytics, trading, terminal-style interfaces"
+    - "**AI-assisted design workflows**: research, ideation, evaluation, optimization"
+    - "Data-informed design, experimentation, and rapid iteration"
+    - "Design systems with strong foundations in grid, typography, and visual hierarchy"
+    - "Front-end fundamentals: HTML, CSS, Tailwind"
+homeIntro: "Hi, I'm Slug Macro — a Product Designer based at 10.7769° N, 106.7009° E, Vietnam. I design trading systems and AI-native products end-to-end, from research and data modeling to architecture, UX flows, and actual implementation with AI tools."
 ---
 
 Product Designer focused on trading systems and AI-native products, with full ownership from strategy to execution. I design at the system level — from research, data modeling, architecture logic, UX flows to actual implementation with AI tools.

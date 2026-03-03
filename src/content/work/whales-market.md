@@ -14,11 +14,11 @@ featured: true
 featuredOrder: 1
 thumbnailImage: ""
 heroImage: ""
-galleryImages: []
+galleryImages: ["", "", "", "", "", ""]
 color: "#4c48ff"
 ---
 
-Advanced Trading Platform for Pre-Market trading, focused on pro traders and high-frequency users.
+Advanced Trading Platform for Pre-Market trading, focused on pro traders and high-frequency users. Designed the end-to-end experience across orderbook, position management, portfolio tracking, and P2P matching — handling multi-chain settlement complexity in real-time volatile markets.
 
 ## Scope
 

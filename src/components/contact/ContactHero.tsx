@@ -17,7 +17,7 @@ export default function ContactHero({ name, title, coordinates, location }: Cont
         <p className="mt-2 text-[clamp(2rem,5vw,4.44rem)] leading-[1.08] font-normal tracking-[-0.02em] text-text-secondary">
           {title}
         </p>
-        <p className="mt-6 text-[13px] tracking-wide text-text-secondary">
+        <p className="mt-6 text-[0.8125rem] tracking-wide text-text-secondary">
           {coordinates} — {location}
         </p>
       </Container>

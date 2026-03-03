@@ -9,7 +9,7 @@ export default function ContactServices({ services }: ContactServicesProps) {
     <section className="border-t border-border py-12">
       <Container>
         <div className="grid grid-cols-1 gap-8 md:grid-cols-[1fr_3fr]">
-          <p className="text-[13px] tracking-wide text-text-secondary">
+          <p className="text-[0.8125rem] tracking-wide text-text-secondary">
             Services
           </p>
 

@@ -5,36 +5,46 @@ interface WorkContentProps {
 }
 
 export default function WorkContent({ content }: WorkContentProps) {
-  // Simple markdown-to-sections parser
   const sections = parseMarkdown(content)
 
+  // Skip the intro paragraph (already shown in hero)
+  const bodySections = sections.filter((s) => s.heading)
+
+  if (bodySections.length === 0) return null
+
   return (
-    <section className="border-t border-border py-12">
+    <section className="pt-16 pb-16 md:pt-24 md:pb-24">
       <Container>
-        <div className="max-w-[65ch] space-y-8">
-          {sections.map((section, i) => (
-            <div key={i}>
-              {section.heading && (
-                <h2 className="mb-4 text-[13px] tracking-wide text-text-secondary uppercase">
-                  {section.heading}
-                </h2>
-              )}
-              {section.items.length > 0 ? (
-                <ul className="space-y-2">
-                  {section.items.map((item, j) => (
-                    <li
-                      key={j}
-                      className="text-[13px] leading-[1.6] text-text-primary"
-                    >
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              ) : (
-                <p className="text-[13px] leading-[1.6] text-text-primary">
-                  {section.text}
-                </p>
-              )}
+        <div className="space-y-10">
+          {bodySections.map((section, i) => (
+            <div
+              key={i}
+              className="grid grid-cols-1 gap-4 md:grid-cols-[1fr_3fr] md:gap-0"
+            >
+              {/* Left: heading */}
+              <p className="text-[0.8125rem] font-medium tracking-wide text-text-primary">
+                {section.heading}
+              </p>
+
+              {/* Right: content */}
+              <div>
+                {section.items.length > 0 ? (
+                  <ul className="space-y-2">
+                    {section.items.map((item, j) => (
+                      <li
+                        key={j}
+                        className="text-[0.8125rem] leading-[1.6] text-text-primary"
+                      >
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p className="text-[0.8125rem] leading-[1.6] text-text-primary">
+                    {section.text}
+                  </p>
+                )}
+              </div>
             </div>
           ))}
         </div>

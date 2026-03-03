@@ -7,33 +7,30 @@ interface ExperienceProps {
 
 export default function Experience({ experience }: ExperienceProps) {
   return (
-    <section className="border-t border-border py-12">
+    <section className="border-t border-border py-16 md:py-24">
       <Container>
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-[1fr_3fr]">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-[1fr_3fr] md:gap-0">
           {/* Label */}
-          <p className="text-[13px] tracking-wide text-text-secondary">
+          <p className="text-[0.8125rem] font-medium tracking-wide text-text-primary">
             Experience
           </p>
 
-          {/* Timeline entries */}
-          <div>
+          {/* Entries */}
+          <div className="space-y-12">
             {experience.map((entry, i) => (
-              <div
-                key={i}
-                className="grid grid-cols-[1fr_2fr] gap-4 border-b border-border py-3 last:border-b-0"
-              >
-                <span className="text-[13px] tracking-wide text-text-secondary">
+              <div key={i}>
+                <p className="text-[0.8125rem] font-medium tracking-wide text-text-primary">
+                  {entry.company} / {entry.role}
+                </p>
+                <p className="mt-1 text-[0.8125rem] tracking-wide text-text-secondary">
                   {entry.period}
-                </span>
-                <div>
-                  <p className="text-[13px] tracking-wide text-text-primary">
-                    {entry.role}
+                  {entry.location && `, ${entry.location}`}
+                </p>
+                {entry.description && (
+                  <p className="mt-4 max-w-[55ch] text-[0.8125rem] leading-[1.6] tracking-wide text-text-primary">
+                    {entry.description}
                   </p>
-                  <p className="text-[13px] tracking-wide text-text-secondary">
-                    {entry.company}
-                    {entry.location && `, ${entry.location}`}
-                  </p>
-                </div>
+                )}
               </div>
             ))}
           </div>
