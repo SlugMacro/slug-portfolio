@@ -6,9 +6,9 @@ export default function Footer() {
   }
 
   return (
-    <footer>
+    <footer className="mt-16 md:mt-24">
       <Container>
-        <div className="grid grid-cols-[1fr_auto] items-center py-8 md:grid-cols-[1fr_3fr] md:py-12">
+        <div className="grid grid-cols-[1fr_auto] items-center border-t border-border py-8 md:grid-cols-[1fr_3fr] md:py-12">
           {/* Copyright — aligned with logo */}
           <p className="text-[0.8125rem] tracking-wide text-text-secondary">
             &copy; {new Date().getFullYear()}

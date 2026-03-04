@@ -24,7 +24,7 @@ export default function FeaturedGrid({ work }: FeaturedGridProps) {
         </AnimatedSection>
 
         {/* Project grid */}
-        <div className="grid grid-cols-1 gap-x-[0.667rem] gap-y-10 md:grid-cols-2">
+        <div className="grid grid-cols-1 gap-x-4 gap-y-12 sm:grid-cols-2 md:gap-x-5">
           {work.map((w, i) => (
             <AnimatedSection key={w.data.slug} delay={i * 0.1}>
               <ProjectCard work={w} />

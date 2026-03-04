@@ -11,7 +11,7 @@ function hasImage(url?: string) {
 
 function ImageBlock({ src, alt, cols }: { src: string; alt: string; cols: number }) {
   return (
-    <div className={`aspect-[8/5] ${cols === 1 ? '' : 'md:aspect-[4/5]'} overflow-hidden ring-1 ring-white/[0.08] bg-bg-secondary`}>
+    <div className={`aspect-[8/5] ${cols === 1 ? '' : 'md:aspect-[4/5]'} overflow-hidden ring-1 ring-border bg-bg-secondary`}>
       {hasImage(src) ? (
         <img src={src} alt={alt} loading="lazy" className="h-full w-full object-cover" />
       ) : (
@@ -46,14 +46,14 @@ export default function WorkGallery({ data }: WorkGalleryProps) {
   }
 
   const gridClass = (len: number) => {
-    if (len === 3) return 'grid grid-cols-1 gap-[0.667rem] md:grid-cols-3'
-    if (len === 2) return 'grid grid-cols-1 gap-[0.667rem] md:grid-cols-2'
+    if (len === 3) return 'grid grid-cols-1 gap-4 md:grid-cols-3'
+    if (len === 2) return 'grid grid-cols-1 gap-4 md:grid-cols-2'
     return ''
   }
 
   return (
-    <section className="space-y-[0.667rem]">
-      <Container className="space-y-[0.667rem]">
+    <section className="space-y-4">
+      <Container className="space-y-4">
         {rows.map((row, ri) => (
           <div
             key={ri}

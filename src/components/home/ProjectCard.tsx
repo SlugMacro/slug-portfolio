@@ -14,21 +14,21 @@ export default function ProjectCard({ work }: ProjectCardProps) {
 
   return (
     <Link to={`/work/${slug}`} className="group block">
-      <div className="aspect-[4/5] w-full overflow-hidden ring-1 ring-white/[0.08] bg-bg-secondary">
+      <div className="aspect-[4/5] w-full overflow-hidden rounded-sm ring-1 ring-border bg-bg-secondary">
         {hasImage(thumbnailImage) ? (
           <img
             src={thumbnailImage}
             alt={title}
             loading="lazy"
-            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+            className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
           />
         ) : (
           <div className="h-full w-full" />
         )}
       </div>
-      <div className="mt-3 flex items-start justify-between gap-4">
+      <div className="mt-4 flex items-start justify-between gap-4">
         <div>
-          <span className="text-[0.8125rem] font-medium tracking-wide text-text-primary">
+          <span className="text-[0.8125rem] font-medium tracking-wide text-text-primary transition-opacity duration-300 group-hover:opacity-70">
             {title}
           </span>
           <span className="mt-1 block text-[0.8125rem] tracking-wide text-text-secondary">
@@ -38,16 +38,16 @@ export default function ProjectCard({ work }: ProjectCardProps) {
 
         {/* Arrow — visible on hover */}
         <svg
-          width="16"
-          height="16"
+          width="14"
+          height="14"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
           strokeWidth="2"
-          className="mt-0.5 shrink-0 -translate-x-2 text-text-secondary opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100"
+          className="mt-0.5 shrink-0 -translate-x-2 text-text-secondary opacity-0 transition-all duration-300 ease-out group-hover:translate-x-0 group-hover:opacity-100"
         >
-          <path d="M5 12h14" />
-          <path d="m12 5 7 7-7 7" />
+          <path d="M7 17L17 7" />
+          <path d="M7 7h10v10" />
         </svg>
       </div>
     </Link>

@@ -8,7 +8,7 @@ interface ContactInfoProps {
 
 export default function ContactInfo({ data }: ContactInfoProps) {
   return (
-    <section className="border-t border-border py-12">
+    <section className="border-t border-border py-16 md:py-24">
       <Container>
         <div className="grid grid-cols-1 gap-8 md:grid-cols-[1fr_3fr]">
           <p className="text-[0.8125rem] tracking-wide text-text-secondary">

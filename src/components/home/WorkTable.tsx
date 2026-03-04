@@ -4,11 +4,11 @@ import { workTable } from '@/content/work-table'
 
 export default function WorkTable() {
   return (
-    <section className="mt-24">
+    <section className="mt-16 md:mt-24">
       <Container>
         <AnimatedSection>
           {/* Table header — 1fr/3fr grid matching nav + hero */}
-          <div className="grid grid-cols-1 border-b border-border pb-3 md:grid-cols-[1fr_3fr]">
+          <div className="grid grid-cols-[auto_1fr] gap-x-8 border-b border-border pb-3 md:grid-cols-[1fr_3fr]">
             <span className="text-[0.8125rem] tracking-wide text-text-secondary">Year</span>
             <div className="flex justify-between">
               <span className="text-[0.8125rem] tracking-wide text-text-secondary">Product</span>
@@ -20,7 +20,7 @@ export default function WorkTable() {
           {workTable.map((entry, i) => (
             <div
               key={i}
-              className={`grid grid-cols-1 py-3 md:grid-cols-[1fr_3fr]${i < workTable.length - 1 ? ' border-b border-border' : ''}`}
+              className={`grid grid-cols-[auto_1fr] gap-x-8 py-3 transition-opacity duration-200 hover:opacity-60 md:grid-cols-[1fr_3fr]${i < workTable.length - 1 ? ' border-b border-border' : ''}`}
             >
               <span className="text-[0.8125rem] tracking-wide text-text-secondary">{entry.year}</span>
               <div className="flex justify-between">

@@ -20,11 +20,11 @@ export default function MobileMenu({ open, onClose, links, darkMode, onToggleDar
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.2 }}
+          transition={{ duration: 0.25, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="fixed inset-0 z-[100] flex flex-col bg-bg"
         >
           {/* Header */}
-          <div className="flex items-center justify-between px-[0.667rem] py-4">
+          <div className="flex items-center justify-between px-4 py-4">
             <span className="text-[0.8125rem] tracking-wide text-text-primary">
               Slug Macro
             </span>
@@ -41,7 +41,7 @@ export default function MobileMenu({ open, onClose, links, darkMode, onToggleDar
           </div>
 
           {/* Nav links */}
-          <nav className="flex flex-1 flex-col justify-center gap-8 px-[0.667rem]">
+          <nav className="flex flex-1 flex-col justify-center gap-6 px-4">
             {links.map((link, i) => (
               <motion.div
                 key={link.to}
@@ -61,7 +61,7 @@ export default function MobileMenu({ open, onClose, links, darkMode, onToggleDar
           </nav>
 
           {/* Footer: dark mode toggle */}
-          <div className="flex items-center gap-4 px-[0.667rem] py-6">
+          <div className="flex items-center gap-4 px-4 py-6">
             <button
               onClick={onToggleDark}
               className="flex cursor-pointer items-center gap-1 text-[0.8125rem] text-text-secondary"
