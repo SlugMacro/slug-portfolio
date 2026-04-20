@@ -59,19 +59,20 @@ export default function FeaturedGrid({ work }: FeaturedGridProps) {
   const close = useCallback(() => setSelected(null), [])
 
   return (
-    <section className="border-t border-border">
+    <section id="featured-work">
       <div
-        className="grid sm:grid-cols-4"
+        className="grid bg-border sm:grid-cols-4"
         style={{
           gridTemplateColumns: 'repeat(4, 1fr)',
           gridTemplateRows: 'repeat(5, auto)',
+          gap: '1px',
         }}
       >
         {/* Empty decorative cells */}
         {emptyCells.map((cell) => (
           <div
             key={`e-${cell.col}-${cell.row}`}
-            className="aspect-square border-b border-r border-border"
+            className="aspect-square bg-bg"
             style={{
               gridColumn: `${cell.col} / ${cell.col + 1}`,
               gridRow: `${cell.row} / ${cell.row + 1}`,
@@ -87,7 +88,7 @@ export default function FeaturedGrid({ work }: FeaturedGridProps) {
             <AnimatedSection
               key={w.data.slug}
               delay={i * 0.08}
-              className="aspect-square"
+              className="aspect-square bg-bg"
               style={{
                 gridColumn: `${p.col} / ${p.col + p.span}`,
                 gridRow: `${p.row} / ${p.row + p.span}`,

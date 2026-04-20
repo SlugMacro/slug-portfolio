@@ -4,12 +4,10 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useAsciiScramble } from '@/hooks/useAsciiScramble'
 import MobileMenu from './MobileMenu'
-import Container from './Container'
-import ThemeToggle from './ThemeToggle'
 
 const navLinks = [
-  { label: 'Information', to: '/profile' },
   { label: 'Projects', to: '/' },
+  { label: 'Information', to: '/profile' },
 ]
 
 const ASCII_LOGO = `███████╗██╗     ██╗   ██╗ ██████╗
@@ -28,6 +26,19 @@ const ASCII_LOGO = `███████╗██╗     ██╗   ██╗ 
 export default function Navbar() {
   const location = useLocation()
   const [menuOpen, setMenuOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  const headerRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    const el = headerRef.current
+    if (!el) return
+    const observer = new IntersectionObserver(
+      ([entry]) => setScrolled(entry.intersectionRatio < 1),
+      { threshold: [1], rootMargin: '-1px 0px 0px 0px' }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [])
   const preRef = useRef<HTMLPreElement>(null)
   const wrapperRef = useRef<HTMLDivElement>(null)
   const [scaleX, setScaleX] = useState(1)
@@ -69,7 +80,7 @@ export default function Navbar() {
         style={{ height: scaledHeight ? scaledHeight - 40 : undefined }}
       >
         <div className="fixed top-0 left-0 z-0 w-full max-w-[var(--container-max)]">
-          <Container>
+          <div className="px-8 sm:px-12">
             <Link to="/" aria-label="Slug Macro — Home" className="block">
               <motion.div className="overflow-hidden pt-12" style={{ opacity: logoOpacity }}>
                 <div
@@ -94,58 +105,61 @@ export default function Navbar() {
                 </div>
               </motion.div>
             </Link>
-          </Container>
+          </div>
         </div>
       </div>
 
       {/* Nav bar — sticky top */}
-      <header className="sticky top-0 z-50 w-full bg-bg border-t border-border">
-        <Container>
-          <nav className="grid grid-cols-2 gap-4 py-4 md:grid-cols-4">
-            <div className="text-[0.75rem] leading-relaxed tracking-wide text-text-secondary">
-              <span className="block">Independent</span>
-              <span className="block">Designer</span>
-            </div>
+      <header ref={headerRef as React.RefObject<HTMLElement>} className={cn('sticky top-0 z-50 w-full bg-bg border-t border-border transition-[border-color] duration-300', scrolled ? 'border-b border-b-border' : 'border-b border-b-transparent')}>
+        <nav className="grid grid-cols-2 sm:grid-cols-4 [&>div]:transition-[padding] [&>div]:duration-300">
+          <div className={cn('px-8 text-[0.75rem] leading-relaxed tracking-wide text-text-secondary sm:px-12', scrolled ? 'py-6' : 'py-12')}>
+            Independent Designer
+          </div>
 
-            <div className="hidden text-[0.75rem] leading-relaxed tracking-wide md:block">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.to}
-                  to={link.to}
-                  className={cn(
-                    'block transition-opacity duration-300 hover:opacity-60',
-                    location.pathname === link.to
-                      ? 'text-text-primary font-medium'
-                      : 'text-text-secondary'
-                  )}
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </div>
-
-            <div className="hidden md:block">
-              <ThemeToggle />
-            </div>
-
-            <div className="hidden text-right text-[0.75rem] leading-relaxed tracking-wide text-text-tertiary md:block">
-              <span className="block">2025</span>
-              <span className="block">Portfolio</span>
-            </div>
-
-            <button
-              onClick={() => setMenuOpen(true)}
-              className="ml-auto flex h-8 w-8 items-center justify-center md:hidden"
-              aria-label="Open menu"
+          <div className={cn('hidden px-12 text-[0.75rem] leading-relaxed tracking-wide sm:block', scrolled ? 'py-6' : 'py-12')}>
+            <Link
+              to="/"
+              className={cn(
+                'transition-opacity duration-300 hover:opacity-60',
+                location.pathname === '/'
+                  ? 'text-text-primary font-medium'
+                  : 'text-text-secondary'
+              )}
             >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <line x1="3" y1="6" x2="21" y2="6" />
-                <line x1="3" y1="12" x2="21" y2="12" />
-                <line x1="3" y1="18" x2="21" y2="18" />
-              </svg>
-            </button>
-          </nav>
-        </Container>
+              Projects
+            </Link>
+          </div>
+
+          <div className={cn('hidden px-12 text-[0.75rem] leading-relaxed tracking-wide sm:block', scrolled ? 'py-6' : 'py-12')}>
+            <Link
+              to="/profile"
+              className={cn(
+                'transition-opacity duration-300 hover:opacity-60',
+                location.pathname === '/profile'
+                  ? 'text-text-primary font-medium'
+                  : 'text-text-secondary'
+              )}
+            >
+              Information
+            </Link>
+          </div>
+
+          <div className={cn('hidden px-12 text-right text-[0.75rem] leading-relaxed tracking-wide text-text-tertiary sm:block', scrolled ? 'py-6' : 'py-12')}>
+            <span>2026 Portfolio — V.2.1.0</span>
+          </div>
+
+          <button
+            onClick={() => setMenuOpen(true)}
+            className="ml-auto flex h-8 w-8 items-center justify-center px-8 sm:hidden"
+            aria-label="Open menu"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <line x1="3" y1="6" x2="21" y2="6" />
+              <line x1="3" y1="12" x2="21" y2="12" />
+              <line x1="3" y1="18" x2="21" y2="18" />
+            </svg>
+          </button>
+        </nav>
       </header>
 
       <MobileMenu

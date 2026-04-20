@@ -58,7 +58,7 @@ skills:
     - "Data-informed design, experimentation, and rapid iteration"
     - "Design systems with strong foundations in grid, typography, and visual hierarchy"
     - "Front-end fundamentals: HTML, CSS, Tailwind"
-homeIntro: "Hi, I'm Slug Macro — a Product Designer based at 10.7769° N, 106.7009° E, Vietnam. I design trading systems and AI-native products end-to-end, from research and data modeling to architecture, UX flows, and actual implementation with AI tools."
+homeIntro: "Hi, I'm Slug Macro — a Product Designer based at 10.7769° N, 106.7009° E, Vietnam. I design trading systems and AI-native products end-to-end, from research and data modeling to architecture, UX flows, and actual implementation with AI tools. My process sits at the overlap of design thinking and engineering logic — I don't just hand off specs, I build alongside the product. Currently focused on DeFi trading interfaces, prediction markets, and tools that make complex data feel intuitive."
 ---
 
 Product Designer focused on trading systems and AI-native products, with full ownership from strategy to execution. I design at the system level — from research, data modeling, architecture logic, UX flows to actual implementation with AI tools.

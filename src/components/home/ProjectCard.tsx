@@ -11,14 +11,14 @@ export default function ProjectCard({ work, onClick }: ProjectCardProps) {
   return (
     <button
       onClick={onClick}
-      className="group relative flex h-full w-full cursor-pointer flex-col justify-end border-b border-r border-border text-left transition-colors duration-500 hover:bg-bg-secondary"
+      className="group relative flex h-full w-full cursor-pointer flex-col justify-end bg-bg text-left transition-colors duration-500 hover:bg-bg-secondary"
     >
       {/* Title + meta — bottom-left */}
       <div className="p-12">
-        <span className="block text-[1.1rem] font-semibold leading-tight tracking-tight text-text-primary transition-colors duration-300 group-hover:text-accent">
+        <span className="block text-[0.875rem] font-medium tracking-wide text-text-primary transition-colors duration-300 group-hover:text-accent">
           {title}
         </span>
-        <span className="mt-1.5 block text-[0.7rem] uppercase tracking-widest text-text-tertiary">
+        <span className="mt-1 block text-[0.75rem] tracking-wide text-text-tertiary">
           {type} &middot; {year}
         </span>
       </div>

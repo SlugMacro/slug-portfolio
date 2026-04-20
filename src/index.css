@@ -58,7 +58,7 @@
   --color-text-primary: #f0f0f0;
   --color-text-secondary: #808080;
   --color-text-tertiary: #666666;
-  --color-border: rgba(255, 255, 255, 0.12);
+  --color-border: #1f1f1f;
   --color-accent: #27bf00;
 
   --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
@@ -75,15 +75,6 @@
     scroll-behavior: smooth;
   }
 
-  html[data-theme="light"] {
-    --color-bg: #ffffff;
-    --color-bg-secondary: #f0f0f0;
-    --color-text-primary: #000000;
-    --color-text-secondary: #666666;
-    --color-text-tertiary: #999999;
-    --color-border: rgba(0, 0, 0, 0.1);
-    --color-accent: #1a8a00;
-  }
 
   body {
     font-family: var(--font-sans);
