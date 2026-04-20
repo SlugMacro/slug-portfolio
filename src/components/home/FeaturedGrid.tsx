@@ -1,9 +1,54 @@
 import { useState, useCallback } from 'react'
-import Container from '@/components/layout/Container'
 import AnimatedSection from '@/components/common/AnimatedSection'
 import ProjectCard from './ProjectCard'
 import ProjectSidebar from './ProjectSidebar'
 import type { WorkFrontmatter } from '@/content/schema'
+
+// All 1:1. 50% = 2×2 block. 25% = 1×1.
+// 4 cols × 5 rows checkerboard layout:
+//
+// Col:    1          2          3          4
+// Row 1: [WM 2×2  ] [WM      ] [GeoRep  ] [        ]
+// Row 2: [WM      ] [WM      ] [MN 2×2  ] [MN      ]
+// Row 3: [        ] [        ] [MN      ] [MN      ]
+// Row 4: [        ] [WP 2×2  ] [WP      ] [WMob    ]
+// Row 5: [W.Fund  ] [WP      ] [WP      ] [JoomlArt]
+
+interface Placement {
+  workIndex: number
+  col: number
+  row: number
+  span: number
+}
+
+// Sorted order: 0=WM, 1=WP, 2=MN, 3=GR, 4=WF, 5=WMob, 6=JA
+const placements: Placement[] = [
+  { workIndex: 0, col: 1, row: 1, span: 2 }, // Whales Market 50%
+  { workIndex: 3, col: 3, row: 1, span: 1 }, // GeoReport 25%
+  { workIndex: 2, col: 3, row: 2, span: 2 }, // Mention Network 50%
+  { workIndex: 1, col: 2, row: 4, span: 2 }, // Whales Predict 50%
+  { workIndex: 5, col: 4, row: 4, span: 1 }, // Whales Mobile 25%
+  { workIndex: 4, col: 1, row: 5, span: 1 }, // Whales Fund 25%
+  { workIndex: 6, col: 4, row: 5, span: 1 }, // JoomlArt 25%
+]
+
+// Fill remaining cells as empty decorative squares
+const emptyCells: Array<{ col: number; row: number }> = []
+const occupied = new Set<string>()
+for (const p of placements) {
+  for (let c = 0; c < p.span; c++) {
+    for (let r = 0; r < p.span; r++) {
+      occupied.add(`${p.col + c},${p.row + r}`)
+    }
+  }
+}
+for (let row = 1; row <= 5; row++) {
+  for (let col = 1; col <= 4; col++) {
+    if (!occupied.has(`${col},${row}`)) {
+      emptyCells.push({ col, row })
+    }
+  }
+}
 
 interface FeaturedGridProps {
   work: Array<{ data: WorkFrontmatter; content: string }>
@@ -14,24 +59,45 @@ export default function FeaturedGrid({ work }: FeaturedGridProps) {
   const close = useCallback(() => setSelected(null), [])
 
   return (
-    <section className="border-t border-border py-12">
-      <Container>
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-[1fr_3fr] md:gap-0">
-          <div className="self-start sticky top-16">
-            <p className="text-[0.875rem] font-medium tracking-wide text-text-primary">
-              Selected work
-            </p>
-          </div>
+    <section className="border-t border-border">
+      <div
+        className="grid sm:grid-cols-4"
+        style={{
+          gridTemplateColumns: 'repeat(4, 1fr)',
+          gridTemplateRows: 'repeat(5, auto)',
+        }}
+      >
+        {/* Empty decorative cells */}
+        {emptyCells.map((cell) => (
+          <div
+            key={`e-${cell.col}-${cell.row}`}
+            className="aspect-square border-b border-r border-border"
+            style={{
+              gridColumn: `${cell.col} / ${cell.col + 1}`,
+              gridRow: `${cell.row} / ${cell.row + 1}`,
+            }}
+          />
+        ))}
 
-          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-            {work.map((w, i) => (
-              <AnimatedSection key={w.data.slug} delay={i * 0.08}>
-                <ProjectCard work={w} onClick={() => setSelected(w)} />
-              </AnimatedSection>
-            ))}
-          </div>
-        </div>
-      </Container>
+        {/* Project cells */}
+        {placements.map((p, i) => {
+          const w = work[p.workIndex]
+          if (!w) return null
+          return (
+            <AnimatedSection
+              key={w.data.slug}
+              delay={i * 0.08}
+              className="aspect-square"
+              style={{
+                gridColumn: `${p.col} / ${p.col + p.span}`,
+                gridRow: `${p.row} / ${p.row + p.span}`,
+              }}
+            >
+              <ProjectCard work={w} onClick={() => setSelected(w)} />
+            </AnimatedSection>
+          )
+        })}
+      </div>
 
       <ProjectSidebar work={selected} onClose={close} />
     </section>

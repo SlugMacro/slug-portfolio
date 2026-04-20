@@ -29,8 +29,6 @@ function restoreUserTheme() {
   const html = document.documentElement
   if (stored === 'light') {
     html.setAttribute('data-theme', 'light')
-  } else if (stored === 'mono') {
-    html.setAttribute('data-theme', 'mono')
   } else {
     html.removeAttribute('data-theme')
   }

@@ -1,15 +1,13 @@
 import { useState, useEffect } from 'react'
 import { cn } from '@/lib/cn'
 
-type Theme = 'dark' | 'light' | 'mono'
+type Theme = 'dark' | 'light'
 
 const THEME_KEY = 'slug-theme'
 
 function applyTheme(theme: Theme) {
   const html = document.documentElement
-  if (theme === 'mono') {
-    html.setAttribute('data-theme', 'mono')
-  } else if (theme === 'light') {
+  if (theme === 'light') {
     html.setAttribute('data-theme', 'light')
   } else {
     html.removeAttribute('data-theme')
@@ -18,14 +16,13 @@ function applyTheme(theme: Theme) {
 
 function getStoredTheme(): Theme {
   const stored = localStorage.getItem(THEME_KEY)
-  if (stored === 'light' || stored === 'mono') return stored
+  if (stored === 'light') return stored
   return 'dark'
 }
 
 const themes: { value: Theme; label: string }[] = [
   { value: 'light', label: 'Text mode' },
   { value: 'dark', label: 'Dark mode' },
-  { value: 'mono', label: 'Monochrome' },
 ]
 
 export default function ThemeToggle() {

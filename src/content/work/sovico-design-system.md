@@ -9,8 +9,7 @@ tags:
   - Design System
   - Enterprise
 role: Product Designer
-featured: true
-featuredOrder: 5
+featured: false
 ---
 
 Built a comprehensive design system for Sovico Group's product ecosystem, ensuring consistency across multiple product lines including OneTarget and internal tools.

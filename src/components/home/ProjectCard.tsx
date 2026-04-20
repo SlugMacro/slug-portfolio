@@ -6,34 +6,36 @@ interface ProjectCardProps {
 }
 
 export default function ProjectCard({ work, onClick }: ProjectCardProps) {
-  const { title, type } = work.data
+  const { title, type, year } = work.data
 
   return (
-    <button onClick={onClick} className="group block w-full text-left cursor-pointer">
-      <div className="aspect-[4/5] w-full bg-bg-secondary" />
-      <div className="mt-4 flex items-start justify-between gap-4">
-        <div>
-          <span className="text-[0.875rem] font-medium tracking-wide text-text-primary transition-opacity duration-300 group-hover:opacity-70">
-            {title}
-          </span>
-          <span className="mt-1 block text-[0.875rem] tracking-wide text-text-secondary">
-            {type}
-          </span>
-        </div>
-
-        <svg
-          width="14"
-          height="14"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          className="mt-0.5 shrink-0 -translate-x-2 text-text-secondary opacity-0 transition-all duration-300 ease-out group-hover:translate-x-0 group-hover:opacity-100"
-        >
-          <path d="M7 17L17 7" />
-          <path d="M7 7h10v10" />
-        </svg>
+    <button
+      onClick={onClick}
+      className="group relative flex h-full w-full cursor-pointer flex-col justify-end border-b border-r border-border text-left transition-colors duration-500 hover:bg-bg-secondary"
+    >
+      {/* Title + meta — bottom-left */}
+      <div className="p-12">
+        <span className="block text-[1.1rem] font-semibold leading-tight tracking-tight text-text-primary transition-colors duration-300 group-hover:text-accent">
+          {title}
+        </span>
+        <span className="mt-1.5 block text-[0.7rem] uppercase tracking-widest text-text-tertiary">
+          {type} &middot; {year}
+        </span>
       </div>
+
+      {/* Arrow — hover reveal, bottom-right */}
+      <svg
+        width="16"
+        height="16"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        className="absolute bottom-12 right-12 -translate-x-2 text-accent opacity-0 transition-all duration-300 ease-out group-hover:translate-x-0 group-hover:opacity-100"
+      >
+        <path d="M7 17L17 7" />
+        <path d="M7 7h10v10" />
+      </svg>
     </button>
   )
 }

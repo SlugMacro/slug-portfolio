@@ -85,10 +85,6 @@
     --color-accent: #1a8a00;
   }
 
-  html[data-theme="mono"] {
-    filter: grayscale(1);
-  }
-
   body {
     font-family: var(--font-sans);
     font-feature-settings: 'ss01' on, 'ss03' on, 'ss04' on, 'ss05' on, 'ss06' on;

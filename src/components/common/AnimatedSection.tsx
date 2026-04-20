@@ -4,10 +4,11 @@ import { cn } from '@/lib/cn'
 interface AnimatedSectionProps {
   children: React.ReactNode
   className?: string
+  style?: React.CSSProperties
   delay?: number
 }
 
-export default function AnimatedSection({ children, className, delay = 0 }: AnimatedSectionProps) {
+export default function AnimatedSection({ children, className, style, delay = 0 }: AnimatedSectionProps) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -19,6 +20,7 @@ export default function AnimatedSection({ children, className, delay = 0 }: Anim
         ease: [0.25, 0.46, 0.45, 0.94],
       }}
       className={cn(className)}
+      style={style}
     >
       {children}
     </motion.div>
