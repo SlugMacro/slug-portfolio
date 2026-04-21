@@ -113,7 +113,7 @@ export default function VibeCodeSection() {
     <section className="-mt-px border-t border-b border-border">
       <div className="grid grid-cols-1 sm:grid-cols-4">
         {/* Col 1: intro blurb */}
-        <div className="px-8 py-12 sm:border-r sm:border-border sm:px-12">
+        <div className="px-6 py-6 sm:border-r sm:border-border sm:px-8 sm:py-8 md:px-12 md:py-12">
           <p className="max-w-[30ch] text-[clamp(1.125rem,1.5vw,1.5rem)] leading-[1.4] font-light text-text-primary">
             Things I build after hours — experiments, tools, and ideas that keep the craft sharp.
           </p>
@@ -125,7 +125,7 @@ export default function VibeCodeSection() {
             <AnimatedSection key={project.data.slug} delay={i * 0.06}>
               <div
                 onClick={() => setSelected(project)}
-                className={`group relative flex cursor-pointer flex-col justify-end px-8 py-12 transition-colors duration-300 hover:bg-bg-secondary sm:px-12${i < sideProjects.length - 1 ? ' border-b border-border' : ''}`}
+                className={`group relative flex cursor-pointer flex-col justify-end overflow-hidden px-6 py-6 transition-colors duration-300 hover:bg-bg-secondary sm:px-8 sm:py-8 md:px-12 md:py-12${i < sideProjects.length - 1 ? ' border-b border-border' : ''}`}
               >
                 <span className="text-[0.875rem] font-medium tracking-wide text-text-primary transition-colors duration-300 group-hover:text-accent">
                   {project.data.title}

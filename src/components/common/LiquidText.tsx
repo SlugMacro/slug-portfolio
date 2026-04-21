@@ -35,22 +35,32 @@ const FRAGMENT_SHADER = `
       ripple * 0.03 + ny
     ) * strength;
 
-    // Chromatic aberration — red/blue split
-    float aberration = strength * 0.015;
+    // Chromatic aberration — multi-direction split
+    float aberration = strength * 0.04;
     vec2 dir = normalize(uv - u_mouse + 0.001);
+    vec2 perp = vec2(-dir.y, dir.x);
 
+    // 5-way chromatic split — red, yellow, green, cyan, blue, magenta
     float r = texture2D(u_texture, uv + offset + dir * aberration).r;
     float g = texture2D(u_texture, uv + offset).g;
     float b = texture2D(u_texture, uv + offset - dir * aberration).b;
+
+    // Red/orange ghost — far right of mouse dir
+    float rGhost = texture2D(u_texture, uv + offset + dir * aberration * 1.8).a;
+    r += rGhost * 50.0 * strength;
+    g += rGhost * 0.1 * strength;
+
+    // Magenta ghost — perpendicular
+    float mGhost = texture2D(u_texture, uv + offset + perp * aberration * 1.5).a;
+    r += mGhost * 0.4 * strength;
+    b += mGhost * 0.3 * strength;
+
+    // Cyan ghost — opposite perpendicular
+    float cGhost = texture2D(u_texture, uv + offset - perp * aberration * 1.2).a;
+    g += cGhost * 0.3 * strength;
+    b += cGhost * 0.4 * strength;
+
     float a = texture2D(u_texture, uv + offset).a;
-
-    // Red/blue color glow at bottom
-    float bottomGlow = smoothstep(0.2, 1.0, uv.y) * strength;
-    float redGlow = bottomGlow * (0.5 + 0.5 * sin(uv.x * 4.5 + u_time * 1.2));
-    float blueGlow = bottomGlow * (0.5 + 0.5 * cos(uv.x * 3.75 - u_time * 0.9));
-
-    r += redGlow * 0.525 * a;
-    b += blueGlow * 0.6 * a;
 
     gl_FragColor = vec4(r, g, b, a);
   }
@@ -62,9 +72,10 @@ function createShader(gl: WebGLRenderingContext, type: number, source: string) {
 function createProgram(gl: WebGLRenderingContext, vs: WebGLShader, fs: WebGLShader) {
   const p = gl.createProgram()!; gl.attachShader(p, vs); gl.attachShader(p, fs); gl.linkProgram(p); return p
 }
-function measureDescent(font: string) {
+function measureFontMetrics(font: string) {
   const c = document.createElement('canvas'); const ctx = c.getContext('2d')!; ctx.font = font
-  return ctx.measureText('Mpgyq|').actualBoundingBoxDescent
+  const m = ctx.measureText('Mpgyq|SÅ')
+  return { ascent: m.actualBoundingBoxAscent, descent: m.actualBoundingBoxDescent }
 }
 
 interface Props { children: React.ReactNode; className?: string; style?: React.CSSProperties }
@@ -116,12 +127,14 @@ export default function LiquidText({ children, className, style }: Props) {
     const cs = getComputedStyle(textEl)
     const font = `${cs.fontWeight} ${cs.fontSize} ${cs.fontFamily}`
     const fontSize = parseFloat(cs.fontSize)
-    const descent = measureDescent(font)
+    const metrics = measureFontMetrics(font)
     const rect = textEl.getBoundingClientRect()
     const lines: string[] = []; let cur = ''
     textEl.childNodes.forEach(n => { if (n.nodeName === 'BR') { lines.push(cur); cur = '' } else cur += n.textContent ?? '' })
     if (cur) lines.push(cur)
-    const lh = fontSize * 0.75; const totalH = lh * lines.length + descent
+    const lh = fontSize * 0.8
+    const padTop = metrics.ascent * 0.15  // Extra space for tall glyphs
+    const totalH = padTop + lh * lines.length + metrics.descent
     const w = Math.round(rect.width * dpr); const h = Math.round(totalH * dpr)
     glCanvas.width = w; glCanvas.height = h
     glCanvas.style.width = `${rect.width}px`; glCanvas.style.height = `${totalH}px`
@@ -129,7 +142,7 @@ export default function LiquidText({ children, className, style }: Props) {
     const off = document.createElement('canvas'); off.width = w; off.height = h
     const ctx = off.getContext('2d')!; ctx.scale(dpr, dpr); ctx.font = font; ctx.fillStyle = cs.color; ctx.textBaseline = 'top'
     if (cs.letterSpacing !== 'normal' && 'letterSpacing' in ctx) (ctx as CanvasRenderingContext2D).letterSpacing = cs.letterSpacing
-    lines.forEach((l, i) => ctx.fillText(l, 0, i * lh))
+    lines.forEach((l, i) => ctx.fillText(l, 0, padTop + i * lh))
     gl.bindTexture(gl.TEXTURE_2D, textureRef.current)
     gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, off)
     setCanvasReady(true)

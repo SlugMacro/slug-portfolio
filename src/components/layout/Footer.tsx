@@ -47,16 +47,16 @@ export default function Footer() {
   return (
     <footer>
       <AnimatedSection>
-        <div className="-mt-px grid grid-cols-2 border-t border-b border-border sm:grid-cols-4">
+        <div className="-mt-px grid grid-cols-1 border-t border-b border-border sm:grid-cols-4">
           {/* Col 1: intro blurb */}
-          <div className="col-span-2 border-r border-border px-8 py-12 sm:col-span-1 sm:px-12 sm:py-12">
+          <div className="border-b border-border px-6 py-6 sm:border-b-0 sm:border-r sm:px-8 sm:py-8 md:px-12 md:py-12">
             <p className="max-w-[30ch] text-[clamp(1.125rem,1.5vw,1.5rem)] leading-[1.4] font-light text-text-primary">
               Designing at the intersection of complex systems and clear thinking — where trading logic, AI models, and user intuition converge into products that simply work.
             </p>
           </div>
 
           {/* Col 2: History */}
-          <div className="border-r border-border px-8 py-12 sm:px-12 sm:py-12">
+          <div className="border-b border-border px-6 py-6 sm:border-b-0 sm:border-r sm:px-8 sm:py-8 md:px-12 md:py-12">
             <p className="mb-6 text-[0.875rem] font-medium tracking-wide text-text-primary">
               History
             </p>
@@ -81,7 +81,7 @@ export default function Footer() {
           </div>
 
           {/* Col 3: Skills */}
-          <div className="border-r border-border px-8 py-12 sm:px-12 sm:py-12">
+          <div className="border-b border-border px-6 py-6 sm:border-b-0 sm:border-r sm:px-8 sm:py-8 md:px-12 md:py-12">
             <p className="mb-6 text-[0.875rem] font-medium tracking-wide text-text-primary">
               Skills
             </p>
@@ -95,7 +95,7 @@ export default function Footer() {
           </div>
 
           {/* Col 4: Contact */}
-          <div className="px-8 py-12 sm:px-12 sm:py-12">
+          <div className="px-6 py-6 sm:px-8 sm:py-8 md:px-12 md:py-12">
             <p className="mb-6 text-[0.875rem] font-medium tracking-wide text-text-primary">
               Contact
             </p>
@@ -118,7 +118,7 @@ export default function Footer() {
       </AnimatedSection>
 
       {/* Bottom bar */}
-      <div className="flex items-center justify-between px-8 py-6 sm:px-12">
+      <div className="flex items-center justify-between px-6 py-6 sm:px-8 md:px-12">
         <p className="text-[0.7rem] tracking-wide text-text-tertiary">
           &copy; {new Date().getFullYear()}
         </p>

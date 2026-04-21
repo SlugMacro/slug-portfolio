@@ -14,7 +14,7 @@ export default function ProjectCard({ work, onClick }: ProjectCardProps) {
       className="group relative flex h-full w-full cursor-pointer flex-col justify-end bg-bg text-left transition-colors duration-500 hover:bg-bg-secondary"
     >
       {/* Title + meta — bottom-left */}
-      <div className="p-12">
+      <div className="p-6 sm:p-8 md:p-12">
         <span className="block text-[0.875rem] font-medium tracking-wide text-text-primary transition-colors duration-300 group-hover:text-accent">
           {title}
         </span>
@@ -31,7 +31,7 @@ export default function ProjectCard({ work, onClick }: ProjectCardProps) {
         fill="none"
         stroke="currentColor"
         strokeWidth="1.5"
-        className="absolute top-12 right-12 -translate-x-2 scale-100 text-accent opacity-0 transition-all duration-300 ease-out group-hover:translate-x-0 group-hover:scale-[4] group-hover:opacity-100"
+        className="absolute top-6 right-6 -translate-x-2 scale-100 text-accent opacity-0 transition-all duration-300 ease-out group-hover:translate-x-0 group-hover:scale-[4] group-hover:opacity-100 sm:top-8 sm:right-8 md:top-12 md:right-12"
       >
         <path d="M7 17L17 7" />
         <path d="M7 7h10v10" />

@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom'
 import AnimatedSection from '@/components/common/AnimatedSection'
 import { getProfile } from '@/content/loader'
 
@@ -6,11 +5,11 @@ export default function Hero() {
   const profile = getProfile()
 
   return (
-    <section className="border-b border-border pt-12 pb-24">
+    <section className="border-b border-border" style={{ paddingTop: 144, paddingBottom: 144 }}>
       <AnimatedSection>
         <div className="grid grid-cols-1 sm:grid-cols-4">
           {/* Col 1: label + location + availability */}
-          <div className="px-8 py-0 sm:px-12">
+          <div className="px-6 py-0 sm:px-8 md:px-12">
             <p className="text-[0.875rem] font-medium tracking-wide text-text-primary">
               {profile.data.title}
             </p>
@@ -26,7 +25,7 @@ export default function Hero() {
           </div>
 
           {/* Cols 2-3: intro + CTA (50%) */}
-          <div className="col-span-1 mt-4 px-8 sm:col-span-2 sm:mt-0 sm:px-12">
+          <div className="col-span-1 mt-4 px-6 sm:col-span-2 sm:mt-0 sm:px-8 md:px-12">
             <p className="max-w-[55ch] text-[clamp(1.125rem,1.5vw,1.5rem)] leading-[1.4] font-light text-text-primary">
               {profile.data.homeIntro || profile.content}
             </p>
@@ -59,24 +58,6 @@ export default function Hero() {
                 </svg>
               </button>
 
-              <Link
-                to="/profile"
-                className="group relative inline-flex items-center gap-3 overflow-hidden border border-border px-6 py-4 text-[0.875rem] tracking-wide text-text-primary transition-[border-color] duration-500 hover:border-accent"
-              >
-                About me
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  className="text-accent transition-transform duration-300 group-hover:translate-x-0.5"
-                >
-                  <path d="M5 12h14" />
-                  <path d="M12 5l7 7-7 7" />
-                </svg>
-              </Link>
             </div>
           </div>
         </div>

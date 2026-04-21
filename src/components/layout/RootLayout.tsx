@@ -2,7 +2,7 @@ import { Outlet, useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
 import Navbar from './Navbar'
 import Footer from './Footer'
-import CrtBackground, { CrtProvider } from './CrtBackground'
+import CrtBackground from './CrtBackground'
 
 export default function RootLayout() {
   const location = useLocation()
@@ -12,7 +12,7 @@ export default function RootLayout() {
   }, [location.pathname])
 
   return (
-    <CrtProvider>
+    <>
       <CrtBackground />
       {/* Border line — always on top */}
       <div
@@ -26,6 +26,6 @@ export default function RootLayout() {
         </main>
         <Footer />
       </div>
-    </CrtProvider>
+    </>
   )
 }

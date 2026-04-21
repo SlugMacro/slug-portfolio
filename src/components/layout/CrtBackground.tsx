@@ -1,126 +1,90 @@
-import { useState, useRef, useEffect, createContext, useContext } from 'react'
+import { useRef, useEffect } from 'react'
 
-// Context to share video state with toggle button
-const CrtContext = createContext<{
-  enabled: boolean
-  toggle: () => void
-}>({ enabled: true, toggle: () => {} })
-
-export function useCrt() {
-  return useContext(CrtContext)
-}
-
-const CRT_VIDEOS = [
-  '/videos/11724415-uhd_1440_2018_60fps.mp4',
-  '/videos/6976215-uhd_2160_2880_25fps.mp4',
-]
-
-export function CrtProvider({ children }: { children: React.ReactNode }) {
-  const [enabled, setEnabled] = useState(() => {
-    const stored = localStorage.getItem('slug-crt')
-    return stored !== 'off'
-  })
-
-  const toggle = () => {
-    setEnabled((prev) => {
-      const next = !prev
-      localStorage.setItem('slug-crt', next ? 'on' : 'off')
-      return next
-    })
-  }
-
-  return (
-    <CrtContext.Provider value={{ enabled, toggle }}>
-      {children}
-    </CrtContext.Provider>
-  )
-}
+const STROKE_COLOR = 'rgba(255, 255, 255, 0.1)'
+const STROKE_WIDTH = 0.8
 
 export default function CrtBackground() {
-  const { enabled, toggle } = useCrt()
-  const [currentIndex, setCurrentIndex] = useState(0)
-  const videoRef = useRef<HTMLVideoElement>(null)
-
-  const handleEnded = () => {
-    setCurrentIndex((prev) => (prev + 1) % CRT_VIDEOS.length)
-  }
+  const canvasRef = useRef<HTMLCanvasElement>(null)
+  const rafRef = useRef(0)
 
   useEffect(() => {
-    if (enabled) {
-      videoRef.current?.play().catch(() => {})
-    } else {
-      videoRef.current?.pause()
+    const canvas = canvasRef.current; if (!canvas) return
+    const ctx = canvas.getContext('2d')!
+    const dpr = window.devicePixelRatio || 1
+
+    const resize = () => {
+      const rect = canvas.getBoundingClientRect()
+      canvas.width = rect.width * dpr; canvas.height = rect.height * dpr
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
     }
-  }, [currentIndex, enabled])
+    resize()
+    window.addEventListener('resize', resize)
+
+    // Icosahedron vertices
+    const phi = (1 + Math.sqrt(5)) / 2
+    const rawVerts = [
+      [-1, phi, 0],[1, phi, 0],[-1,-phi, 0],[1,-phi, 0],
+      [0,-1, phi],[0, 1, phi],[0,-1,-phi],[0, 1,-phi],
+      [phi, 0,-1],[phi, 0, 1],[-phi, 0,-1],[-phi, 0, 1],
+    ]
+    const vertices = rawVerts.map(v => {
+      const len = Math.sqrt(v[0] ** 2 + v[1] ** 2 + v[2] ** 2)
+      return [v[0] / len, v[1] / len, v[2] / len]
+    })
+
+    const edges = [
+      [0,1],[0,5],[0,7],[0,10],[0,11],[1,5],[1,7],[1,8],[1,9],
+      [2,3],[2,4],[2,6],[2,10],[2,11],[3,4],[3,6],[3,8],[3,9],
+      [4,5],[4,9],[4,11],[5,9],[5,11],[6,7],[6,8],[6,10],
+      [7,8],[7,10],[8,9],[10,11],
+    ]
+
+    const draw = (t: number) => {
+      const w = canvas.width / dpr, h = canvas.height / dpr
+      const cx = w / 2, cy = h / 2
+      const s = Math.min(w, h) * 3.5
+      ctx.clearRect(0, 0, w, h)
+      ctx.strokeStyle = STROKE_COLOR; ctx.lineWidth = STROKE_WIDTH
+
+      const ay = t * 0.0000375
+      const ax = t * 0.000025
+      const az = t * 0.00002
+
+      const project = (v: number[]) => {
+        const [x, y, z] = v
+        const x2 = x * Math.cos(ay) - z * Math.sin(ay)
+        const z2 = x * Math.sin(ay) + z * Math.cos(ay)
+        const y2 = y * Math.cos(ax) - z2 * Math.sin(ax)
+        const z3 = y * Math.sin(ax) + z2 * Math.cos(ax)
+        const x3 = x2 * Math.cos(az) - y2 * Math.sin(az)
+        const y3 = x2 * Math.sin(az) + y2 * Math.cos(az)
+        const scale = 2 / (3.5 + z3 * 0.3)
+        return [cx + x3 * s * scale, cy + y3 * s * scale]
+      }
+
+      for (const [a, b] of edges) {
+        const [x1, y1] = project(vertices[a])
+        const [x2, y2] = project(vertices[b])
+        ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke()
+      }
+
+
+      rafRef.current = requestAnimationFrame(draw)
+    }
+
+    rafRef.current = requestAnimationFrame(draw)
+    return () => {
+      cancelAnimationFrame(rafRef.current)
+      window.removeEventListener('resize', resize)
+    }
+  }, [])
 
   return (
     <div
-      className="fixed top-0 right-0 bottom-0 z-10 overflow-hidden hidden xl:block"
+      className="fixed top-0 right-0 bottom-0 z-10 hidden xl:block"
       style={{ left: 'var(--container-max)' }}
     >
-      {/* Toggle button */}
-      <button
-        onClick={toggle}
-        className="absolute top-4 right-4 z-20 cursor-pointer rounded bg-black/50 px-3 py-1.5 text-[0.625rem] uppercase tracking-widest text-white/50 backdrop-blur-sm transition hover:text-white/80"
-      >
-        CRT {enabled ? 'ON' : 'OFF'}
-      </button>
-
-      {!enabled ? null : (
-        <>
-      <video
-        ref={videoRef}
-        key={currentIndex}
-        src={CRT_VIDEOS[currentIndex]}
-        autoPlay
-        muted
-        playsInline
-        onEnded={handleEnded}
-        className="absolute inset-0 h-full w-full object-cover"
-        style={{ filter: 'grayscale(1) brightness(0.2) contrast(1.2)' }}
-      />
-
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage:
-            'repeating-linear-gradient(0deg, transparent, transparent 1px, rgba(0,0,0,0.5) 1px, rgba(0,0,0,0.5) 2px)',
-          backgroundSize: '100% 4px',
-        }}
-      />
-
-      <div
-        className="absolute left-0 right-0 h-[2px] pointer-events-none"
-        style={{
-          background: 'rgba(255,255,255,0.06)',
-          animation: 'crt-scanline 8s linear infinite',
-        }}
-      />
-
-      <div
-        className="absolute inset-0 pointer-events-none opacity-[0.2] mix-blend-overlay"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E")`,
-          animation: 'crt-noise 0.08s steps(5) infinite',
-        }}
-      />
-
-      <div
-        className="absolute inset-0 pointer-events-none mix-blend-overlay"
-        style={{
-          background: 'linear-gradient(180deg, rgba(0,255,70,0.04) 0%, rgba(0,255,70,0.08) 50%, rgba(0,255,70,0.04) 100%)',
-          animation: 'crt-flicker 2s ease-in-out infinite',
-        }}
-      />
-
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background: 'radial-gradient(ellipse at center, transparent 10%, rgba(0,0,0,0.85) 100%)',
-        }}
-      />
-      </>
-      )}
+      <canvas ref={canvasRef} className="h-full w-full" />
     </div>
   )
 }

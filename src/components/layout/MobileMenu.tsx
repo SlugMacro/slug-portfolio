@@ -22,7 +22,7 @@ export default function MobileMenu({ open, onClose, links }: MobileMenuProps) {
           className="fixed inset-0 z-[100] flex flex-col bg-bg"
         >
           {/* Header */}
-          <div className="flex items-center justify-between px-4 py-4">
+          <div className="flex items-center justify-between px-6 py-6">
             <span className="text-[0.875rem] tracking-wide text-text-primary">
               Slug Macro
             </span>
@@ -39,7 +39,7 @@ export default function MobileMenu({ open, onClose, links }: MobileMenuProps) {
           </div>
 
           {/* Nav links */}
-          <nav className="flex flex-1 flex-col justify-center gap-6 px-4">
+          <nav className="flex flex-1 flex-col justify-center gap-8 px-6">
             {links.map((link, i) => (
               <motion.div
                 key={link.to}

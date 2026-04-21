@@ -40,17 +40,17 @@ export default function Navbar() {
       <div
         ref={logoSectionRef as React.RefObject<HTMLDivElement>}
         className="relative"
-        style={{ height: 'calc(clamp(5rem, 19vw, 26rem) * 0.75 * 2 + 3rem + clamp(5rem, 19vw, 26rem) * 0.3)' }}
+        style={{ height: 'calc(clamp(5rem, 24vw, 32rem) * 0.8 * 2 + 3rem + clamp(5rem, 24vw, 32rem) * 0.3)' }}
       >
         <div className="fixed top-0 left-0 z-0 w-full max-w-[var(--container-max)]">
-          <div className="px-8 sm:px-12">
+          <div className="px-6 sm:px-8 md:px-12">
             <Link to="/" aria-label="Slug Macro — Home" className="block">
               <motion.div className="pt-12" style={{ opacity: logoOpacity }}>
                 <LiquidText
-                  className="select-none text-text-primary leading-[0.75] font-bold cursor-pointer"
+                  className="select-none text-text-primary leading-[0.8] font-bold cursor-pointer"
                   style={{
-                    fontFamily: "'Archivo', sans-serif",
-                    fontSize: 'clamp(5rem, 19vw, 26rem)',
+                    fontFamily: "'Bodoni Moda', serif",
+                    fontSize: 'clamp(5rem, 24vw, 32rem)',
                     letterSpacing: '-0.05em',
                   }}
                 >
@@ -65,7 +65,7 @@ export default function Navbar() {
       {/* Nav bar — sticky top */}
       <header ref={headerRef as React.RefObject<HTMLElement>} className={cn('sticky top-0 z-50 w-full bg-bg border-t border-border transition-[border-color] duration-300', scrolled ? 'border-b border-b-border' : 'border-b border-b-transparent')}>
         <nav className="grid grid-cols-2 sm:grid-cols-4 [&>div]:transition-[padding] [&>div]:duration-300">
-          <div className={cn('px-8 text-[0.875rem] leading-relaxed tracking-wide text-text-secondary sm:px-12', scrolled ? 'py-6' : 'py-12')}>
+          <div className={cn('px-8 text-[0.875rem] leading-relaxed tracking-wide text-text-secondary sm:px-12', scrolled ? 'py-4 sm:py-6' : 'py-4 sm:py-12')}>
             Independent Designer
           </div>
 
@@ -103,7 +103,7 @@ export default function Navbar() {
 
           <button
             onClick={() => setMenuOpen(true)}
-            className="ml-auto flex h-8 w-8 items-center justify-center px-8 sm:hidden"
+            className="ml-auto flex items-center justify-center pr-6 sm:hidden"
             aria-label="Open menu"
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">

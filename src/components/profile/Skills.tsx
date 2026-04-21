@@ -22,7 +22,7 @@ export default function Skills({ skills }: SkillsProps) {
   return (
     <section className="border-t border-border py-16 md:py-24">
       <Container>
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-[1fr_3fr] md:gap-0">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-[1fr_3fr] sm:gap-0">
           {/* Label */}
           <p className="text-[0.875rem] font-medium tracking-wide text-text-primary">
             Skills

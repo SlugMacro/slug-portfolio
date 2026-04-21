@@ -2,6 +2,7 @@ import { useState, useCallback } from 'react'
 import AnimatedSection from '@/components/common/AnimatedSection'
 import ProjectCard from './ProjectCard'
 import ProjectSidebar from './ProjectSidebar'
+import { WireframePolyhedron } from '@/components/common/WireframeShapes'
 import type { WorkFrontmatter } from '@/content/schema'
 
 // All 1:1. 50% = 2×2 block. 25% = 1×1.
@@ -50,6 +51,16 @@ for (let row = 1; row <= 5; row++) {
   }
 }
 
+// Each empty cell gets a different polyhedron type + speed
+// detail: 0 = icosahedron (12v), all under 24 vertices
+const wireframeConfigs = [
+  { detail: 0, speed: 1.0 },   // 12 vertices — icosahedron
+  { detail: 0, speed: 0.6 },   // 12 vertices — slower
+  { detail: 0, speed: 0.8 },   // 12 vertices
+  { detail: 0, speed: 1.2 },   // 12 vertices — faster
+  { detail: 0, speed: 0.4 },   // 12 vertices — very slow
+]
+
 interface FeaturedGridProps {
   work: Array<{ data: WorkFrontmatter; content: string }>
 }
@@ -60,25 +71,48 @@ export default function FeaturedGrid({ work }: FeaturedGridProps) {
 
   return (
     <section id="featured-work">
+      {/* Mobile: simple stacked list */}
+      <div className="flex flex-col border-b border-border bg-border sm:hidden" style={{ gap: '1px' }}>
+        {placements.map((p, i) => {
+          const w = work[p.workIndex]
+          if (!w) return null
+          return (
+            <AnimatedSection
+              key={w.data.slug}
+              delay={i * 0.08}
+              className="aspect-square bg-bg"
+            >
+              <ProjectCard work={w} onClick={() => setSelected(w)} />
+            </AnimatedSection>
+          )
+        })}
+      </div>
+
+      {/* Desktop: 4-col checkerboard grid */}
       <div
-        className="grid border-b border-border bg-border sm:grid-cols-4"
+        className="hidden border-b border-border bg-border sm:grid"
         style={{
           gridTemplateColumns: 'repeat(4, 1fr)',
           gridTemplateRows: 'repeat(5, auto)',
           gap: '1px',
         }}
       >
-        {/* Empty decorative cells */}
-        {emptyCells.map((cell) => (
-          <div
-            key={`e-${cell.col}-${cell.row}`}
-            className="aspect-square bg-bg"
-            style={{
-              gridColumn: `${cell.col} / ${cell.col + 1}`,
-              gridRow: `${cell.row} / ${cell.row + 1}`,
-            }}
-          />
-        ))}
+        {/* Empty cells with wireframe animations */}
+        {emptyCells.map((cell, i) => {
+          const config = wireframeConfigs[i % wireframeConfigs.length]
+          return (
+            <div
+              key={`e-${cell.col}-${cell.row}`}
+              className="aspect-square bg-bg"
+              style={{
+                gridColumn: `${cell.col} / ${cell.col + 1}`,
+                gridRow: `${cell.row} / ${cell.row + 1}`,
+              }}
+            >
+              <WireframePolyhedron detail={config.detail} speed={config.speed} />
+            </div>
+          )
+        })}
 
         {/* Project cells */}
         {placements.map((p, i) => {
