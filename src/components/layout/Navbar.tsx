@@ -1,27 +1,14 @@
 import { Link, useLocation } from 'react-router-dom'
 import { cn } from '@/lib/cn'
-import { useState, useEffect, useRef, useCallback } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { useAsciiScramble } from '@/hooks/useAsciiScramble'
 import MobileMenu from './MobileMenu'
+import LiquidText from '@/components/common/LiquidText'
 
 const navLinks = [
   { label: 'Projects', to: '/' },
   { label: 'Information', to: '/profile' },
 ]
-
-const ASCII_LOGO = `███████╗██╗     ██╗   ██╗ ██████╗
-██╔════╝██║     ██║   ██║██╔════╝
-███████╗██║     ██║   ██║██║  ███╗
-╚════██║██║     ██║   ██║██║   ██║
-███████║███████╗╚██████╔╝╚██████╔╝
-╚══════╝╚══════╝ ╚═════╝  ╚═════╝
-███╗   ███╗ █████╗  ██████╗██████╗  ██████╗
-████╗ ████║██╔══██╗██╔════╝██╔══██╗██╔═══██╗
-██╔████╔██║███████║██║     ██████╔╝██║   ██║
-██║╚██╔╝██║██╔══██║██║     ██╔══██╗██║   ██║
-██║ ╚═╝ ██║██║  ██║╚██████╗██║  ██║╚██████╔╝
-╚═╝     ╚═╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝ ╚═════╝`
 
 export default function Navbar() {
   const location = useLocation()
@@ -39,11 +26,7 @@ export default function Navbar() {
     observer.observe(el)
     return () => observer.disconnect()
   }, [])
-  const preRef = useRef<HTMLPreElement>(null)
-  const wrapperRef = useRef<HTMLDivElement>(null)
-  const [scaleX, setScaleX] = useState(1)
-  const [scaledHeight, setScaledHeight] = useState<number | undefined>(undefined)
-  const { display, scramble, reset } = useAsciiScramble(ASCII_LOGO, 1000)
+
   const logoSectionRef = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({
     target: logoSectionRef,
@@ -51,58 +34,28 @@ export default function Navbar() {
   })
   const logoOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0], { clamp: true })
 
-  const fitToWidth = useCallback(() => {
-    if (preRef.current && wrapperRef.current) {
-      const containerW = wrapperRef.current.offsetWidth
-      const textW = preRef.current.scrollWidth
-      const textH = preRef.current.scrollHeight
-      if (textW > 0) {
-        const s = containerW / textW
-        setScaleX(s)
-        setScaledHeight(textH * s)
-      }
-    }
-  }, [])
-
-  useEffect(() => {
-    fitToWidth()
-    document.fonts.ready.then(fitToWidth)
-    window.addEventListener('resize', fitToWidth)
-    return () => window.removeEventListener('resize', fitToWidth)
-  }, [fitToWidth])
-
   return (
     <>
-      {/* ASCII Logo — fixed, content scrolls over it */}
+      {/* Logo — fixed, content scrolls over it */}
       <div
         ref={logoSectionRef as React.RefObject<HTMLDivElement>}
         className="relative"
-        style={{ height: scaledHeight ? scaledHeight - 40 : undefined }}
+        style={{ height: 'calc(clamp(5rem, 19vw, 26rem) * 0.75 * 2 + 3rem + clamp(5rem, 19vw, 26rem) * 0.3)' }}
       >
         <div className="fixed top-0 left-0 z-0 w-full max-w-[var(--container-max)]">
           <div className="px-8 sm:px-12">
             <Link to="/" aria-label="Slug Macro — Home" className="block">
-              <motion.div className="overflow-hidden pt-12" style={{ opacity: logoOpacity }}>
-                <div
-                  ref={wrapperRef as React.RefObject<HTMLDivElement>}
-                  className="w-full overflow-hidden cursor-pointer"
-                  style={{ height: scaledHeight }}
-                  onMouseEnter={scramble}
-                  onMouseLeave={reset}
+              <motion.div className="pt-12" style={{ opacity: logoOpacity }}>
+                <LiquidText
+                  className="select-none text-text-primary leading-[0.75] font-bold cursor-pointer"
+                  style={{
+                    fontFamily: "'Archivo', sans-serif",
+                    fontSize: 'clamp(5rem, 19vw, 26rem)',
+                    letterSpacing: '-0.05em',
+                  }}
                 >
-                  <pre
-                    ref={preRef as React.RefObject<HTMLPreElement>}
-                    className="select-none leading-[1.15] text-text-primary"
-                    style={{
-                      fontFamily: "monospace",
-                      fontSize: '1rem',
-                      transform: `scale(${scaleX})`,
-                      transformOrigin: 'left top',
-                      whiteSpace: 'pre',
-                      width: 'fit-content',
-                    }}
-                  >{display}</pre>
-                </div>
+                  Slug<br />Macro
+                </LiquidText>
               </motion.div>
             </Link>
           </div>

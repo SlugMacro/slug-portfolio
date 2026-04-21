@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+/* ── Cotham Sans ───────────────────────────────────────── */
+@font-face {
+  font-family: 'Cotham Sans';
+  src: url('/fonts/CothamSans.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* ── Geist font ─────────────────────────────────────────── */
 @font-face {
   font-family: 'Geist';
@@ -61,7 +70,7 @@
   --color-border: #1f1f1f;
   --color-accent: #27bf00;
 
-  --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Archivo", ui-sans-serif, system-ui, sans-serif;
   --font-pixel: "Press Start 2P", monospace;
 
   --container-max: 1600px;
