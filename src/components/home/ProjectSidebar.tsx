@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { createPortal } from 'react-dom'
 import { motion, AnimatePresence } from 'framer-motion'
+import LiquidText from '@/components/common/LiquidText'
 import type { WorkFrontmatter } from '@/content/schema'
 
 interface ProjectSidebarProps {
@@ -87,41 +88,43 @@ export default function ProjectSidebar({ work, onClose }: ProjectSidebarProps) {
               transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
               className="absolute top-0 right-0 bottom-0 w-full overflow-y-auto bg-bg border-l border-border [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:w-[75%]"
             >
-            {/* Close */}
-            <div className="sticky top-0 z-10 flex justify-end bg-bg">
-              <button
-                onClick={onClose}
-                className="group flex h-12 w-12 items-center justify-center border-l border-b border-border text-text-tertiary transition-colors hover:text-text-primary cursor-pointer"
-              >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="transition-transform duration-500 ease-out group-hover:rotate-[360deg]">
-                  <path d="M18 6L6 18" />
-                  <path d="M6 6l12 12" />
-                </svg>
-              </button>
-            </div>
+            {/* Close — floating top-right */}
+            <button
+              onClick={onClose}
+              className="group sticky top-4 z-10 ml-auto mr-4 flex h-10 w-10 items-center justify-center rounded-full border border-border bg-bg/80 backdrop-blur-sm text-text-tertiary transition-colors hover:text-text-primary cursor-pointer"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="transition-transform duration-500 ease-out group-hover:rotate-[360deg]">
+                <path d="M18 6L6 18" />
+                <path d="M6 6l12 12" />
+              </svg>
+            </button>
 
-            <div className="px-6 pb-16 sm:px-8 md:px-12">
+            <div className="p-6 sm:p-8 md:p-24">
               {/* Title */}
-              <h2 className="text-[clamp(2rem,4vw,3.5rem)] font-semibold leading-[1.1] tracking-tight text-text-primary">
+              <LiquidText
+                radius={0.2}
+                className="text-text-primary leading-[1] font-bold"
+                style={{
+                  fontFamily: "'Bodoni Moda', serif",
+                  fontSize: 'clamp(2rem, 5.5vw, 5rem)',
+                  letterSpacing: '-0.03em',
+                }}
+              >
                 {work.data.title}
-              </h2>
+              </LiquidText>
 
               {/* Intro */}
               {intro && (
-                <p className="mt-4 max-w-[55ch] text-[clamp(1rem,1.2vw,1.25rem)] leading-[1.5] font-light text-text-primary">
+                <p className="mt-8 text-[clamp(1rem,1.2vw,1.25rem)] leading-[1.5] font-light text-text-primary">
                   {intro.text}
                 </p>
               )}
 
               {/* Meta */}
-              <div className="mt-8 flex flex-wrap gap-x-10 gap-y-3 border-t border-border pt-8">
+              <div className="mt-6 flex flex-wrap gap-x-8 gap-y-2">
                 <div>
                   <p className="text-[0.75rem] tracking-wide text-text-tertiary">Year</p>
                   <p className="mt-1 text-[0.875rem] text-text-primary">{work.data.year}</p>
-                </div>
-                <div>
-                  <p className="text-[0.75rem] tracking-wide text-text-tertiary">Client</p>
-                  <p className="mt-1 text-[0.875rem] text-text-primary">{work.data.client}</p>
                 </div>
                 <div>
                   <p className="text-[0.75rem] tracking-wide text-text-tertiary">Role</p>
@@ -163,10 +166,10 @@ export default function ProjectSidebar({ work, onClose }: ProjectSidebarProps) {
 
               {/* Gallery placeholders */}
               <div className="mt-12 space-y-4">
-                <div className="aspect-[8/5] w-full bg-bg-secondary" />
+                <div className="aspect-[8/5] w-full bg-bg-secondary/30" />
                 <div className="grid grid-cols-2 gap-4">
-                  <div className="aspect-[4/5] bg-bg-secondary" />
-                  <div className="aspect-[4/5] bg-bg-secondary" />
+                  <div className="aspect-[4/5] bg-bg-secondary/30" />
+                  <div className="aspect-[4/5] bg-bg-secondary/30" />
                 </div>
               </div>
 
