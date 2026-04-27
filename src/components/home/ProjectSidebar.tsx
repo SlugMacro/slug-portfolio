@@ -168,13 +168,20 @@ export default function ProjectSidebar({ work, onClose }: ProjectSidebarProps) {
               {work.data.galleryImages.length > 0 && (
                 <div className="mt-12 space-y-6">
                   {work.data.galleryImages.map((img, i) => (
-                    <div key={i} className="aspect-[8/5] w-full overflow-hidden bg-bg-secondary/30 ring-1 ring-white/5">
-                      <img
-                        src={img}
-                        alt={`${work.data.title} gallery ${i + 1}`}
-                        className="h-full w-full object-cover"
-                        loading="lazy"
-                      />
+                    <div key={i} className="bg-[#111111] p-6 sm:p-12">
+                      <div className="overflow-hidden rounded-[4px]">
+                        <div className="flex h-6 items-center gap-1.5 bg-[#161616] px-3">
+                          <span className="h-2 w-2 rounded-full bg-[#ff5f57]" />
+                          <span className="h-2 w-2 rounded-full bg-[#febc2e]" />
+                          <span className="h-2 w-2 rounded-full bg-[#28c840]" />
+                        </div>
+                        <img
+                          src={img}
+                          alt={`${work.data.title} gallery ${i + 1}`}
+                          className="w-full"
+                          loading="lazy"
+                        />
+                      </div>
                     </div>
                   ))}
                 </div>

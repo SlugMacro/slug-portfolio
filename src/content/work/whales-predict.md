@@ -15,9 +15,13 @@ featuredOrder: 2
 thumbnailImage: "/images/whales-predict/wpredict.png"
 heroImage: "/images/whales-predict/hero.png"
 galleryImages:
-  - "/images/whales-predict/gallery-1.png"
-  - "/images/whales-predict/gallery-2.png"
-  - "/images/whales-predict/gallery-3.png"
+  - "/images/whales-predict/layout-1.png"
+  - "/images/whales-predict/layout-2.png"
+  - "/images/whales-predict/layout-3.png"
+  - "/images/whales-predict/layout-4.png"
+  - "/images/whales-predict/layout-5.png"
+  - "/images/whales-predict/layout-6.png"
+  - "/images/whales-predict/layout-7.png"
 galleryLayout: full
 ---
 

@@ -5,15 +5,25 @@ interface WorkGalleryProps {
   data: WorkFrontmatter
 }
 
-function ImageBlock({ src, alt, cols }: { src: string; alt: string; cols: number }) {
+function BrowserFrame({ src, alt }: { src: string; alt: string }) {
   return (
-    <div className={`aspect-[8/5] ${cols === 1 ? '' : 'md:aspect-[4/5]'} overflow-hidden bg-bg-secondary ring-1 ring-white/5`}>
-      <img
-        src={src}
-        alt={alt}
-        className="h-full w-full object-cover"
-        loading="lazy"
-      />
+    <div className="rounded-2xl bg-[#1a1a1a] p-6 sm:p-12 md:p-24">
+      {/* Browser window */}
+      <div className="overflow-hidden rounded-xl">
+        {/* Title bar */}
+        <div className="flex h-8 items-center gap-1.5 bg-[#2a2a2a] px-3">
+          <span className="h-2 w-2 rounded-full bg-[#ff5f57]" />
+          <span className="h-2 w-2 rounded-full bg-[#febc2e]" />
+          <span className="h-2 w-2 rounded-full bg-[#28c840]" />
+        </div>
+        {/* Image */}
+        <img
+          src={src}
+          alt={alt}
+          className="w-full"
+          loading="lazy"
+        />
+      </div>
     </div>
   )
 }
@@ -31,7 +41,7 @@ export default function WorkGallery({ data }: WorkGalleryProps) {
       <section className="space-y-6">
         <Container className="space-y-6">
           {data.galleryImages.map((img, i) => (
-            <ImageBlock key={i} src={img} alt={`${data.title} gallery ${i + 1}`} cols={1} />
+            <BrowserFrame key={i} src={img} alt={`${data.title} gallery ${i + 1}`} />
           ))}
         </Container>
       </section>
@@ -66,11 +76,10 @@ export default function WorkGallery({ data }: WorkGalleryProps) {
         {rows.map((row, ri) => (
           <div key={ri} className={gridClass(row.length)}>
             {row.map((img, ci) => (
-              <ImageBlock
+              <BrowserFrame
                 key={`${ri}-${ci}`}
                 src={img}
                 alt={`${data.title} gallery ${ri + ci + 1}`}
-                cols={row.length}
               />
             ))}
           </div>
