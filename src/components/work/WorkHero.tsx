@@ -54,7 +54,14 @@ export default function WorkHero({ data, content }: WorkHeroProps) {
 
       {/* Hero image */}
       <Container>
-        <div className="aspect-[8/5] w-full bg-bg-secondary ring-1 ring-border" />
+        <div className="aspect-[8/5] w-full overflow-hidden bg-bg-secondary ring-1 ring-white/5">
+          <img
+            src={data.heroImage}
+            alt={data.title}
+            className="h-full w-full object-cover"
+            loading="eager"
+          />
+        </div>
       </Container>
     </>
   )

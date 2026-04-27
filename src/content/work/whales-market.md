@@ -16,12 +16,14 @@ galleryLayout: pattern
 thumbnailImage: "/images/whales-market/wm.png"
 heroImage: "/images/whales-market/hero.png"
 galleryImages:
-  - "/images/whales-market/gallery-1.png"
-  - "/images/whales-market/gallery-2.png"
-  - "/images/whales-market/gallery-3.png"
-  - "/images/whales-market/gallery-4.png"
-  - "/images/whales-market/gallery-5.png"
-  - "/images/whales-market/gallery-6.png"
+  - "/images/whales-market/layout-1.png"
+  - "/images/whales-market/layout-2.png"
+  - "/images/whales-market/layout-3.png"
+  - "/images/whales-market/layout-4.png"
+  - "/images/whales-market/layout-5.png"
+  - "/images/whales-market/layout-6.png"
+  - "/images/whales-market/layout-7.png"
+  - "/images/whales-market/layout-8.png"
 ---
 
 Advanced Trading Platform for Pre-Market trading, focused on pro traders and high-frequency users. Designed the end-to-end experience across orderbook, position management, portfolio tracking, and P2P matching — handling multi-chain settlement complexity in real-time volatile markets.

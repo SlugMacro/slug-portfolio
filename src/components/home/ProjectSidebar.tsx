@@ -164,14 +164,21 @@ export default function ProjectSidebar({ work, onClose }: ProjectSidebarProps) {
                 </div>
               )}
 
-              {/* Gallery placeholders */}
-              <div className="mt-12 space-y-4">
-                <div className="aspect-[8/5] w-full bg-bg-secondary/30" />
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="aspect-[4/5] bg-bg-secondary/30" />
-                  <div className="aspect-[4/5] bg-bg-secondary/30" />
+              {/* Gallery */}
+              {work.data.galleryImages.length > 0 && (
+                <div className="mt-12 space-y-6">
+                  {work.data.galleryImages.map((img, i) => (
+                    <div key={i} className="aspect-[8/5] w-full overflow-hidden bg-bg-secondary/30 ring-1 ring-white/5">
+                      <img
+                        src={img}
+                        alt={`${work.data.title} gallery ${i + 1}`}
+                        className="h-full w-full object-cover"
+                        loading="lazy"
+                      />
+                    </div>
+                  ))}
                 </div>
-              </div>
+              )}
 
             </div>
           </motion.aside>
