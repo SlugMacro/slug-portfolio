@@ -5,13 +5,16 @@ interface WorkGalleryProps {
   data: WorkFrontmatter
 }
 
-function BrowserFrame({ src, alt }: { src: string; alt: string }) {
+function BrowserFrame({ src, alt, theme = 'dark' }: { src: string; alt: string; theme?: 'dark' | 'light' }) {
+  const bg = theme === 'light' ? 'bg-[#e8e8e8]' : 'bg-[#1a1a1a]'
+  const bar = theme === 'light' ? 'bg-[#f0f0f0]' : 'bg-[#2a2a2a]'
+
   return (
-    <div className="rounded-2xl bg-[#1a1a1a] p-6 sm:p-12 md:p-24">
+    <div className={`rounded-2xl ${bg} p-6 sm:p-12 md:p-24`}>
       {/* Browser window */}
       <div className="overflow-hidden rounded-xl">
         {/* Title bar */}
-        <div className="flex h-8 items-center gap-1.5 bg-[#2a2a2a] px-3">
+        <div className={`flex h-8 items-center gap-1.5 ${bar} px-3`}>
           <span className="h-2 w-2 rounded-full bg-[#ff5f57]" />
           <span className="h-2 w-2 rounded-full bg-[#febc2e]" />
           <span className="h-2 w-2 rounded-full bg-[#28c840]" />
@@ -28,20 +31,57 @@ function BrowserFrame({ src, alt }: { src: string; alt: string }) {
   )
 }
 
+function MobileFrame({ src, alt, theme = 'dark' }: { src: string; alt: string; theme?: 'dark' | 'light' }) {
+  const bg = theme === 'light' ? 'bg-[#e8e8e8]' : 'bg-[#1a1a1a]'
+
+  return (
+    <div className={`flex aspect-[5/8] items-center justify-center rounded-2xl ${bg} p-8 sm:p-12`}>
+      {/* Phone bezel */}
+      <div className="w-full max-w-[280px] overflow-hidden rounded-[2rem] bg-black p-2 shadow-2xl ring-1 ring-white/10">
+        {/* Notch */}
+        <div className="relative overflow-hidden rounded-[1.5rem]">
+          <div className="absolute top-0 left-1/2 z-10 h-6 w-28 -translate-x-1/2 rounded-b-2xl bg-black" />
+          <img
+            src={src}
+            alt={alt}
+            className="w-full"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  )
+}
+
 /**
  * Gallery layout:
  * - 'full': all images stacked full-width
  * - 'pattern': repeating 1-2-2 row pattern
+ * - 'mobile': 2-col grid with phone mockup frames
  */
 export default function WorkGallery({ data }: WorkGalleryProps) {
   if (data.galleryImages.length === 0) return null
+
+  if (data.galleryLayout === 'mobile') {
+    return (
+      <section className="space-y-6">
+        <Container>
+          <div className="grid grid-cols-2 gap-6">
+            {data.galleryImages.map((img, i) => (
+              <MobileFrame key={i} src={img} alt={`${data.title} gallery ${i + 1}`} theme={data.galleryTheme} />
+            ))}
+          </div>
+        </Container>
+      </section>
+    )
+  }
 
   if (data.galleryLayout === 'full') {
     return (
       <section className="space-y-6">
         <Container className="space-y-6">
           {data.galleryImages.map((img, i) => (
-            <BrowserFrame key={i} src={img} alt={`${data.title} gallery ${i + 1}`} />
+            <BrowserFrame key={i} src={img} alt={`${data.title} gallery ${i + 1}`} theme={data.galleryTheme} />
           ))}
         </Container>
       </section>
@@ -80,6 +120,7 @@ export default function WorkGallery({ data }: WorkGalleryProps) {
                 key={`${ri}-${ci}`}
                 src={img}
                 alt={`${data.title} gallery ${ri + ci + 1}`}
+                theme={data.galleryTheme}
               />
             ))}
           </div>
