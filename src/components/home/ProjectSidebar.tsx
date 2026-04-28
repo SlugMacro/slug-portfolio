@@ -166,7 +166,51 @@ export default function ProjectSidebar({ work, onClose }: ProjectSidebarProps) {
 
               {/* Gallery */}
               {work.data.galleryImages.length > 0 && (
-                work.data.galleryLayout === 'mobile' ? (
+                work.data.galleryLayout === 'mixed' ? (
+                  <div className="mt-12 space-y-6">
+                    {/* Browser frames — 1 per row */}
+                    {work.data.galleryImages.slice(0, 4).map((img, i) => {
+                      const light = work.data.galleryTheme === 'light'
+                      return (
+                        <div key={i} className={`${light ? 'bg-[#e8e8e8]' : 'bg-[#111111]'} p-6 sm:p-12`}>
+                          <div className="overflow-hidden rounded-[4px]">
+                            <div className={`flex h-6 items-center gap-1.5 ${light ? 'bg-[#f0f0f0]' : 'bg-[#161616]'} px-3`}>
+                              <span className="h-2 w-2 rounded-full bg-[#ff5f57]" />
+                              <span className="h-2 w-2 rounded-full bg-[#febc2e]" />
+                              <span className="h-2 w-2 rounded-full bg-[#28c840]" />
+                            </div>
+                            <img
+                              src={img}
+                              alt={`${work.data.title} gallery ${i + 1}`}
+                              className="w-full"
+                              loading="lazy"
+                            />
+                          </div>
+                        </div>
+                      )
+                    })}
+                    {/* Mobile frames — 2 per row */}
+                    {work.data.galleryImages.length > 4 && (
+                      <div className="grid grid-cols-2 gap-4">
+                        {work.data.galleryImages.slice(4).map((img, i) => (
+                          <div key={i} className="flex items-center justify-center bg-[#111111] px-4 py-12 sm:px-6">
+                            <div className="w-full max-w-[270px] overflow-hidden rounded-[1.5rem] bg-black p-1.5 ring-1 ring-white/5">
+                              <div className="relative overflow-hidden rounded-[1.2rem]">
+                                <div className="absolute top-0 left-1/2 z-10 h-4 w-20 -translate-x-1/2 rounded-b-xl bg-black" />
+                                <img
+                                  src={img}
+                                  alt={`${work.data.title} gallery ${4 + i + 1}`}
+                                  className="w-full"
+                                  loading="lazy"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ) : work.data.galleryLayout === 'mobile' ? (
                   <div className="mt-12 grid grid-cols-2 gap-4">
                     {work.data.galleryImages.map((img, i) => (
                       <div key={i} className="flex items-center justify-center bg-[#111111] px-4 py-12 sm:px-6">

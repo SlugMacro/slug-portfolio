@@ -76,6 +76,30 @@ export default function WorkGallery({ data }: WorkGalleryProps) {
     )
   }
 
+  if (data.galleryLayout === 'mixed') {
+    const browserImages = data.galleryImages.slice(0, 4)
+    const mobileImages = data.galleryImages.slice(4)
+
+    return (
+      <section className="space-y-6">
+        <Container className="space-y-6">
+          {/* Browser frames — 1 per row */}
+          {browserImages.map((img, i) => (
+            <BrowserFrame key={i} src={img} alt={`${data.title} gallery ${i + 1}`} theme={data.galleryTheme} />
+          ))}
+          {/* Mobile frames — 2 per row */}
+          {mobileImages.length > 0 && (
+            <div className="grid grid-cols-2 gap-6">
+              {mobileImages.map((img, i) => (
+                <MobileFrame key={i} src={img} alt={`${data.title} gallery ${browserImages.length + i + 1}`} theme={data.galleryTheme} />
+              ))}
+            </div>
+          )}
+        </Container>
+      </section>
+    )
+  }
+
   if (data.galleryLayout === 'full') {
     return (
       <section className="space-y-6">
