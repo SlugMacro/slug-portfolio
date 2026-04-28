@@ -11,7 +11,7 @@ import type { WorkFrontmatter } from '@/content/schema'
 // Col:    1          2          3          4
 // Row 1: [WM 2×2  ] [WM      ] [GeoRep  ] [        ]
 // Row 2: [WM      ] [WM      ] [MN 2×2  ] [MN      ]
-// Row 3: [        ] [        ] [MN      ] [MN      ]
+// Row 3: [VideoFi ] [        ] [MN      ] [MN      ]
 // Row 4: [        ] [WP 2×2  ] [WP      ] [WMob    ]
 // Row 5: [W.Fund  ] [WP      ] [WP      ] [JoomlArt]
 
@@ -22,14 +22,15 @@ interface Placement {
   span: number
 }
 
-// Sorted order: 0=WM, 1=WP, 2=MN, 3=GR, 4=WF, 5=WMob, 6=JA
+// Sorted order: 0=WM, 1=WP, 2=MN, 3=WMob, 4=WF, 5=GR, 6=JA, 7=VideoFi
 const placements: Placement[] = [
   { workIndex: 0, col: 1, row: 1, span: 2 }, // Whales Market 50%
-  { workIndex: 3, col: 3, row: 1, span: 1 }, // GeoReport 25%
+  { workIndex: 5, col: 3, row: 1, span: 1 }, // GeoReport 25%
   { workIndex: 2, col: 3, row: 2, span: 2 }, // Mention Network 50%
+  { workIndex: 7, col: 1, row: 3, span: 1 }, // VideoFi 25%
   { workIndex: 1, col: 2, row: 4, span: 2 }, // Whales Predict 50%
   { workIndex: 4, col: 1, row: 4, span: 1 }, // Whales Fund 25%
-  { workIndex: 5, col: 4, row: 4, span: 1 }, // Whales Mobile 25%
+  { workIndex: 3, col: 4, row: 4, span: 1 }, // Whales Mobile 25%
   { workIndex: 6, col: 4, row: 5, span: 1 }, // JoomlArt 25%
 ]
 
