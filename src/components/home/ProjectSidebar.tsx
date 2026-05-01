@@ -99,7 +99,7 @@ export default function ProjectSidebar({ work, onClose }: ProjectSidebarProps) {
               </svg>
             </button>
 
-            <div className="p-6 pb-12 sm:p-8 sm:pb-16 md:p-24 md:pb-48">
+            <div className="p-16 sm:p-24 lg:p-32">
               {/* Title */}
               <LiquidText
                 radius={0.2}
