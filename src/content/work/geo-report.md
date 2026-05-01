@@ -1,34 +1,45 @@
 ---
 slug: geo-report
-title: GeoReport
-subtitle: AI-Friendliness Audit Tool
+title: GEOReport
+subtitle: GEO Scoring & Optimization Platform
 year: "2025"
-client: GeoReport
-type: Tool
+client: GEOReport
+type: Product
 tags:
   - AI
-  - SEO
-  - Audit
+  - GEO
+  - SaaS
 role: Product Design
 featured: true
 featuredOrder: 6
-thumbnailImage: "/images/geo-report/thumbnail.png"
-heroImage: "/images/geo-report/hero.png"
+thumbnailImage: "/images/geo-report/thumb.png"
+heroImage: "/images/geo-report/thumb.png"
 galleryImages:
-  - "/images/geo-report/gallery-1.png"
-  - "/images/geo-report/gallery-2.png"
+  - "/images/geo-report/layout-1.png"
+  - "/images/geo-report/layout-2.png"
+  - "/images/geo-report/layout-3.png"
+  - "/images/geo-report/layout-4.png"
+  - "/images/geo-report/layout-5.png"
+  - "/images/geo-report/layout-6.png"
+  - "/images/geo-report/layout-7.png"
+  - "/images/geo-report/layout-8.png"
+  - "/images/geo-report/layout-9.png"
+  - "/images/geo-report/layout-10.png"
+  - "/images/geo-report/layout-11.png"
+  - "/images/geo-report/layout-12.png"
+  - "/images/geo-report/layout-13.png"
 galleryLayout: full
+galleryPairIndices: [1, 2]
 ---
 
-Tool for evaluating whether a website is "AI-friendly" — assessing how well content is structured for AI indexing and understanding. Built the evaluation framework at system level including scoring logic, criteria weighting, and standardized report structure that bridges traditional SEO with emerging AI optimization.
+Platform that scores and audits any website's GEO (Generative Engine Optimization) readiness — measuring how well pages are structured for AI-generated search answers across ChatGPT, Gemini, Perplexity, and Claude. Available as a web app and Chrome extension, it evaluates pages against 4 core benchmarks and provides actionable fix guides to improve AI visibility.
 
 ## Scope
 
-- Built AI-friendliness evaluation framework at system level (scoring logic, evaluation criteria, signal weighting)
-- Standardized report structure for SEO + AI indexing
-- UX focused on insight clarity rather than just metrics
+- Designed GEO Health Score from 4 benchmarks (Search Alignment, Readability, Credibility, Layout) with multi-model breakdown across ChatGPT, Gemini, Perplexity, Claude
+- Built Chrome extension for instant on-page auditing and webapp with Site Manage, Audit Usage, and issue deep-dives with AI-suggested code fixes
+- Designed pricing, upgrade flows, and GEO Summary — AI-generated insights explaining what's dragging the score down
 
 ## Impact
 
-- Established systematic approach to evaluating AI-friendliness across multiple dimensions
-- Created actionable audit reports that bridge traditional SEO with AI optimization
+- Pioneered a concrete scoring framework for the emerging GEO space — multi-model benchmarking with actionable fix guides that close the gap between diagnosis and implementation

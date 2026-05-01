@@ -6,14 +6,15 @@ import { WireframePolyhedron } from '@/components/common/WireframeShapes'
 import type { WorkFrontmatter } from '@/content/schema'
 
 // All 1:1. 50% = 2×2 block. 25% = 1×1.
-// 4 cols × 5 rows checkerboard layout:
+// 4 cols × 6 rows — intro top-left, large projects zigzag:
 //
 // Col:    1          2          3          4
-// Row 1: [WM 2×2  ] [WM      ] [GeoRep  ] [        ]
-// Row 2: [WM      ] [WM      ] [MN 2×2  ] [MN      ]
-// Row 3: [VideoFi ] [        ] [MN      ] [MN      ]
-// Row 4: [        ] [WP 2×2  ] [WP      ] [WMob    ]
-// Row 5: [W.Fund  ] [WP      ] [WP      ] [JoomlArt]
+// Row 1: [Intro   ] [WM 2×2  ] [WM      ] [VideoFi ]
+// Row 2: [GeoRep  ] [WM      ] [WM      ] [        ]
+// Row 3: [MN 2×2  ] [MN      ] [W.Fund  ] [Alter   ]
+// Row 4: [MN      ] [MN      ] [WMob 2×2] [WMob    ]
+// Row 5: [WP 2×2  ] [WP      ] [WMob    ] [WMob    ]
+// Row 6: [WP      ] [WP      ] [        ] [Memepire]
 
 interface Placement {
   workIndex: number
@@ -22,16 +23,17 @@ interface Placement {
   span: number
 }
 
-// Sorted order: 0=WM, 1=WP, 2=MN, 3=WMob, 4=WF, 5=GR, 6=JA, 7=VideoFi
+// Sorted order: 0=WM, 1=WP, 2=MN, 3=WMob, 4=WF, 5=GR, 6=Memepire, 7=VideoFi, 8=Alter
 const placements: Placement[] = [
-  { workIndex: 0, col: 1, row: 1, span: 2 }, // Whales Market 50%
-  { workIndex: 5, col: 3, row: 1, span: 1 }, // GeoReport 25%
-  { workIndex: 2, col: 3, row: 2, span: 2 }, // Mention Network 50%
-  { workIndex: 7, col: 1, row: 3, span: 1 }, // VideoFi 25%
-  { workIndex: 1, col: 2, row: 4, span: 2 }, // Whales Predict 50%
-  { workIndex: 4, col: 1, row: 4, span: 1 }, // Whales Fund 25%
-  { workIndex: 3, col: 4, row: 4, span: 1 }, // Whales Mobile 25%
-  { workIndex: 6, col: 4, row: 5, span: 1 }, // JoomlArt 25%
+  { workIndex: 0, col: 2, row: 1, span: 2 }, // Whales Market 50%
+  { workIndex: 5, col: 1, row: 2, span: 1 }, // GeoReport 25%
+  { workIndex: 7, col: 4, row: 1, span: 1 }, // VideoFi 25%
+  { workIndex: 2, col: 1, row: 3, span: 2 }, // Mention Network 50%
+  { workIndex: 4, col: 3, row: 3, span: 1 }, // Whales Fund 25%
+  { workIndex: 8, col: 4, row: 3, span: 1 }, // Alter 25%
+  { workIndex: 3, col: 3, row: 4, span: 2 }, // Whales Mobile 50%
+  { workIndex: 1, col: 1, row: 5, span: 2 }, // Whales Predict 50%
+  { workIndex: 6, col: 4, row: 6, span: 1 }, // Memepire 25%
 ]
 
 // Fill remaining cells as empty decorative squares
@@ -44,7 +46,7 @@ for (const p of placements) {
     }
   }
 }
-for (let row = 1; row <= 5; row++) {
+for (let row = 1; row <= 6; row++) {
   for (let col = 1; col <= 4; col++) {
     if (!occupied.has(`${col},${row}`)) {
       emptyCells.push({ col, row })
@@ -72,8 +74,8 @@ export default function FeaturedGrid({ work }: FeaturedGridProps) {
 
   return (
     <section id="featured-work">
-      {/* Mobile: simple stacked list */}
-      <div className="flex flex-col border-b border-border bg-border sm:hidden" style={{ gap: '1px' }}>
+      {/* Mobile + tablet: simple stacked list */}
+      <div className="flex flex-col border-b border-border bg-border lg:hidden" style={{ gap: '1px' }}>
         {placements.map((p, i) => {
           const w = work[p.workIndex]
           if (!w) return null
@@ -91,15 +93,28 @@ export default function FeaturedGrid({ work }: FeaturedGridProps) {
 
       {/* Desktop: 4-col checkerboard grid */}
       <div
-        className="hidden border-b border-border bg-border sm:grid"
+        className="hidden border-b border-border bg-border lg:grid"
         style={{
           gridTemplateColumns: 'repeat(4, 1fr)',
-          gridTemplateRows: 'repeat(5, auto)',
+          gridTemplateRows: 'repeat(6, auto)',
           gap: '1px',
         }}
       >
+        {/* Intro block */}
+        <div
+          className="aspect-square bg-bg px-6 py-6 sm:px-8 sm:py-8 lg:px-12 lg:py-12"
+          style={{ gridColumn: '1 / 2', gridRow: '1 / 2' }}
+        >
+          <p className="mb-4 text-base font-medium tracking-wide text-accent">
+            Work
+          </p>
+          <p className="max-w-[30ch] text-xl leading-[1.5] font-light text-text-primary">
+            A selection of products I've designed across Web3, fintech, and developer tooling.
+          </p>
+        </div>
+
         {/* Empty cells with wireframe animations */}
-        {emptyCells.map((cell, i) => {
+        {emptyCells.filter(c => !(c.col === 1 && c.row === 1)).map((cell, i) => {
           const config = wireframeConfigs[i % wireframeConfigs.length]
           return (
             <div

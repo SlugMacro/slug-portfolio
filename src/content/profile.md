@@ -3,45 +3,34 @@ name: Slug Macro
 title: Product Designer
 location: Vietnam
 coordinates: "10.7769° N, 106.7009° E"
-email: slug@example.com
+email: macroslug@gmail.com
 availability: available
 socialLinks:
   - label: LinkedIn
-    url: https://linkedin.com/in/slugmacro
-services:
-  - Trading Systems
-  - AI-Native Products
-  - Design Systems
-  - Product Strategy
+    url: https://www.linkedin.com/in/le-duc-4769bb2a1/
+services: []
 experience:
   - period: "03.2023 – Present"
     role: Product Designer
-    company: Remote
-    location: US
-    description: "Focused on UX flow, user interactions, visual development, and product direction for multi-user products. Responsible for building design systems, wireframes, user interfaces, and collaborating with the Dev team to ensure a cohesive user experience."
+    company: Remote (US-based clients)
+    location: HCMC
+    description: "Designing trading platforms, AI-native SaaS, and Web3 products end-to-end. Led product design for Whales Market ($339M+ volume, 326K+ users), Whales Predict, Whales Fund, Mention Network, GEOReport, VideoFi, and Memepire — covering everything from research and system architecture to final UI and developer handoff."
   - period: "09.2022 – 03.2023"
     role: Product Designer
     company: GalaxyOne – Sovico Group
     location: HCMC
-    description: "Designed the OneTarget product, aimed at helping marketers segment their audience and create revenue-boosting advertising campaigns. Developed a consistent Design System for the company's product lines."
+    description: "Designed OneTarget — a marketing platform for audience segmentation and ad campaign optimization. Built the enterprise design system used across Sovico Group's product lines."
   - period: "06.2022 – 08.2022"
     role: Product Designer
     company: OpenCommerce Group
     location: Hanoi
-    description: "Worked on the Web Builder product, revamping its Layout, Color scheme, Typography, and Components for users with varying technical abilities. Established a Design System to maintain uniformity across all Web Builder products."
+    description: "Redesigned the Web Builder product — layout, color system, typography, and component library for users across technical levels."
   - period: "08.2008 – 06.2022"
     role: Lead UI/UX Designer
     company: JoomlArt
     location: Hanoi
-    description: "Developed and designed diverse web products for the global market with over 200,000 regular users, spanning Business/Corporate, News/Magazine, E-commerce, Healthcare, and Lifestyle themes. Also contributed to web products such as Web Builder, Market, and Blockchain."
-clients:
-  - Whales Market
-  - Whales Predict
-  - Mention Network
-  - GeoReport
-  - Sovico Group
-  - OpenCommerce Group
-  - JoomlArt
+    description: "Led design across 50+ web themes (Joomla, WordPress, Shopify) serving 200,000+ users globally. Covered Business, E-commerce, Healthcare, and Lifestyle verticals over 14 years."
+clients: []
 recognition:
   - title: Product Design Excellence
     org: Whales Market
@@ -50,29 +39,23 @@ recognition:
     org: GalaxyOne
     year: "2023"
 skills:
-  summary: "Product Designer with strong experience in AI-driven and Web3 products, specializing in transforming complex data, models, and blockchain mechanics into clear, scalable user experiences."
+  summary: "Product Designer specializing in trading systems, AI-native products, and Web3 platforms. I turn complex mechanics — orderbooks, AI models, blockchain settlement, GEO scoring — into clear, scalable experiences."
   items:
-    - "Product design for **AI-driven and Web3 platforms**"
-    - "UX/UI for complex systems: AI, data analytics, trading, terminal-style interfaces"
-    - "**AI-assisted design workflows**: research, ideation, evaluation, optimization"
-    - "Data-informed design, experimentation, and rapid iteration"
-    - "Design systems with strong foundations in grid, typography, and visual hierarchy"
-    - "Front-end fundamentals: HTML, CSS, Tailwind"
-  tools:
-    - Figma
-    - AI Tools
-    - VS Code
-    - Claude Code
+    - "End-to-end product design for **trading, AI, and Web3 platforms**"
+    - "Complex system UX: orderbooks, prediction markets, AI scoring, multi-chain settlement"
+    - "**AI-augmented workflow**: research, ideation, prototyping, and implementation with AI tools"
+    - "Design systems with strong grid, typography, and component architecture"
+    - "Front-end implementation: HTML, CSS, Tailwind, React basics"
+  tools: []
   tags:
     - "✦ Design System"
-    - "✦ Research"
+    - "✦ Product Strategy"
     - "✦ Responsive Design"
-    - "✦ User-Centered Design"
     - "✦ Information Architecture"
-    - "✦ Wireframing"
     - "✦ Prototyping"
     - "✦ Data Visualization"
-homeIntro: "Hi, I'm Slug Macro — a Product Designer based at 10.7769° N, 106.7009° E, Vietnam. I design trading systems and AI-native products end-to-end, from research and data modeling to architecture, UX flows, and actual implementation with AI tools. My process sits at the overlap of design thinking and engineering logic — I don't just hand off specs, I build alongside the product. Currently focused on DeFi trading interfaces, prediction markets, and tools that make complex data feel intuitive."
+    - "✦ AI-Augmented Design"
+homeIntro: "Product Designer at 10.7769° N, 106.7009° E — designing trading systems and AI-native products end-to-end. I work at the overlap of design thinking and engineering logic, from research to implementation. Currently focused on DeFi interfaces, prediction markets, and making complex data feel intuitive."
 ---
 
 Product Designer focused on trading systems and AI-native products, with full ownership from strategy to execution. I design at the system level — from research, data modeling, architecture logic, UX flows to actual implementation with AI tools.

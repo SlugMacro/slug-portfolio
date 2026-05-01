@@ -6,10 +6,10 @@ interface ExperienceProps {
 
 export default function Experience({ experience }: ExperienceProps) {
   return (
-    <section className="border-t border-b border-border py-12 sm:py-16 md:py-24">
+    <section className="border-t border-b border-border py-16 sm:py-24 lg:py-32">
       <div className="grid grid-cols-1 sm:grid-cols-4">
         <div className="px-6 sm:px-8 md:px-12">
-          <p className="text-[0.875rem] font-medium tracking-wide text-text-primary">
+          <p className="text-base font-medium tracking-wide text-text-primary">
             Experience
           </p>
         </div>
@@ -18,15 +18,18 @@ export default function Experience({ experience }: ExperienceProps) {
           <div className="space-y-12">
             {experience.map((entry, i) => (
               <div key={i}>
-                <p className="text-[0.875rem] font-medium tracking-wide text-text-primary">
-                  {entry.company} / {entry.role}
+                <p className="text-xl leading-[1.5] font-light text-text-primary">
+                  {entry.company}
                 </p>
-                <p className="mt-1 text-[0.75rem] tracking-wide text-text-secondary">
+                <p className="mt-1 text-base tracking-wide text-text-secondary">
+                  {entry.role}
+                </p>
+                <p className="mt-1 text-sm tracking-wide text-text-tertiary">
                   {entry.period}
-                  {entry.location && `, ${entry.location}`}
+                  {entry.location && ` · ${entry.location}`}
                 </p>
                 {entry.description && (
-                  <p className="mt-4 text-[0.875rem] leading-[1.6] tracking-wide text-text-primary">
+                  <p className="mt-4 text-base leading-relaxed tracking-wide text-text-primary">
                     {entry.description}
                   </p>
                 )}

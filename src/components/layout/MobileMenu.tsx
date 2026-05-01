@@ -23,7 +23,7 @@ export default function MobileMenu({ open, onClose, links }: MobileMenuProps) {
         >
           {/* Header */}
           <div className="flex items-center justify-between px-6 py-6">
-            <span className="text-[0.875rem] tracking-wide text-text-primary">
+            <span className="text-base tracking-wide text-text-primary">
               Slug Macro
             </span>
             <button
@@ -50,7 +50,7 @@ export default function MobileMenu({ open, onClose, links }: MobileMenuProps) {
                 <Link
                   to={link.to}
                   onClick={onClose}
-                  className="text-[clamp(2rem,5vw,3rem)] font-light text-text-primary"
+                  className="text-2xl font-light text-text-primary"
                 >
                   {link.label}
                 </Link>

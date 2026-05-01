@@ -32,14 +32,9 @@ AI Visibility & Generative Engine Optimization (GEO) platform helping brands tra
 
 ## Scope
 
-- Designed product for collecting and structuring AI mention data (frequency, context, sentiment)
-- Built AI Visibility dashboard with clear, actionable metric systems
-- Structured reports helping brands understand how they appear in AI-generated answers
-- Optimized UX for data analysis workflows and insight extraction
+- Designed AI mention data pipeline — collecting frequency, context, and sentiment across models
+- Built Visibility dashboard and report framework with brand ranking, visibility share, and model-level breakdown
 
 ## Impact
 
-- Built AI Visibility Report framework with metrics like visibility share, brand ranking, and AI model-level breakdown
-- Standardized measurement of brand presence in AI-generated answers
-- Helped convert AI interaction data into actionable insights for content and GEO strategy
-- Increased clarity in tracking and optimizing brand visibility in AI-first search environments
+- Standardized how brands measure and optimize their presence in AI-generated answers

@@ -9,6 +9,22 @@ interface ShapeProps {
   detail?: number
   /** Rotation speed multiplier */
   speed?: number
+  /** Shape type */
+  shape?: 'icosahedron' | 'octahedron'
+}
+
+function createOctahedron() {
+  const vertices = [
+    [1, 0, 0], [-1, 0, 0],
+    [0, 1, 0], [0, -1, 0],
+    [0, 0, 1], [0, 0, -1],
+  ]
+  const edges = [
+    [0, 2], [0, 3], [0, 4], [0, 5],
+    [1, 2], [1, 3], [1, 4], [1, 5],
+    [2, 4], [2, 5], [3, 4], [3, 5],
+  ]
+  return { vertices, edges }
 }
 
 // Subdivide a triangle on a sphere
@@ -83,7 +99,7 @@ function createIcosahedron(detail: number) {
   return { vertices, edges }
 }
 
-export function WireframePolyhedron({ className, detail = 0, speed = 1 }: ShapeProps) {
+export function WireframePolyhedron({ className, detail = 0, speed = 1, shape = 'icosahedron' }: ShapeProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const rafRef = useRef(0)
 
@@ -99,7 +115,7 @@ export function WireframePolyhedron({ className, detail = 0, speed = 1 }: ShapeP
     }
     resize()
 
-    const { vertices, edges } = createIcosahedron(detail)
+    const { vertices, edges } = shape === 'octahedron' ? createOctahedron() : createIcosahedron(detail)
 
     const draw = (t: number) => {
       const w = canvas.width / dpr, h = canvas.height / dpr
@@ -138,7 +154,7 @@ export function WireframePolyhedron({ className, detail = 0, speed = 1 }: ShapeP
     }
     rafRef.current = requestAnimationFrame(draw)
     return () => cancelAnimationFrame(rafRef.current)
-  }, [detail, speed])
+  }, [detail, speed, shape])
 
   return <canvas ref={canvasRef} className={`w-full h-full ${className ?? ''}`} />
 }

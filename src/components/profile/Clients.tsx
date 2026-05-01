@@ -6,10 +6,10 @@ export default function Clients({ clients }: ClientsProps) {
   if (clients.length === 0) return null
 
   return (
-    <section className="border-t border-border py-12 sm:py-16 md:py-24">
+    <section className="border-t border-border py-16 sm:py-24 lg:py-32">
       <div className="grid grid-cols-1 sm:grid-cols-4">
         <div className="px-6 sm:px-8 md:px-12">
-          <p className="text-[0.875rem] font-medium tracking-wide text-text-primary">
+          <p className="text-base font-medium tracking-wide text-text-primary">
             Clients
           </p>
         </div>
@@ -18,7 +18,7 @@ export default function Clients({ clients }: ClientsProps) {
             {clients.map((client) => (
               <span
                 key={client}
-                className="text-[0.875rem] tracking-wide text-text-secondary"
+                className="text-base tracking-wide text-text-secondary"
               >
                 {client}
               </span>

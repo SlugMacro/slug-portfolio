@@ -4,15 +4,15 @@ interface ProfileHeroProps {
 
 export default function ProfileHero({ content }: ProfileHeroProps) {
   return (
-    <section className="py-12 sm:py-16 md:py-24">
+    <section className="py-16 sm:py-24 lg:py-32">
       <div className="grid grid-cols-1 sm:grid-cols-4">
         <div className="px-6 sm:px-8 md:px-12">
-          <p className="text-[0.875rem] font-medium tracking-wide text-text-primary">
+          <p className="text-base font-medium tracking-wide text-text-primary">
             About
           </p>
         </div>
         <div className="col-span-1 mt-4 px-6 sm:col-span-2 sm:mt-0 sm:px-8 md:px-12">
-          <p className="max-w-[55ch] text-[clamp(1.125rem,1.5vw,1.5rem)] leading-[1.4] font-light text-text-primary">
+          <p className="max-w-[55ch] text-xl leading-[1.5] font-light text-text-primary">
             {content}
           </p>
         </div>

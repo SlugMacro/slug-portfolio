@@ -1,14 +1,14 @@
 ---
 slug: videofi
 title: VideoFi
-subtitle: Video Finance Platform
+subtitle: AI-Powered Image-to-Video & Text-to-Video Generation Platform on BNB Chain
 year: "2025"
 client: VideoFi
 type: Product
 tags:
+  - AI
+  - Web3
   - Video
-  - Finance
-  - Web App
 role: Product Design
 featured: true
 featuredOrder: 8
@@ -27,15 +27,14 @@ galleryLayout: mixed
 galleryTheme: dark
 ---
 
-Video Finance platform combining video content with financial tools and analytics.
+Onchain AI video generation platform on BNB Chain — turning static images and text prompts into animated videos using Minimax models. Designed the full product experience across web and mobile, covering creation flows, community exploration, asset management, and token-gated generation with a credit-based economy.
 
 ## Scope
 
-- Designed end-to-end product experience for video-based financial platform
-- Created responsive layouts for both desktop and mobile experiences
-- Built information architecture for video content and financial data integration
+- Designed Image-to-Video and Text-to-Video creation flows with prompt input, model selection, and batch generation
+- Built Explore feed, Workspace asset management, and responsive mobile experience
+- Integrated token economy — credit-based generation, on-chain claiming, and wallet balance
 
 ## Impact
 
-- Delivered comprehensive design system covering web and mobile touchpoints
-- Streamlined user workflows across desktop and mobile platforms
+- Shipped on BNB Chain — single-screen generation flow with community discovery and cross-platform parity

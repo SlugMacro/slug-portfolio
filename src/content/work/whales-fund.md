@@ -1,29 +1,40 @@
 ---
 slug: whales-fund
 title: Whales Fund
-subtitle: Crypto Fund Management
+subtitle: OTC Investment Platform Connecting VCs and Early-Stage Investors
 year: "2025"
 client: Whales Market
 type: Product
 tags:
   - DeFi
-  - Fund Management
+  - OTC
   - Web App
 role: Product Design
 featured: true
 featuredOrder: 5
-galleryLayout: pattern
+thumbnailImage: "/images/whales-fund/thumb.png"
+heroImage: "/images/whales-fund/thumb.png"
+galleryImages:
+  - "/images/whales-fund/layout-1.png"
+  - "/images/whales-fund/layout-2.png"
+  - "/images/whales-fund/layout-3.png"
+  - "/images/whales-fund/layout-4.png"
+  - "/images/whales-fund/layout-5.png"
+  - "/images/whales-fund/layout-6.png"
+  - "/images/whales-fund/layout-7.png"
+  - "/images/whales-fund/layout-8.png"
+galleryLayout: full
+galleryTheme: dark
 ---
 
-Fund management product within the Whales ecosystem — enabling users to create, manage, and track crypto investment funds with transparent performance metrics and risk controls.
+OTC investment platform bridging VCs and retail investors — letting users buy tokens at pre-market prices through verified investment groups before public listings. Designed the dual-sided experience: investors browse and invest in discounted deals, while VCs manage deal creation, vesting schedules, and token distribution from a dedicated dashboard.
 
 ## Scope
 
-- Designed fund creation and management flows
-- Built portfolio performance dashboards and analytics
-- Structured risk assessment and allocation interfaces
+- Designed dual-sided experience: investor marketplace with VC trust signals and deal browsing, plus VC dashboard for deal management and vesting distribution
+- Built Deal detail with investment form, multi-chain payment, and vesting tracking (Solana, Base, BNB, Ethereum)
+- Created trust verification layer — Verified Wallet, Doxxed Founder, CryptoRank, On-Time Delivery signals
 
 ## Impact
 
-- Extended the Whales ecosystem with a new product vertical
-- Simplified complex fund management into intuitive workflows
+- Removed intermediaries from OTC token sales — direct VC-to-retail deal flow with built-in trust and multi-chain settlement

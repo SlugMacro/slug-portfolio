@@ -39,18 +39,16 @@ export default function Navbar() {
       {/* Logo — fixed, content scrolls over it */}
       <div
         ref={logoSectionRef as React.RefObject<HTMLDivElement>}
-        className="relative"
+        className="relative z-[6] bg-bg"
         style={{ height: 'calc(clamp(4rem, 18vw, 22rem) * 0.8 * 2 + 3rem + clamp(4rem, 18vw, 22rem) * 0.3)' }}
       >
-        <div className="fixed top-0 left-0 z-0 w-full max-w-[var(--container-max)]">
+        <div className="fixed top-0 left-0 z-0 w-full max-w-[var(--container-max)] bg-bg">
           <div className="px-6 sm:px-8 md:px-12">
             <Link to="/" aria-label="Slug Macro — Home" className="block">
               <motion.div className="pt-12" style={{ opacity: logoOpacity }}>
                 <LiquidText
-                  className="select-none text-text-primary leading-[0.8] font-bold cursor-pointer"
+                  className="select-none font-display text-text-primary leading-[0.8] font-bold cursor-pointer text-display-xl"
                   style={{
-                    fontFamily: "'Bodoni Moda', serif",
-                    fontSize: 'clamp(4rem, 18vw, 22rem)',
                     letterSpacing: '-0.05em',
                   }}
                 >
@@ -64,12 +62,12 @@ export default function Navbar() {
 
       {/* Nav bar — sticky top */}
       <header ref={headerRef as React.RefObject<HTMLElement>} className={cn('sticky top-0 z-50 w-full bg-bg border-t border-border transition-[border-color] duration-300', scrolled ? 'border-b border-b-border' : 'border-b border-b-transparent')}>
-        <nav className="grid grid-cols-2 sm:grid-cols-4 [&>div]:transition-[padding] [&>div]:duration-300">
-          <div className={cn('px-8 text-[0.875rem] leading-relaxed tracking-wide text-text-secondary sm:px-12', scrolled ? 'py-4 sm:py-6' : 'py-4 sm:py-12')}>
+        <nav className="grid grid-cols-2 lg:grid-cols-4 [&>div]:transition-[padding] [&>div]:duration-300">
+          <div className={cn('px-6 text-base leading-relaxed tracking-wide text-text-secondary sm:px-8 lg:px-12', scrolled ? 'py-4 lg:py-6' : 'py-4 lg:py-12')}>
             Independent Designer
           </div>
 
-          <div className={cn('hidden px-12 text-[0.875rem] leading-relaxed tracking-wide sm:block', scrolled ? 'py-6' : 'py-12')}>
+          <div className={cn('hidden px-8 text-base leading-relaxed tracking-wide lg:block lg:px-12', scrolled ? 'py-6' : 'py-12')}>
             <Link
               to="/"
               className={cn(
@@ -83,7 +81,7 @@ export default function Navbar() {
             </Link>
           </div>
 
-          <div className={cn('hidden px-12 text-[0.875rem] leading-relaxed tracking-wide sm:block', scrolled ? 'py-6' : 'py-12')}>
+          <div className={cn('hidden px-8 text-base leading-relaxed tracking-wide lg:block lg:px-12', scrolled ? 'py-6' : 'py-12')}>
             <Link
               to="/profile"
               className={cn(
@@ -97,13 +95,13 @@ export default function Navbar() {
             </Link>
           </div>
 
-          <div className={cn('hidden px-12 text-right text-[0.875rem] leading-relaxed tracking-wide text-text-tertiary sm:block', scrolled ? 'py-6' : 'py-12')}>
+          <div className={cn('hidden px-8 text-right text-base leading-relaxed tracking-wide text-text-tertiary lg:block lg:px-12', scrolled ? 'py-6' : 'py-12')}>
             <span>2026 Portfolio — V.2.1.0</span>
           </div>
 
           <button
             onClick={() => setMenuOpen(true)}
-            className="ml-auto flex items-center justify-center pr-6 sm:hidden"
+            className="ml-auto flex items-center justify-center pr-6 lg:hidden"
             aria-label="Open menu"
           >
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">

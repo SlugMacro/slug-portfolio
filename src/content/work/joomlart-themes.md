@@ -9,8 +9,7 @@ tags:
   - Web Design
   - Themes
 role: Lead UI/UX Designer
-featured: true
-featuredOrder: 7
+featured: false
 galleryLayout: pattern
 ---
 
@@ -18,13 +17,8 @@ Designed diverse web products for the global market with over 200,000 regular us
 
 ## Scope
 
-- Led UI/UX design across 50+ web themes for Joomla, WordPress, and Shopify
-- Built and maintained a shared design system across all product lines
-- Designed responsive layouts for Business, E-commerce, Healthcare, and Lifestyle verticals
-- Established visual language and component patterns used across the entire product catalog
+- Led UI/UX across 50+ themes (Joomla, WordPress, Shopify) with shared design system spanning Business, E-commerce, Healthcare, and Lifestyle
 
 ## Impact
 
-- Served 200,000+ regular users globally
-- Maintained design consistency across 50+ theme products over 14 years
-- Contributed to JoomlArt's position as a leading template provider
+- 200,000+ users globally, design consistency maintained across 50+ products over 14 years

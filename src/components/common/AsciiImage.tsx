@@ -47,7 +47,7 @@ export default function AsciiImage({ src, width = 150, className }: AsciiImagePr
 
   return (
     <pre
-      className={`select-none leading-[1.1] text-text-primary ${className ?? ''}`}
+      className={`select-none leading-tight text-text-primary ${className ?? ''}`}
       style={{
         fontFamily: 'monospace',
         fontSize: 'clamp(3px, 0.45vw, 6px)',

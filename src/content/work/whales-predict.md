@@ -29,13 +29,9 @@ Prediction Market for traders to place bets on token and event outcomes — an e
 
 ## Scope
 
-- Redesigned and restructured the prediction mechanism at product level (pricing logic, risk clarity, outcome modeling)
-- Optimized UX for decision speed in volatile markets
-- Structured information to reduce cognitive load in outcome-based trading
-- Designed probability display, payout logic, and risk transparency systems
+- Redesigned prediction mechanism at product level — pricing logic, risk clarity, outcome modeling
+- Designed probability display, payout logic, and risk transparency to reduce cognitive load
 
 ## Impact
 
-- Product in Private Beta phase with power users
-- Contributed to product architecture refinement before public launch (02/2026)
-- Standardized prediction logic and improved pricing and risk transparency
+- Private Beta with power users, refining product architecture before public launch (02/2026)

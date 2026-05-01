@@ -1,55 +1,18 @@
-import { useRef } from 'react'
-import { useLocation } from 'react-router-dom'
-import { motion, useScroll, useTransform } from 'framer-motion'
-import AnimatedSection from '@/components/common/AnimatedSection'
-import LiquidText from '@/components/common/LiquidText'
-
 export default function Footer() {
-  const location = useLocation()
-  const isProfile = location.pathname === '/profile'
-  const sectionRef = useRef<HTMLDivElement>(null)
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ['start end', 'end start'],
-  })
-  const y = useTransform(scrollYProgress, [0, 1], [80, -80])
-
   return (
     <footer>
-      {!isProfile && (
-        <AnimatedSection>
-          <div
-            ref={sectionRef as React.RefObject<HTMLDivElement>}
-            className="border-b border-border bg-bg px-6 py-24 sm:px-8 sm:py-36 md:px-12 md:py-48"
-          >
-            <motion.div style={{ y }}>
-              <LiquidText
-                radius={0.2}
-                className="text-text-primary leading-[1] font-bold"
-                style={{
-                  fontFamily: "'Bodoni Moda', serif",
-                  fontSize: 'clamp(1.8rem, 5.5vw, 7rem)',
-                  letterSpacing: '-0.03em',
-                }}
-              >
-                Simplicity is the<br />ultimate sophistication.
-              </LiquidText>
-              <p className="mt-8 text-[0.875rem] tracking-wide text-text-tertiary">
-                — Leonardo da Vinci
-              </p>
-            </motion.div>
-          </div>
-        </AnimatedSection>
-      )}
-
-      {/* Bottom bar */}
-      <div className="flex items-center justify-between px-6 py-6 sm:px-8 md:px-12">
-        <p className="text-[0.7rem] tracking-wide text-text-tertiary">
-          &copy; {new Date().getFullYear()}
-        </p>
-        <p className="text-[0.7rem] tracking-wide text-text-tertiary">
-          Slug Macro
-        </p>
+      <div className="px-6 py-24 sm:px-8 md:px-12 md:py-36">
+        <p className="max-w-[50%] font-display text-display leading-[1] font-normal tracking-tight text-text-primary">Let's build something together.</p>
+        <a href="mailto:macroslug@gmail.com" className="mt-6 inline-block text-base tracking-wide text-text-primary underline decoration-[#333] underline-offset-4 transition-colors duration-300 hover:decoration-accent">macroslug@gmail.com</a>
+      </div>
+      <div className="flex items-center justify-between border-t border-border px-6 sm:px-8 md:px-12" style={{ paddingTop: 48, paddingBottom: 48 }}>
+        <p className="text-sm tracking-wide text-text-tertiary">&copy; {new Date().getFullYear()} Slug Macro</p>
+        <div className="flex gap-6">
+          <a href="/" className="text-sm tracking-wide text-text-tertiary transition-colors hover:text-text-primary">Projects</a>
+          <a href="/profile" className="text-sm tracking-wide text-text-tertiary transition-colors hover:text-text-primary">Info</a>
+          <a href="https://www.linkedin.com/in/le-duc-4769bb2a1/" target="_blank" rel="noopener noreferrer" className="text-sm tracking-wide text-text-tertiary transition-colors hover:text-text-primary">LinkedIn</a>
+          <a href="https://github.com/slugmacro" target="_blank" rel="noopener noreferrer" className="text-sm tracking-wide text-text-tertiary transition-colors hover:text-text-primary">GitHub</a>
+        </div>
       </div>
     </footer>
   )

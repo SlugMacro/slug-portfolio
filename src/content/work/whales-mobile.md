@@ -46,16 +46,10 @@ Native mobile trading experience for the Whales ecosystem — condensing the ful
 
 ## Scope
 
-- Redesigned core trading flows (orderbook, positions, portfolio) for touch-first interaction patterns
-- Designed gesture-based order placement with swipe confirmations and haptic feedback
-- Built real-time price feeds, push notifications, and alert systems for market-moving events
-- Created adaptive layout system supporting both portrait and landscape trading modes
-- Defined mobile-specific component library extending the desktop design system
+- Redesigned core trading flows for touch-first patterns — gesture-based orders, swipe confirmations, haptic feedback
+- Built real-time feeds, push notifications, and adaptive portrait/landscape layouts
+- Defined mobile component library extending the desktop design system
 
 ## Impact
 
-- 326K+ users across the platform, with mobile as primary trading channel
-- $339M+ total Pre-Market Volume contributed through mobile flows
-- 369+ tokens supported across 26 blockchain ecosystems on mobile
-- Reduced average order placement time to under 2 seconds on touch interfaces
-- Shipped across iOS and Android with full feature parity to desktop
+- Shipped iOS + Android with full desktop parity — order placement under 2 seconds on touch

@@ -19,32 +19,32 @@ export default function WorkHero({ data, content }: WorkHeroProps) {
       <section className="pt-16 pb-16 md:pt-24 md:pb-24">
         <Container>
           {/* Title */}
-          <h1 className="text-[clamp(2.5rem,5vw,5rem)] leading-[1.1] font-semibold tracking-[-0.03em] text-text-primary">
+          <h1 className="text-3xl leading-tight font-semibold tracking-tight text-text-primary">
             {data.title}
           </h1>
 
           {/* Description */}
-          <p className="mt-6 max-w-[55ch] text-[clamp(1.125rem,1.5vw,1.5rem)] leading-[1.4] font-light text-text-primary">
+          <p className="mt-6 max-w-[55ch] text-xl leading-[1.5] font-light text-text-primary">
             {intro}
           </p>
 
           {/* Meta: horizontal, left-aligned, below desc */}
           <div className="mt-8 flex flex-wrap gap-x-8 gap-y-2">
             <div>
-              <p className="text-[0.875rem] tracking-wide text-text-secondary">Year</p>
-              <p className="mt-1 text-[0.875rem] tracking-wide text-text-primary">
+              <p className="text-base tracking-wide text-text-secondary">Year</p>
+              <p className="mt-1 text-base tracking-wide text-text-primary">
                 {data.year}
               </p>
             </div>
             <div>
-              <p className="text-[0.875rem] tracking-wide text-text-secondary">Role</p>
-              <p className="mt-1 text-[0.875rem] tracking-wide text-text-primary">
+              <p className="text-base tracking-wide text-text-secondary">Role</p>
+              <p className="mt-1 text-base tracking-wide text-text-primary">
                 {data.role}
               </p>
             </div>
             <div>
-              <p className="text-[0.875rem] tracking-wide text-text-secondary">Type</p>
-              <p className="mt-1 text-[0.875rem] tracking-wide text-text-primary">
+              <p className="text-base tracking-wide text-text-secondary">Type</p>
+              <p className="mt-1 text-base tracking-wide text-text-primary">
                 {data.type}
               </p>
             </div>

@@ -42,10 +42,10 @@ export default function ProjectCard({ work, onClick }: ProjectCardProps) {
 
       {/* Title + meta — bottom-left */}
       <div className="relative z-10 p-6 sm:p-8 md:p-12">
-        <span className="block text-[0.875rem] font-medium tracking-wide text-text-primary transition-colors duration-300 group-hover:text-accent">
+        <span className="inline-block text-base font-medium text-text-primary underline decoration-[#333] underline-offset-4 transition-colors duration-300 group-hover:decoration-accent">
           {title}
         </span>
-        <span className="mt-1 block text-[0.75rem] tracking-wide text-text-tertiary">
+        <span className="mt-1 block text-sm tracking-wide text-text-tertiary">
           {year}
         </span>
       </div>

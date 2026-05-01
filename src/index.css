@@ -1,74 +1,8 @@
 @import "tailwindcss";
 
-/* ── Nimbus Sans L ─────────────────────────────────────── */
-@font-face {
-  font-family: 'Nimbus Sans L';
-  src: url('/fonts/NimbusSanL-Regu.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Nimbus Sans L';
-  src: url('/fonts/NimbusSanL-Bold.ttf') format('truetype');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* ── Geist font ─────────────────────────────────────────── */
-@font-face {
-  font-family: 'Geist';
-  src: url('../node_modules/geist/dist/fonts/geist-sans/Geist-Thin.woff2') format('woff2');
-  font-weight: 100;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Geist';
-  src: url('../node_modules/geist/dist/fonts/geist-sans/Geist-Light.woff2') format('woff2');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Geist';
-  src: url('../node_modules/geist/dist/fonts/geist-sans/Geist-Regular.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Geist';
-  src: url('../node_modules/geist/dist/fonts/geist-sans/Geist-Medium.woff2') format('woff2');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Geist';
-  src: url('../node_modules/geist/dist/fonts/geist-sans/Geist-SemiBold.woff2') format('woff2');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Geist';
-  src: url('../node_modules/geist/dist/fonts/geist-sans/Geist-Bold.woff2') format('woff2');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'Geist';
-  src: url('../node_modules/geist/dist/fonts/geist-sans/Geist-Black.woff2') format('woff2');
-  font-weight: 900;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* ── Theme tokens ───────────────────────────────────────── */
+/* ── Design System ──────────────────────────────────────── */
 @theme {
+  /* ── Colors ── */
   --color-bg: #000000;
   --color-bg-secondary: #111111;
   --color-text-primary: #f0f0f0;
@@ -77,9 +11,38 @@
   --color-border: #181818;
   --color-accent: #27bf00;
 
+  /* ── Font Families ── */
   --font-sans: "Archivo", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Bodoni Moda", serif;
   --font-pixel: "Press Start 2P", monospace;
 
+  /* ── Font Sizes ──
+   * xs/sm/base = fixed    → UI chrome, labels, body
+   * lg/xl/2xl  = fluid    → headings, hero text
+   * display/*  = fluid    → decorative, logo
+   */
+  --text-xs: 0.7rem;
+  --text-sm: 0.75rem;
+  --text-base: 0.875rem;
+  --text-lg: clamp(1rem, 1.2vw, 1.25rem);
+  --text-xl: clamp(1.125rem, 1.5vw, 1.5rem);
+  --text-2xl: clamp(2rem, 5vw, 3rem);
+  --text-3xl: clamp(2.5rem, 5vw, 5rem);
+  --text-display: clamp(2rem, 5.5vw, 5rem);
+  --text-display-lg: clamp(1.8rem, 5.5vw, 7rem);
+  --text-display-xl: clamp(4rem, 18vw, 22rem);
+
+  /* ── Line Heights ── */
+  --leading-tight: 1.1;
+  --leading-snug: 1.4;
+  --leading-relaxed: 1.6;
+
+  /* ── Letter Spacing ── */
+  --tracking-tight: -0.03em;
+  --tracking-wide: 0.025em;
+  --tracking-widest: 0.1em;
+
+  /* ── Layout ── */
   --container-max: 1600px;
 }
 
@@ -121,6 +84,29 @@
     outline-offset: 2px;
   }
 
+  /* Typing animation */
+  .typing-loop {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid var(--color-accent);
+    letter-spacing: normal;
+    width: 0;
+    animation: typing 4s steps(11) infinite, blink 0.7s step-end infinite;
+  }
+
+  @keyframes typing {
+    0%  { width: 0; }
+    35% { width: 11.5ch; }
+    65% { width: 11.5ch; }
+    100% { width: 0; }
+  }
+
+  @keyframes blink {
+    0%, 100% { border-color: var(--color-accent); }
+    50% { border-color: transparent; }
+  }
+
   /* CRT animations */
   @keyframes crt-noise {
     0% { transform: translate(0, 0); }
@@ -158,3 +144,4 @@
     }
   }
 }
+

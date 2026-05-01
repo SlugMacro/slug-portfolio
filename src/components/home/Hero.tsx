@@ -5,28 +5,11 @@ export default function Hero() {
   const profile = getProfile()
 
   return (
-    <section className="border-b border-border" style={{ paddingTop: 144, paddingBottom: 144 }}>
+    <section className="border-b border-border py-16 sm:py-24 lg:py-32">
       <AnimatedSection>
-        <div className="grid grid-cols-1 sm:grid-cols-4">
-          {/* Col 1: label + location + availability */}
-          <div className="px-6 py-0 sm:px-8 md:px-12">
-            <p className="text-[0.875rem] font-medium tracking-wide text-text-primary">
-              {profile.data.title}
-            </p>
-
-            <div className="mt-4 text-[0.75rem] leading-relaxed tracking-wide text-text-secondary">
-              <p>{profile.data.coordinates}</p>
-              <p>{profile.data.location}</p>
-            </div>
-
-            <p className="mt-4 text-[0.75rem] tracking-wide text-accent">
-              Open to Product / Systems Roles
-            </p>
-          </div>
-
-          {/* Cols 2-3: intro + CTA (50%) */}
-          <div className="col-span-1 mt-4 px-6 sm:col-span-2 sm:mt-0 sm:px-8 md:px-12">
-            <p className="max-w-[55ch] text-[clamp(1.125rem,1.5vw,1.5rem)] leading-[1.4] font-light text-text-primary">
+        <div className="px-6 sm:px-8 lg:px-12">
+          <div>
+            <p className="max-w-[55ch] text-xl leading-[1.5] font-light text-text-primary">
               {profile.data.homeIntro || profile.content}
             </p>
 
@@ -41,7 +24,7 @@ export default function Hero() {
                   window.scrollTo({ top: y, behavior: 'smooth' })
                 }
                 }}
-                className="group inline-flex cursor-pointer items-center gap-3 border border-border px-6 py-4 text-[0.875rem] tracking-wide text-text-primary transition-colors duration-300 hover:border-accent"
+                className="group inline-flex cursor-pointer items-center gap-3 border border-border px-6 py-4 text-base tracking-wide text-text-primary transition-colors duration-300 hover:border-accent"
               >
                 <span>Explore my work</span><span className="text-text-tertiary">/2025-2026</span>
                 <svg
@@ -61,6 +44,7 @@ export default function Hero() {
             </div>
           </div>
         </div>
+
       </AnimatedSection>
     </section>
   )

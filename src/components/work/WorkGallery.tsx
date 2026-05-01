@@ -37,10 +37,8 @@ function MobileFrame({ src, alt, theme = 'dark' }: { src: string; alt: string; t
   return (
     <div className={`flex aspect-[5/8] items-center justify-center rounded-2xl ${bg} p-8 sm:p-12`}>
       {/* Phone bezel */}
-      <div className="w-full max-w-[280px] overflow-hidden rounded-[2rem] bg-black p-2 shadow-2xl ring-1 ring-white/10">
-        {/* Notch */}
-        <div className="relative overflow-hidden rounded-[1.5rem]">
-          <div className="absolute top-0 left-1/2 z-10 h-6 w-28 -translate-x-1/2 rounded-b-2xl bg-black" />
+      <div className="w-full max-w-[280px] overflow-hidden rounded-[2.5rem] bg-black p-2 shadow-2xl ring-1 ring-white/10">
+        <div className="overflow-hidden rounded-[2rem]">
           <img
             src={src}
             alt={alt}
@@ -101,12 +99,40 @@ export default function WorkGallery({ data }: WorkGalleryProps) {
   }
 
   if (data.galleryLayout === 'full') {
+    const pairs = new Set(data.galleryPairIndices ?? [])
+    const elements: React.ReactNode[] = []
+    let i = 0
+    while (i < data.galleryImages.length) {
+      if (pairs.has(i) && pairs.has(i + 1) && i + 1 < data.galleryImages.length) {
+        const bg = data.galleryTheme === 'light' ? 'bg-[#e8e8e8]' : 'bg-[#1a1a1a]'
+        elements.push(
+          <div key={`pair-${i}`} className="grid grid-cols-2 gap-6">
+            {[data.galleryImages[i], data.galleryImages[i + 1]].map((img, j) => (
+              <div key={j} className={`flex items-center justify-center rounded-2xl ${bg} p-8 sm:p-12`}>
+                <div className="w-full max-w-[280px] overflow-hidden rounded-[1.5rem]">
+                  <img
+                    src={img}
+                    alt={`${data.title} gallery ${i + j + 1}`}
+                    className="w-full"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        )
+        i += 2
+      } else {
+        elements.push(
+          <BrowserFrame key={i} src={data.galleryImages[i]} alt={`${data.title} gallery ${i + 1}`} theme={data.galleryTheme} />
+        )
+        i++
+      }
+    }
     return (
       <section className="space-y-6">
         <Container className="space-y-6">
-          {data.galleryImages.map((img, i) => (
-            <BrowserFrame key={i} src={img} alt={`${data.title} gallery ${i + 1}`} theme={data.galleryTheme} />
-          ))}
+          {elements}
         </Container>
       </section>
     )

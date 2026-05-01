@@ -55,8 +55,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
         transition={{ duration: 0.6, delay: 0.1, ease }}
       >
         <span
-          className="text-6xl md:text-8xl lg:text-9xl text-text-primary tabular-nums"
-          style={{ fontFamily: '"Bodoni Moda", serif' }}
+          className="font-display text-6xl md:text-8xl lg:text-9xl text-text-primary tabular-nums"
         >
           {Math.round(progress).toString().padStart(3, '0')}
         </span>

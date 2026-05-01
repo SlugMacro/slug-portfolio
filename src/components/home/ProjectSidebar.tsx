@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { createPortal } from 'react-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import LiquidText from '@/components/common/LiquidText'
@@ -99,23 +99,18 @@ export default function ProjectSidebar({ work, onClose }: ProjectSidebarProps) {
               </svg>
             </button>
 
-            <div className="p-6 sm:p-8 md:p-24">
+            <div className="p-6 pb-12 sm:p-8 sm:pb-16 md:p-24 md:pb-48">
               {/* Title */}
               <LiquidText
                 radius={0.2}
-                className="text-text-primary leading-[1] font-bold"
-                style={{
-                  fontFamily: "'Bodoni Moda', serif",
-                  fontSize: 'clamp(2rem, 5.5vw, 5rem)',
-                  letterSpacing: '-0.03em',
-                }}
+                className="font-display text-text-primary leading-[1] font-bold text-display tracking-tight"
               >
                 {work.data.title}
               </LiquidText>
 
               {/* Intro */}
               {intro && (
-                <p className="mt-8 text-[clamp(1rem,1.2vw,1.25rem)] leading-[1.5] font-light text-text-primary">
+                <p className="mt-8 text-lg leading-[1.5] font-light text-text-primary">
                   {intro.text}
                 </p>
               )}
@@ -123,43 +118,48 @@ export default function ProjectSidebar({ work, onClose }: ProjectSidebarProps) {
               {/* Meta */}
               <div className="mt-6 flex flex-wrap gap-x-8 gap-y-2">
                 <div>
-                  <p className="text-[0.75rem] tracking-wide text-text-tertiary">Year</p>
-                  <p className="mt-1 text-[0.875rem] text-text-primary">{work.data.year}</p>
+                  <p className="text-sm tracking-wide text-text-tertiary">Year</p>
+                  <p className="mt-1 text-base text-text-primary">{work.data.year}</p>
                 </div>
                 <div>
-                  <p className="text-[0.75rem] tracking-wide text-text-tertiary">Role</p>
-                  <p className="mt-1 text-[0.875rem] text-text-primary">{work.data.role}</p>
+                  <p className="text-sm tracking-wide text-text-tertiary">Role</p>
+                  <p className="mt-1 text-base text-text-primary">{work.data.role}</p>
                 </div>
                 <div>
-                  <p className="text-[0.75rem] tracking-wide text-text-tertiary">Type</p>
-                  <p className="mt-1 text-[0.875rem] text-text-primary">{work.data.type}</p>
+                  <p className="text-sm tracking-wide text-text-tertiary">Type</p>
+                  <p className="mt-1 text-base text-text-primary">{work.data.type}</p>
                 </div>
               </div>
 
               {/* Content sections */}
               {bodySections.length > 0 && (
-                <div className="mt-12 space-y-10">
+                <div className="mt-12 grid grid-cols-1 gap-10 border-t border-border pt-8 lg:pt-12 lg:grid-cols-[1fr_1px_1fr] lg:gap-0">
                   {bodySections.map((section, i) => (
-                    <div key={i} className="border-t border-border pt-8">
-                      <p className="text-[0.875rem] font-medium tracking-wide text-text-primary">
-                        {section.heading}
-                      </p>
-                      <div className="mt-4">
-                        {section.items.length > 0 ? (
-                          <ul className="space-y-2">
-                            {section.items.map((item, j) => (
-                              <li key={j} className="text-[0.875rem] leading-[1.6] text-text-secondary">
-                                {item}
-                              </li>
-                            ))}
-                          </ul>
-                        ) : (
-                          <p className="text-[0.875rem] leading-[1.6] text-text-secondary">
-                            {section.text}
-                          </p>
-                        )}
+                    <React.Fragment key={i}>
+                      {i > 0 && (
+                        <div className="hidden bg-border lg:block" />
+                      )}
+                      <div className={i > 0 ? 'border-t border-border pt-10 lg:border-t-0 lg:pt-0 lg:pl-10' : 'lg:pr-10'}>
+                        <p className="text-base font-medium tracking-wide text-text-primary">
+                          {section.heading}
+                        </p>
+                        <div className="mt-4">
+                          {section.items.length > 0 ? (
+                            <ul className="space-y-2">
+                              {section.items.map((item, j) => (
+                                <li key={j} className="text-base leading-relaxed text-text-secondary">
+                                  {item}
+                                </li>
+                              ))}
+                            </ul>
+                          ) : (
+                            <p className="text-base leading-relaxed text-text-secondary">
+                              {section.text}
+                            </p>
+                          )}
+                        </div>
                       </div>
-                    </div>
+                    </React.Fragment>
                   ))}
                 </div>
               )}
@@ -194,9 +194,8 @@ export default function ProjectSidebar({ work, onClose }: ProjectSidebarProps) {
                       <div className="grid grid-cols-2 gap-4">
                         {work.data.galleryImages.slice(4).map((img, i) => (
                           <div key={i} className="flex items-center justify-center bg-[#111111] px-4 py-12 sm:px-6">
-                            <div className="w-full max-w-[270px] overflow-hidden rounded-[1.5rem] bg-black p-1.5 ring-1 ring-white/5">
-                              <div className="relative overflow-hidden rounded-[1.2rem]">
-                                <div className="absolute top-0 left-1/2 z-10 h-4 w-20 -translate-x-1/2 rounded-b-xl bg-black" />
+                            <div className="w-full max-w-[270px] overflow-hidden rounded-[2rem] bg-black p-1.5 ring-1 ring-white/5">
+                              <div className="overflow-hidden rounded-[1.7rem]">
                                 <img
                                   src={img}
                                   alt={`${work.data.title} gallery ${4 + i + 1}`}
@@ -214,9 +213,8 @@ export default function ProjectSidebar({ work, onClose }: ProjectSidebarProps) {
                   <div className="mt-12 grid grid-cols-2 gap-4">
                     {work.data.galleryImages.map((img, i) => (
                       <div key={i} className="flex items-center justify-center bg-[#111111] px-4 py-12 sm:px-6">
-                        <div className="w-full max-w-[270px] overflow-hidden rounded-[1.5rem] bg-black p-1.5 ring-1 ring-white/5">
-                          <div className="relative overflow-hidden rounded-[1.2rem]">
-                            <div className="absolute top-0 left-1/2 z-10 h-4 w-20 -translate-x-1/2 rounded-b-xl bg-black" />
+                        <div className="w-full max-w-[270px] overflow-hidden rounded-[2rem] bg-black p-1.5 ring-1 ring-white/5">
+                          <div className="overflow-hidden rounded-[1.7rem]">
                             <img
                               src={img}
                               alt={`${work.data.title} gallery ${i + 1}`}
@@ -230,26 +228,55 @@ export default function ProjectSidebar({ work, onClose }: ProjectSidebarProps) {
                   </div>
                 ) : (
                   <div className="mt-12 space-y-6">
-                    {work.data.galleryImages.map((img, i) => {
+                    {(() => {
                       const light = work.data.galleryTheme === 'light'
-                      return (
-                        <div key={i} className={`${light ? 'bg-[#e8e8e8]' : 'bg-[#111111]'} p-6 sm:p-12`}>
-                          <div className="overflow-hidden rounded-[4px]">
-                            <div className={`flex h-6 items-center gap-1.5 ${light ? 'bg-[#f0f0f0]' : 'bg-[#161616]'} px-3`}>
-                              <span className="h-2 w-2 rounded-full bg-[#ff5f57]" />
-                              <span className="h-2 w-2 rounded-full bg-[#febc2e]" />
-                              <span className="h-2 w-2 rounded-full bg-[#28c840]" />
+                      const pairs = new Set(work.data.galleryPairIndices ?? [])
+                      const elements: React.ReactNode[] = []
+                      let i = 0
+                      while (i < work.data.galleryImages.length) {
+                        // Check if this image starts a pair (consecutive indices in pairs)
+                        if (pairs.has(i) && pairs.has(i + 1) && i + 1 < work.data.galleryImages.length) {
+                          elements.push(
+                            <div key={`pair-${i}`} className="grid grid-cols-2 gap-4">
+                              {[work.data.galleryImages[i], work.data.galleryImages[i + 1]].map((img, j) => (
+                                <div key={j} className={`flex items-center justify-center ${light ? 'bg-[#e8e8e8]' : 'bg-[#111111]'} px-4 py-12 sm:px-6`}>
+                                  <div className="w-full max-w-[270px] overflow-hidden rounded-[1.2rem]">
+                                    <img
+                                      src={img}
+                                      alt={`${work.data.title} gallery ${i + j + 1}`}
+                                      className="w-full"
+                                      loading="lazy"
+                                    />
+                                  </div>
+                                </div>
+                              ))}
                             </div>
-                            <img
-                              src={img}
-                              alt={`${work.data.title} gallery ${i + 1}`}
-                              className="w-full"
-                              loading="lazy"
-                            />
-                          </div>
-                        </div>
-                      )
-                    })}
+                          )
+                          i += 2
+                        } else {
+                          const img = work.data.galleryImages[i]
+                          elements.push(
+                            <div key={i} className={`${light ? 'bg-[#e8e8e8]' : 'bg-[#111111]'} p-6 sm:p-12`}>
+                              <div className="overflow-hidden rounded-[4px]">
+                                <div className={`flex h-6 items-center gap-1.5 ${light ? 'bg-[#f0f0f0]' : 'bg-[#161616]'} px-3`}>
+                                  <span className="h-2 w-2 rounded-full bg-[#ff5f57]" />
+                                  <span className="h-2 w-2 rounded-full bg-[#febc2e]" />
+                                  <span className="h-2 w-2 rounded-full bg-[#28c840]" />
+                                </div>
+                                <img
+                                  src={img}
+                                  alt={`${work.data.title} gallery ${i + 1}`}
+                                  className="w-full"
+                                  loading="lazy"
+                                />
+                              </div>
+                            </div>
+                          )
+                          i++
+                        }
+                      }
+                      return elements
+                    })()}
                   </div>
                 )
               )}

@@ -12,10 +12,10 @@ export default function Recognition({ recognition }: RecognitionProps) {
   if (recognition.length === 0) return null
 
   return (
-    <section className="border-t border-border py-12 sm:py-16 md:py-24">
+    <section className="border-t border-border py-16 sm:py-24 lg:py-32">
       <div className="grid grid-cols-1 sm:grid-cols-4">
         <div className="px-6 sm:px-8 md:px-12">
-          <p className="text-[0.875rem] font-medium tracking-wide text-text-primary">
+          <p className="text-base font-medium tracking-wide text-text-primary">
             Recognition
           </p>
         </div>
@@ -27,15 +27,15 @@ export default function Recognition({ recognition }: RecognitionProps) {
                 className={`flex items-baseline justify-between pb-4${i < recognition.length - 1 ? ' border-b border-border' : ''}`}
               >
                 <div>
-                  <span className="text-[0.875rem] tracking-wide text-text-primary">
+                  <span className="text-base tracking-wide text-text-primary">
                     {item.title}
                   </span>
-                  <span className="ml-2 text-[0.875rem] tracking-wide text-text-secondary">
+                  <span className="ml-2 text-base tracking-wide text-text-secondary">
                     — {item.org}
                   </span>
                 </div>
                 {item.year && (
-                  <span className="text-[0.75rem] tabular-nums tracking-wide text-text-tertiary">
+                  <span className="text-sm tabular-nums tracking-wide text-text-tertiary">
                     {item.year}
                   </span>
                 )}
