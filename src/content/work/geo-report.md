@@ -34,12 +34,14 @@ galleryPairIndices: [1, 2]
 
 Platform that scores and audits any website's GEO (Generative Engine Optimization) readiness — measuring how well pages are structured for AI-generated search answers across ChatGPT, Gemini, Perplexity, and Claude. Available as a web app and Chrome extension, it evaluates pages against 4 core benchmarks and provides actionable fix guides to improve AI visibility.
 
-## Scope
+## Challenge
 
-- Designed GEO Health Score from 4 benchmarks (Search Alignment, Readability, Credibility, Layout) with multi-model breakdown across ChatGPT, Gemini, Perplexity, Claude
-- Built Chrome extension for instant on-page auditing and webapp with Site Manage, Audit Usage, and issue deep-dives with AI-suggested code fixes
-- Designed pricing, upgrade flows, and GEO Summary — AI-generated insights explaining what's dragging the score down
+GEO (Generative Engine Optimization) was a new space with no scoring standard. Website owners had no way to know if their content was structured for AI-generated search answers.
 
-## Impact
+## Approach
 
-- Pioneered a concrete scoring framework for the emerging GEO space — multi-model benchmarking with actionable fix guides that close the gap between diagnosis and implementation
+Designed a GEO Health Score from 4 benchmarks (Search Alignment, Readability, Credibility, Layout) with multi-model breakdown across ChatGPT, Gemini, Perplexity, and Claude. Built both a Chrome extension for instant on-page auditing and a webapp with AI-suggested code fixes.
+
+## Outcome
+
+Pioneered a concrete scoring framework for the emerging GEO space — multi-model benchmarking with actionable fix guides.

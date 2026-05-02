@@ -24,7 +24,7 @@ export default function WorkHero({ data, content }: WorkHeroProps) {
           </h1>
 
           {/* Description */}
-          <p className="mt-6 max-w-[55ch] text-xl leading-[1.5] font-light text-text-primary">
+          <p className="mt-6 max-w-[55ch] text-xl leading-[1.5] font-normal text-text-primary">
             {intro}
           </p>
 

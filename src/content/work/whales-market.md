@@ -14,7 +14,6 @@ featured: true
 featuredOrder: 1
 galleryLayout: pattern
 thumbnailImage: "/images/whales-market/wm.png"
-heroImage: "/images/whales-market/hero.png"
 galleryImages:
   - "/images/whales-market/layout-1.png"
   - "/images/whales-market/layout-2.png"
@@ -28,11 +27,14 @@ galleryImages:
 
 Advanced Trading Platform for Pre-Market trading, focused on pro traders and high-frequency users. Designed the end-to-end experience across orderbook, position management, portfolio tracking, and P2P matching — handling multi-chain settlement complexity in real-time volatile markets.
 
-## Scope
+## Challenge
 
-- Defined trading architecture end-to-end: orderbook, positions, portfolio, P2P matching, and Pre-Market settlement
-- Mobile adaptation and standardized trading component design system
+Pre-Market trading had no established UX patterns — traders needed to manage orderbooks, positions, and P2P matching across 26 chains simultaneously, all in real-time volatile conditions.
 
-## Impact
+## Approach
 
-- $339M+ Pre-Market Volume, 326K+ users, 369+ tokens across 26 chains
+Defined the trading architecture end-to-end: orderbook, position management, portfolio tracking, P2P matching, and Pre-Market settlement. Built a mobile design system to standardize components across platforms.
+
+## Outcome
+
+Became the leading Pre-Market trading platform — $339M+ volume, 326K+ users, 369+ tokens across 26 chains. Established the UX standard for a category that didn't exist before.

@@ -14,7 +14,7 @@ export const workFrontmatterSchema = z.object({
   thumbnailImage: z.string().optional(),
   heroImage: z.string().optional(),
   galleryImages: z.array(z.string()).default([]),
-  galleryLayout: z.enum(['pattern', 'full', 'mobile', 'mixed']).default('pattern'),
+  galleryLayout: z.enum(['pattern', 'full', 'mobile', 'mixed', 'frameless']).default('pattern'),
   galleryTheme: z.enum(['dark', 'light']).default('dark'),
   galleryPairIndices: z.array(z.number()).default([]),
   externalUrl: z.string().optional(),

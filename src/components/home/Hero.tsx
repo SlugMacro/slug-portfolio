@@ -9,7 +9,7 @@ export default function Hero() {
       <AnimatedSection>
         <div className="px-6 sm:px-8 lg:px-12">
           <div>
-            <p className="max-w-[55ch] text-xl leading-[1.5] font-light text-text-primary">
+            <p className="max-w-full lg:max-w-[50%] text-xl leading-[1.5] font-normal text-text-primary">
               {profile.data.homeIntro || profile.content}
             </p>
 

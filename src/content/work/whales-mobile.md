@@ -44,12 +44,14 @@ galleryImages:
 
 Native mobile trading experience for the Whales ecosystem — condensing the full-featured desktop platform into iOS and Android apps built for speed, precision, and one-handed trading in fast-moving markets.
 
-## Scope
+## Challenge
 
-- Redesigned core trading flows for touch-first patterns — gesture-based orders, swipe confirmations, haptic feedback
-- Built real-time feeds, push notifications, and adaptive portrait/landscape layouts
-- Defined mobile component library extending the desktop design system
+The desktop platform had deep functionality — orderbooks, positions, P2P matching — that couldn't simply be shrunk to fit a phone. Traders needed the same power with one-handed, on-the-go precision.
 
-## Impact
+## Approach
 
-- Shipped iOS + Android with full desktop parity — order placement under 2 seconds on touch
+Redesigned core trading flows for touch-first patterns — gesture-based orders, swipe confirmations, real-time feeds, push notifications, and a mobile component library extending the desktop design system.
+
+## Outcome
+
+Shipped iOS + Android with full desktop parity — order placement under 2 seconds on touch.

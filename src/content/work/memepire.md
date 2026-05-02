@@ -34,12 +34,14 @@ galleryTheme: dark
 
 Mobile-first memecoin trading app on Solana — designed to strip away the complexity of on-chain trading and make it dead simple for newcomers. From discovering trending tokens to executing swaps in two taps, every screen was built around one question: how do we get someone who's never touched a DEX to trade confidently within 30 seconds?
 
-## Scope
+## Challenge
 
-- Designed Discover feed (Top Picks, Inflows, Trending), Watchlist, and token detail with live charts and one-tap Buy/Sell
-- Built swap flow with slide-to-confirm, slippage controls, and portfolio tracking with P&L and transaction history
-- Created referral system and onboarding designed for users who've never touched a DEX
+On-chain memecoin trading required wallet setup, DEX navigation, slippage configuration, and token approval — too many steps for newcomers who just wanted to buy a trending token.
 
-## Impact
+## Approach
 
-- Trade execution in 2 taps from discovery — no wallet setup, no DEX routing, no approval friction
+Designed every screen around one question: how do we get someone who's never touched a DEX to trade confidently within 30 seconds? Built Discover feed, Watchlist, token detail with one-tap Buy/Sell, slide-to-confirm swap, and portfolio tracking with P&L.
+
+## Outcome
+
+Trade execution in 2 taps from discovery — no wallet setup, no DEX routing, no approval friction.

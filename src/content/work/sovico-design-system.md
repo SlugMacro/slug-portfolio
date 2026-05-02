@@ -8,7 +8,7 @@ type: Design System
 tags:
   - Design System
   - Enterprise
-role: Product Designer
+role: Product Design
 featured: false
 galleryLayout: pattern
 ---

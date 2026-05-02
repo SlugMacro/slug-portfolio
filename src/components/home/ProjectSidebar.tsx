@@ -4,6 +4,27 @@ import { motion, AnimatePresence } from 'framer-motion'
 import LiquidText from '@/components/common/LiquidText'
 import type { WorkFrontmatter } from '@/content/schema'
 
+function isVideo(src: string) {
+  return /\.(mov|mp4|webm)$/i.test(src)
+}
+
+function GalleryMedia({ src, alt, className, style }: { src: string; alt: string; className?: string; style?: React.CSSProperties }) {
+  if (isVideo(src)) {
+    return (
+      <video
+        src={src}
+        className={className}
+        style={style}
+        autoPlay
+        loop
+        muted
+        playsInline
+      />
+    )
+  }
+  return <img src={src} alt={alt} className={className} style={style} loading="lazy" />
+}
+
 interface ProjectSidebarProps {
   work: { data: WorkFrontmatter; content: string } | null
   onClose: () => void
@@ -86,7 +107,7 @@ export default function ProjectSidebar({ work, onClose }: ProjectSidebarProps) {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className="absolute top-0 right-0 bottom-0 w-full overflow-y-auto bg-bg border-l border-border [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:w-[75%]"
+              className="absolute top-0 right-0 bottom-0 w-full overflow-y-auto bg-bg border-l border-border [scrollbar-width:none] [&::-webkit-scrollbar]:hidden lg:w-[75%]"
             >
             {/* Close — floating top-right */}
             <button
@@ -99,18 +120,18 @@ export default function ProjectSidebar({ work, onClose }: ProjectSidebarProps) {
               </svg>
             </button>
 
-            <div className="p-16 sm:p-24 lg:p-32">
+            <div className="p-6 sm:p-8 lg:p-32">
               {/* Title */}
               <LiquidText
                 radius={0.2}
-                className="font-display text-text-primary leading-[1] font-bold text-display tracking-tight"
+                className="font-display text-text-primary leading-[1] font-normal text-display tracking-tight"
               >
                 {work.data.title}
               </LiquidText>
 
               {/* Intro */}
               {intro && (
-                <p className="mt-8 text-lg leading-[1.5] font-light text-text-primary">
+                <p className="mt-8 text-xl leading-[1.5] font-normal text-text-primary">
                   {intro.text}
                 </p>
               )}
@@ -118,28 +139,36 @@ export default function ProjectSidebar({ work, onClose }: ProjectSidebarProps) {
               {/* Meta */}
               <div className="mt-6 flex flex-wrap gap-x-8 gap-y-2">
                 <div>
-                  <p className="text-sm tracking-wide text-text-tertiary">Year</p>
+                  <p className="text-base tracking-wide text-text-tertiary">Year</p>
                   <p className="mt-1 text-base text-text-primary">{work.data.year}</p>
                 </div>
                 <div>
-                  <p className="text-sm tracking-wide text-text-tertiary">Role</p>
+                  <p className="text-base tracking-wide text-text-tertiary">Role</p>
                   <p className="mt-1 text-base text-text-primary">{work.data.role}</p>
                 </div>
                 <div>
-                  <p className="text-sm tracking-wide text-text-tertiary">Type</p>
+                  <p className="text-base tracking-wide text-text-tertiary">Type</p>
                   <p className="mt-1 text-base text-text-primary">{work.data.type}</p>
                 </div>
               </div>
 
               {/* Content sections */}
               {bodySections.length > 0 && (
-                <div className="mt-12 grid grid-cols-1 gap-10 border-t border-border pt-8 lg:pt-12 lg:grid-cols-[1fr_1px_1fr] lg:gap-0">
+                <div
+                  className={`mt-12 grid grid-cols-1 gap-10 border-t border-border pt-8 lg:pt-12 lg:gap-0 ${
+                    bodySections.length === 3
+                      ? 'lg:grid-cols-[1fr_1px_1fr_1px_1fr]'
+                      : bodySections.length === 2
+                        ? 'lg:grid-cols-[1fr_1px_1fr]'
+                        : ''
+                  }`}
+                >
                   {bodySections.map((section, i) => (
                     <React.Fragment key={i}>
                       {i > 0 && (
                         <div className="hidden bg-border lg:block" />
                       )}
-                      <div className={i > 0 ? 'border-t border-border pt-10 lg:border-t-0 lg:pt-0 lg:pl-10' : 'lg:pr-10'}>
+                      <div className={i === 0 ? 'lg:pr-10' : i < bodySections.length - 1 ? 'border-t border-border pt-10 lg:border-t-0 lg:pt-0 lg:px-10' : 'border-t border-border pt-10 lg:border-t-0 lg:pt-0 lg:pl-10'}>
                         <p className="text-base font-medium tracking-wide text-text-primary">
                           {section.heading}
                         </p>
@@ -166,7 +195,36 @@ export default function ProjectSidebar({ work, onClose }: ProjectSidebarProps) {
 
               {/* Gallery */}
               {work.data.galleryImages.length > 0 && (
-                work.data.galleryLayout === 'mixed' ? (
+                work.data.galleryLayout === 'frameless' ? (
+                  <div className="mt-12 space-y-6">
+                    {/* Desktop — full width, no frame */}
+                    <div className={`${work.data.galleryTheme === 'light' ? 'bg-[#e8e8e8]' : 'bg-[#111111]'} p-6 sm:p-12`}>
+                      <img
+                        src={work.data.galleryImages[0]}
+                        alt={`${work.data.title} gallery 1`}
+                        className="w-full"
+                        loading="lazy"
+                      />
+                    </div>
+                    {/* Mobile — 2 per row, no frame */}
+                    {work.data.galleryImages.length > 1 && (
+                      <div className="grid grid-cols-2 gap-4">
+                        {work.data.galleryImages.slice(1).map((img, i) => (
+                          <div key={i} className={`flex items-center justify-center ${work.data.galleryTheme === 'light' ? 'bg-[#e8e8e8]' : 'bg-[#111111]'} px-4 py-12 sm:px-6`}>
+                            <div className="w-full max-w-[270px] overflow-hidden">
+                              <img
+                                src={img}
+                                alt={`${work.data.title} gallery ${i + 2}`}
+                                className="w-full"
+                                loading="lazy"
+                              />
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ) : work.data.galleryLayout === 'mixed' ? (
                   <div className="mt-12 space-y-6">
                     {/* Browser frames — 1 per row */}
                     {work.data.galleryImages.slice(0, 4).map((img, i) => {
@@ -256,6 +314,16 @@ export default function ProjectSidebar({ work, onClose }: ProjectSidebarProps) {
                         } else {
                           const img = work.data.galleryImages[i]
                           elements.push(
+                            isVideo(img) ? (
+                            <div key={i} className="mt-12 overflow-hidden ring-1 ring-white/5">
+                              <GalleryMedia
+                                src={img}
+                                alt={`${work.data.title} gallery ${i + 1}`}
+                                className="w-full"
+                                style={{ marginTop: '-1px' }}
+                              />
+                            </div>
+                            ) : (
                             <div key={i} className={`${light ? 'bg-[#e8e8e8]' : 'bg-[#111111]'} p-6 sm:p-12`}>
                               <div className="overflow-hidden rounded-[4px]">
                                 <div className={`flex h-6 items-center gap-1.5 ${light ? 'bg-[#f0f0f0]' : 'bg-[#161616]'} px-3`}>
@@ -263,14 +331,14 @@ export default function ProjectSidebar({ work, onClose }: ProjectSidebarProps) {
                                   <span className="h-2 w-2 rounded-full bg-[#febc2e]" />
                                   <span className="h-2 w-2 rounded-full bg-[#28c840]" />
                                 </div>
-                                <img
+                                <GalleryMedia
                                   src={img}
                                   alt={`${work.data.title} gallery ${i + 1}`}
                                   className="w-full"
-                                  loading="lazy"
                                 />
                               </div>
                             </div>
+                            )
                           )
                           i++
                         }

@@ -63,40 +63,28 @@ export default function Navbar() {
       {/* Nav bar — sticky top */}
       <header ref={headerRef as React.RefObject<HTMLElement>} className={cn('sticky top-0 z-50 w-full bg-bg border-t border-border transition-[border-color] duration-300', scrolled ? 'border-b border-b-border' : 'border-b border-b-transparent')}>
         <nav className="grid grid-cols-2 lg:grid-cols-4 [&>div]:transition-[padding] [&>div]:duration-300">
-          <div className={cn('px-6 text-base leading-relaxed tracking-wide text-text-secondary sm:px-8 lg:px-12', scrolled ? 'py-4 lg:py-6' : 'py-4 lg:py-12')}>
-            Independent Designer
+          <div className={cn('px-6 sm:px-8 lg:px-12', scrolled ? 'py-4 lg:py-6' : 'py-4 lg:py-6')}>
+            <span className="block text-base tracking-wide text-text-tertiary">Independent</span>
+            <span className="block text-base tracking-wide text-text-tertiary">Designer</span>
           </div>
 
-          <div className={cn('hidden px-8 text-base leading-relaxed tracking-wide lg:block lg:px-12', scrolled ? 'py-6' : 'py-12')}>
-            <Link
-              to="/"
-              className={cn(
-                'transition-opacity duration-300 hover:opacity-60',
-                location.pathname === '/'
-                  ? 'text-text-primary font-medium'
-                  : 'text-text-secondary'
-              )}
-            >
+          <div className={cn('hidden lg:block lg:px-12', 'py-6')}>
+            <Link to="/" className={cn('block text-base tracking-wide text-text-primary underline underline-offset-4 transition-colors duration-300 hover:decoration-accent', location.pathname === '/' ? 'decoration-accent' : 'decoration-[#555]')}>
               Projects
             </Link>
-          </div>
-
-          <div className={cn('hidden px-8 text-base leading-relaxed tracking-wide lg:block lg:px-12', scrolled ? 'py-6' : 'py-12')}>
-            <Link
-              to="/profile"
-              className={cn(
-                'transition-opacity duration-300 hover:opacity-60',
-                location.pathname === '/profile'
-                  ? 'text-text-primary font-medium'
-                  : 'text-text-secondary'
-              )}
-            >
+            <Link to="/profile" className={cn('block text-base tracking-wide text-text-primary underline underline-offset-4 transition-colors duration-300 hover:decoration-accent', location.pathname === '/profile' ? 'decoration-accent' : 'decoration-[#555]')}>
               Information
             </Link>
           </div>
 
-          <div className={cn('hidden px-8 text-right text-base leading-relaxed tracking-wide text-text-tertiary lg:block lg:px-12', scrolled ? 'py-6' : 'py-12')}>
-            <span>2026 Portfolio — V.2.1.0</span>
+          <div className={cn('hidden lg:block lg:px-12', 'py-6')}>
+            <span className="block text-base tracking-wide text-text-tertiary">Contact</span>
+            <a href="mailto:macroslug@gmail.com" className="block text-base tracking-wide text-text-primary underline decoration-[#555] underline-offset-4 transition-colors duration-300 hover:decoration-accent">macroslug@gmail.com</a>
+          </div>
+
+          <div className={cn('hidden lg:block lg:px-12', 'py-6')}>
+            <span className="block text-base tracking-wide text-text-tertiary">Location</span>
+            <span className="block text-base tracking-wide text-text-tertiary">Hanoi, Vietnam</span>
           </div>
 
           <button

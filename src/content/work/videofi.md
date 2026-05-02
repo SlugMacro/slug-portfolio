@@ -29,12 +29,14 @@ galleryTheme: dark
 
 Onchain AI video generation platform on BNB Chain — turning static images and text prompts into animated videos using Minimax models. Designed the full product experience across web and mobile, covering creation flows, community exploration, asset management, and token-gated generation with a credit-based economy.
 
-## Scope
+## Challenge
 
-- Designed Image-to-Video and Text-to-Video creation flows with prompt input, model selection, and batch generation
-- Built Explore feed, Workspace asset management, and responsive mobile experience
-- Integrated token economy — credit-based generation, on-chain claiming, and wallet balance
+AI video generation tools were either too technical for casual users or disconnected from Web3 — no on-chain ownership, no community layer, no token-based access control.
 
-## Impact
+## Approach
 
-- Shipped on BNB Chain — single-screen generation flow with community discovery and cross-platform parity
+Designed the full product across web and mobile: Image-to-Video and Text-to-Video creation flows, Explore feed for community content, Workspace for asset management, and a token economy with credit-based generation and on-chain claiming.
+
+## Outcome
+
+Shipped on BNB Chain — single-screen generation flow with community discovery and cross-platform parity.

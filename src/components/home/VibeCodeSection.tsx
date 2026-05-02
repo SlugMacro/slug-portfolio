@@ -16,25 +16,28 @@ const sideProjects: Array<{ data: WorkFrontmatter; content: string; previewUrl?:
       tags: ['Mobile', 'GitHub', 'Chat'],
       role: 'Product Design & Development',
       featured: false,
-      galleryImages: [],
-      galleryLayout: 'pattern',
+      galleryImages: [
+        '/images/gitchat-ios/layout-1.png',
+        '/images/gitchat-ios/layout-2.png',
+        '/images/gitchat-ios/layout-3.png',
+        '/images/gitchat-ios/layout-4.png',
+        '/images/gitchat-ios/layout-5.png',
+        '/images/gitchat-ios/layout-6.png',
+        '/images/gitchat-ios/layout-7.png',
+        '/images/gitchat-ios/layout-8.png',
+      ],
+      galleryLayout: 'mobile',
       galleryTheme: 'dark',
     },
     content: `Native mobile app for GitChat — bringing repo-based communities, threaded discussions, and code snippet sharing to iOS and Android. Fully synced with the desktop web client and VS Code extension, so conversations follow you everywhere.
 
 ## Scope
 
-- Designed mobile-first chat experience with gesture-based navigation and quick-reply patterns
-- Built push notification system synced across IDE, web, and mobile
-- Created offline-first architecture for reading threads without connectivity
-- Designed onboarding flow with GitHub OAuth and automatic repo suggestions
+- Designed mobile-first chat with gesture navigation, push notifications synced across IDE/web/mobile, and offline-first reading
 
 ## Stack
 
-- React Native (iOS + Android)
-- GitHub OAuth + GraphQL API
-- WebSocket for real-time messaging
-- AsyncStorage for offline support`,
+- React Native, GitHub OAuth + GraphQL API, WebSocket, AsyncStorage`,
   },
   {
     data: {
@@ -47,58 +50,25 @@ const sideProjects: Array<{ data: WorkFrontmatter; content: string; previewUrl?:
       tags: ['VS Code', 'GitHub', 'Developer Tools'],
       role: 'Product Design & Development',
       featured: false,
-      galleryImages: [],
-      galleryLayout: 'pattern',
-      galleryTheme: 'dark',
+      galleryImages: [
+        '/images/gitchat-extension/layout-1.png',
+        '/images/gitchat-extension/layout-2.png',
+        '/images/gitchat-extension/layout-3.png',
+        '/images/gitchat-extension/layout-4.png',
+        '/images/gitchat-extension/layout-5.png',
+      ],
+      galleryLayout: 'frameless',
+      galleryTheme: 'light',
     },
     content: `VS Code extension that brings repo-based chat directly into the editor. Select code, share it to a channel, and discuss in context with automatic PR and issue linking — all without leaving your IDE. Notifications stay in sync across the web client, mobile app, and extension so you never miss a thread.
 
 ## Scope
 
-- Designed sidebar panel with threaded chat, inline code references, and file linking
-- Built context-aware suggestions — auto-links current file, function, or PR to messages
-- Created notification badge system integrated with VS Code's activity bar
-- Designed quick-share flow: select code → right-click → share to repo chat
+- Designed sidebar with threaded chat, inline code references, context-aware PR linking, and quick-share flow
 
 ## Stack
 
-- VS Code Extension API
-- TypeScript
-- WebSocket for real-time sync
-- GitHub GraphQL API`,
-  },
-  {
-    previewUrl: 'https://clawfriend.ai/',
-    data: {
-      slug: 'clawfriend',
-      title: 'ClawFriend',
-      subtitle: 'Social trading platform for AI agents',
-      year: '2026',
-      client: 'Personal',
-      type: 'Side Project',
-      tags: ['AI Agents', 'Social', 'DeFi'],
-      role: 'Product Design & Development',
-      featured: false,
-      galleryImages: [],
-      galleryLayout: 'pattern',
-      galleryTheme: 'dark',
-    },
-    content: `Social and trading platform where AI agents build reputation post-TGE. Agents grow value through community posts and alpha calls, while users discover and invest early in promising ones. Think Product Hunt meets token trading — but for AI agents.
-
-## Scope
-
-- Designed agent profile pages with performance metrics, community activity score, and price charts
-- Built social feed where agents post updates, alpha calls, and community content that directly influences their token value
-- Created early-access investment flow — users discover, research, and buy into agents before they gain traction
-- Designed leaderboard and trending system ranked by engagement, ROI, and holder growth
-- Built portfolio tracker for users to monitor agent investments, unrealized gains, and exit opportunities
-
-## Stack
-
-- React + TypeScript + Vite
-- Real-time WebSocket feeds
-- Token price integration via DeFi APIs
-- Tailwind CSS + Framer Motion`,
+- VS Code Extension API, TypeScript, WebSocket, GitHub GraphQL API`,
   },
   {
     previewUrl: 'https://skillmarket-v2.vercel.app',
@@ -112,7 +82,9 @@ const sideProjects: Array<{ data: WorkFrontmatter; content: string; previewUrl?:
       tags: ['Web3', 'AI Agents', 'Marketplace'],
       role: 'Product Design & Development',
       featured: false,
-      galleryImages: [],
+      galleryImages: [
+        '/images/skill-market/skill-market.mov',
+      ],
       galleryLayout: 'pattern',
       galleryTheme: 'dark',
     },
@@ -120,18 +92,46 @@ const sideProjects: Array<{ data: WorkFrontmatter; content: string; previewUrl?:
 
 ## Scope
 
-- Designed the storefront with skill discovery, ratings, and usage analytics per agent framework
-- Built seller dashboard for publishing skills with versioning, pricing tiers, and revenue tracking
-- Created on-chain licensing system — buyers hold skill NFTs that grant agent-level access
-- Designed integration flow for popular agent frameworks (Claude Code, AutoGPT, CrewAI)
-- Built review and reputation system tied to wallet identity and on-chain transaction history
+- Designed storefront with skill discovery, seller dashboard, on-chain NFT licensing, and agent framework integration
 
 ## Stack
 
-- Next.js + TypeScript
-- Solana for on-chain licensing & payments
-- IPFS for skill package storage
-- Tailwind CSS + Framer Motion`,
+- Next.js + TypeScript, Solana, IPFS, Tailwind CSS + Framer Motion`,
+  },
+  {
+    previewUrl: 'https://clawfriend.ai/',
+    data: {
+      slug: 'clawfriend',
+      title: 'ClawFriend',
+      subtitle: 'Social trading platform for AI agents',
+      year: '2026',
+      client: 'Personal',
+      type: 'Side Project',
+      tags: ['AI Agents', 'Social', 'DeFi'],
+      role: 'Product Design & Development',
+      featured: false,
+      galleryImages: [
+        '/images/clawfriend/layout-1.png',
+        '/images/clawfriend/layout-2.png',
+        '/images/clawfriend/layout-3.png',
+        '/images/clawfriend/layout-4.png',
+        '/images/clawfriend/layout-5.png',
+        '/images/clawfriend/layout-6.png',
+        '/images/clawfriend/layout-7.png',
+        '/images/clawfriend/layout-8.png',
+      ],
+      galleryLayout: 'mixed',
+      galleryTheme: 'dark',
+    },
+    content: `Social and trading platform where AI agents build reputation post-TGE. Agents grow value through community posts and alpha calls, while users discover and invest early in promising ones. Think Product Hunt meets token trading — but for AI agents.
+
+## Scope
+
+- Designed agent profiles, social feed, early-access investment flow, leaderboard, and portfolio tracker with unrealized gains
+
+## Stack
+
+- React + TypeScript + Vite, WebSocket, DeFi APIs, Tailwind CSS + Framer Motion`,
   },
 ]
 
@@ -140,15 +140,15 @@ export default function VibeCodeSection() {
   const close = useCallback(() => setSelected(null), [])
 
   return (
-    <section className="-mt-px border-t border-b border-border">
+    <section id="craft" className="-mt-px border-t border-b border-border">
       <div className="grid grid-cols-1 lg:grid-cols-4">
         {/* Col 1: intro blurb */}
         <div className="px-6 py-6 lg:border-r lg:border-border sm:px-8 sm:py-8 lg:px-12 lg:py-12">
           <p className="mb-4 text-base font-medium tracking-wide text-accent">
-            Craft
+            Craft.
           </p>
-          <p className="max-w-[30ch] text-xl leading-[1.5] font-light text-text-primary">
-            Products I'm building at the intersection of AI agents, Web3, and developer tooling.
+          <p className="max-w-[30ch] text-xl leading-[1.5] font-normal text-text-primary">
+            Things I build on my own time — exploring ideas across AI agents, Web3, and dev tools.
           </p>
         </div>
 
@@ -157,8 +157,7 @@ export default function VibeCodeSection() {
           {sideProjects.map((project, i) => (
             <AnimatedSection key={project.data.slug} delay={i * 0.06}>
               <div
-                style={{ padding: 48 }}
-                className={`group relative cursor-pointer${i < sideProjects.length - 1 ? ' border-b border-border' : ''}`}
+                className={`group relative cursor-pointer p-6 sm:p-8 lg:p-12${i < sideProjects.length - 1 ? ' border-b border-border' : ''}`}
                 onClick={() => setSelected(project)}
               >
                 <span className="inline-block text-base font-medium tracking-wide text-text-primary underline decoration-[#333] underline-offset-4 transition-colors duration-300 group-hover:decoration-accent">

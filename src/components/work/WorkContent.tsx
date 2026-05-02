@@ -1,3 +1,4 @@
+import React from 'react'
 import Container from '@/components/layout/Container'
 
 interface WorkContentProps {
@@ -15,37 +16,44 @@ export default function WorkContent({ content }: WorkContentProps) {
   return (
     <section className="pt-16 pb-16 md:pt-24 md:pb-24">
       <Container>
-        <div className="space-y-10">
+        <div
+          className={`grid grid-cols-1 gap-10 ${
+            bodySections.length === 3
+              ? 'md:grid-cols-[1fr_1px_1fr_1px_1fr] md:gap-0'
+              : bodySections.length === 2
+                ? 'md:grid-cols-[1fr_1px_1fr] md:gap-0'
+                : ''
+          }`}
+        >
           {bodySections.map((section, i) => (
-            <div
-              key={i}
-              className="grid grid-cols-1 gap-4 md:grid-cols-[1fr_3fr] md:gap-0"
-            >
-              {/* Left: heading */}
-              <p className="text-base font-medium tracking-wide text-text-primary">
-                {section.heading}
-              </p>
-
-              {/* Right: content */}
-              <div>
-                {section.items.length > 0 ? (
-                  <ul className="space-y-2">
-                    {section.items.map((item, j) => (
-                      <li
-                        key={j}
-                        className="text-base leading-relaxed text-text-primary"
-                      >
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                ) : (
-                  <p className="text-base leading-relaxed text-text-primary">
-                    {section.text}
-                  </p>
-                )}
+            <React.Fragment key={i}>
+              {i > 0 && (
+                <div className="hidden bg-border md:block" />
+              )}
+              <div className={i === 0 ? 'md:pr-10' : i < bodySections.length - 1 ? 'border-t border-border pt-10 md:border-t-0 md:pt-0 md:px-10' : 'border-t border-border pt-10 md:border-t-0 md:pt-0 md:pl-10'}>
+                <p className="text-base font-medium tracking-wide text-text-primary">
+                  {section.heading}
+                </p>
+                <div className="mt-4">
+                  {section.items.length > 0 ? (
+                    <ul className="space-y-2">
+                      {section.items.map((item, j) => (
+                        <li
+                          key={j}
+                          className="text-base leading-relaxed text-text-secondary"
+                        >
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p className="text-base leading-relaxed text-text-secondary">
+                      {section.text}
+                    </p>
+                  )}
+                </div>
               </div>
-            </div>
+            </React.Fragment>
           ))}
         </div>
       </Container>

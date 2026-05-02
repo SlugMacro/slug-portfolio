@@ -106,10 +106,10 @@ export default function FeaturedGrid({ work }: FeaturedGridProps) {
           style={{ gridColumn: '1 / 2', gridRow: '1 / 2' }}
         >
           <p className="mb-4 text-base font-medium tracking-wide text-accent">
-            Work
+            Work.
           </p>
-          <p className="max-w-[30ch] text-xl leading-[1.5] font-light text-text-primary">
-            A selection of products I've designed across Web3, fintech, and developer tooling.
+          <p className="max-w-[30ch] text-xl leading-[1.5] font-normal text-text-primary">
+            A selection of products I've shipped across trading, AI, and Web3.
           </p>
         </div>
 

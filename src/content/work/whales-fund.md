@@ -29,12 +29,14 @@ galleryTheme: dark
 
 OTC investment platform bridging VCs and retail investors — letting users buy tokens at pre-market prices through verified investment groups before public listings. Designed the dual-sided experience: investors browse and invest in discounted deals, while VCs manage deal creation, vesting schedules, and token distribution from a dedicated dashboard.
 
-## Scope
+## Challenge
 
-- Designed dual-sided experience: investor marketplace with VC trust signals and deal browsing, plus VC dashboard for deal management and vesting distribution
-- Built Deal detail with investment form, multi-chain payment, and vesting tracking (Solana, Base, BNB, Ethereum)
-- Created trust verification layer — Verified Wallet, Doxxed Founder, CryptoRank, On-Time Delivery signals
+OTC token deals relied on intermediaries and group chats — no transparency on vesting terms, no trust verification, and settlement scattered across multiple chains.
 
-## Impact
+## Approach
 
-- Removed intermediaries from OTC token sales — direct VC-to-retail deal flow with built-in trust and multi-chain settlement
+Designed a dual-sided experience: investor marketplace with deal browsing and trust signals (Verified Wallet, Doxxed Founder, On-Time Delivery), plus VC dashboard for deal creation, vesting schedules, and multi-chain payment (Solana, Base, BNB, Ethereum).
+
+## Outcome
+
+Removed intermediaries from OTC token sales — direct VC-to-retail deal flow with built-in trust and multi-chain settlement.
