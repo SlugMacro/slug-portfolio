@@ -83,7 +83,7 @@ export default function Navbar() {
           </div>
 
           <div className={cn('hidden lg:block lg:px-12', 'py-6')}>
-            <span className="block text-base tracking-wide text-text-tertiary">Location</span>
+            <span className="block text-base tracking-wide text-text-tertiary">20°58′N 105°49′E</span>
             <span className="block text-base tracking-wide text-text-tertiary">Hanoi, Vietnam</span>
           </div>
 
