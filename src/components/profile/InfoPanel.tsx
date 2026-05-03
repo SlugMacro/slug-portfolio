@@ -59,7 +59,7 @@ export default function InfoPanel({ data }: InfoPanelProps) {
 
             {/* Resume */}
             <a
-              href="/resume.pdf"
+              href="/Duc-Le-Resume.pdf"
               download
               className="group inline-flex items-center gap-3 border border-border px-6 py-4 text-base text-text-primary transition-colors duration-300 hover:border-accent"
             >
