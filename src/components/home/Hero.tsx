@@ -13,6 +13,10 @@ export default function Hero() {
               {profile.data.homeIntro || profile.content}
             </p>
 
+            <p className="mt-6 text-base text-accent font-medium">
+              Open to senior product design roles in AI, fintech, and Web3.
+            </p>
+
             <div className="mt-12 flex flex-wrap gap-4">
               <button
                 onClick={() => {

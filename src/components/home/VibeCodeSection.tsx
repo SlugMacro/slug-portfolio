@@ -152,7 +152,7 @@ export default function VibeCodeSection() {
             Craft.
           </p>
           <p className="max-w-[30ch] text-xl leading-[1.5] font-normal text-text-primary">
-            Things I build on my own time — exploring ideas across AI agents, Web3, and dev tools.
+            Experimental products across AI agents, Web3, and dev tools — built and shipped on my own time.
           </p>
         </div>
 

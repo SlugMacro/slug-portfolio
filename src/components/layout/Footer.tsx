@@ -2,7 +2,7 @@ export default function Footer() {
   return (
     <footer>
       <div className="px-6 py-24 sm:px-8 md:px-12 md:py-36">
-        <p className="max-w-full lg:max-w-[50%] font-display text-display leading-[1] font-normal tracking-tight text-text-primary">Let's build something together.</p>
+        <p className="max-w-full lg:max-w-[50%] font-display text-display leading-[1] font-normal tracking-tight text-text-primary">I turn complex systems into products people can actually use.</p>
         <a href="mailto:macroslug@gmail.com" className="mt-6 inline-block text-base text-text-primary underline decoration-[#555] underline-offset-4 transition-colors duration-300 hover:decoration-accent">macroslug@gmail.com</a>
       </div>
       <div className="flex flex-col gap-3 border-t border-border px-6 py-8 sm:flex-row sm:items-center sm:justify-between sm:px-8 sm:py-12 md:px-12">

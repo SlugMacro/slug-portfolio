@@ -109,7 +109,7 @@ export default function FeaturedGrid({ work }: FeaturedGridProps) {
             Work.
           </p>
           <p className="max-w-[30ch] text-xl leading-[1.5] font-normal text-text-primary">
-            A selection of products I've shipped across trading, AI, and Web3.
+            Selected products across trading, AI, and Web3. Designed and shipped end-to-end — from idea to production.
           </p>
         </div>
 

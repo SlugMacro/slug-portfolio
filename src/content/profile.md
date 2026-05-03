@@ -10,20 +10,20 @@ socialLinks:
     url: https://www.linkedin.com/in/le-duc-4769bb2a1/
 services: []
 experience:
-  - period: "03.2023 →Present"
+  - period: "03.2023 → Present"
     role: Product Designer
     company: Product Company (NDA)
-    description: "Product designer in a multi-product portfolio spanning trading, AI, and Web3. Led design for Whales Market ($339M+ volume, 326K+ users), Whales Predict, Whales Fund, Mention Network, GEOReport, VideoFi, and Memepire — owning the full process from research and system architecture to final UI and developer handoff."
-  - period: "09.2022 →03.2023"
+    description: "Led product design for a multi-product ecosystem spanning trading platforms, prediction markets, and AI-driven tools. Designed end-to-end flows for complex financial interactions — improving clarity, reducing friction, and enabling faster decision-making. Worked across research, system design, UX flows, and final UI — collaborating closely with product and engineering to ship production-ready features."
+  - period: "09.2022 → 03.2023"
     role: Product Designer
-    company: GalaxyOne – Sovico Group
+    company: GalaxyOne — Sovico Group
     location: HCMC
-    description: "Designed OneTarget — a marketing platform for audience segmentation and ad campaign optimization across Sovico Group's hospitality and aviation brands. Built the enterprise design system with shared components, tokens, and guidelines used across multiple product lines."
-  - period: "08.2008 →09.2022"
-    role: Lead UI/UX Designer
+    description: "Designed B2B and internal platforms focused on user experience and operational efficiency. Built scalable UX systems and improved workflows across enterprise tools, balancing business requirements with usability."
+  - period: "08.2008 → 09.2022"
+    role: Lead UX/UI Designer
     company: JoomlArt
     location: Hanoi
-    description: "Led UI/UX design across 50+ web themes for Joomla, WordPress, and Shopify — serving 200,000+ users globally over 14 years. Maintained a shared design system spanning Business, E-commerce, Healthcare, and Lifestyle verticals while adapting to evolving web standards and platform constraints."
+    description: "Led design across multiple products including SaaS platforms, websites, and digital services. Delivered user-centered solutions across diverse industries while maintaining consistency in design systems and product quality."
 clients: []
 recognition:
   - title: Product Design Excellence
@@ -35,19 +35,20 @@ recognition:
 skills:
   summary: ""
   items:
-    - "End-to-End Product Design"
-    - "Design Systems"
-    - "Complex System UX"
-    - "Data-Heavy Interfaces"
-    - "Front-end Implementation"
-    - "AI-Augmented Workflow"
+    - "Designing complex, data-heavy systems"
+    - "Building scalable design systems"
+    - "Translating data into usable interfaces"
+    - "End-to-end product thinking (0 → 1 → scale)"
+    - "Front-end implementation"
+    - "AI-augmented workflows"
   tools: []
   tags: []
-homeIntro: "Product Designer with 10+ years turning complex systems into clear experiences. I've shipped trading platforms, AI-native SaaS, and Web3 products — owning the full process from research to implementation. Looking for my next full-time role."
+homeIntro: "I design complex, data-heavy systems into products people can actually use. 10+ years across trading platforms, AI tools, and Web3 — from research to shipped interfaces."
 ---
 
-Product Designer with 10+ years of experience across SaaS, fintech, Web3, and enterprise platforms. I work at the system level — from user research and data modeling to architecture logic, UX flows, and final implementation.
+Product Designer with 10+ years of experience across SaaS, fintech, Web3, and enterprise platforms.
+I work across the full stack of product design — from user research and data modeling to interaction design and front-end implementation.
 
-Most recently, I led product design for a multi-product portfolio spanning trading platforms, prediction markets, AI visibility tools, and mobile apps.
+My focus is designing complex systems: trading platforms, prediction markets, and AI-driven tools — where clarity, speed, and usability directly impact user decisions.
 
-Currently open to full-time product design roles.
+Recently, I led product design for multi-product ecosystems, shipping end-to-end experiences across web and mobile.
