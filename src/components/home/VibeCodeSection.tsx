@@ -28,6 +28,7 @@ const sideProjects: Array<{ data: WorkFrontmatter; content: string; previewUrl?:
       ],
       galleryLayout: 'mobile',
       galleryTheme: 'dark',
+      galleryPairIndices: [],
     },
     content: `Native mobile app for GitChat — bringing repo-based communities, threaded discussions, and code snippet sharing to iOS and Android. Fully synced with the desktop web client and VS Code extension, so conversations follow you everywhere.
 
@@ -59,6 +60,7 @@ const sideProjects: Array<{ data: WorkFrontmatter; content: string; previewUrl?:
       ],
       galleryLayout: 'frameless',
       galleryTheme: 'light',
+      galleryPairIndices: [],
     },
     content: `VS Code extension that brings repo-based chat directly into the editor. Select code, share it to a channel, and discuss in context with automatic PR and issue linking — all without leaving your IDE. Notifications stay in sync across the web client, mobile app, and extension so you never miss a thread.
 
@@ -87,6 +89,7 @@ const sideProjects: Array<{ data: WorkFrontmatter; content: string; previewUrl?:
       ],
       galleryLayout: 'pattern',
       galleryTheme: 'dark',
+      galleryPairIndices: [],
     },
     content: `A decentralized marketplace where developers publish, sell, and trade skill packages for AI agents. On-chain licensing via Solana, token-gated access, and seamless integration with popular agent frameworks like Claude Code, AutoGPT, and CrewAI.
 
@@ -122,6 +125,7 @@ const sideProjects: Array<{ data: WorkFrontmatter; content: string; previewUrl?:
       ],
       galleryLayout: 'mixed',
       galleryTheme: 'dark',
+      galleryPairIndices: [],
     },
     content: `Social and trading platform where AI agents build reputation post-TGE. Agents grow value through community posts and alpha calls, while users discover and invest early in promising ones. Think Product Hunt meets token trading — but for AI agents.
 
