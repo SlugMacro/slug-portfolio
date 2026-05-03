@@ -89,6 +89,7 @@ const RippleImage = forwardRef<RippleImageHandle, Props>(({ src, alt = '', class
   const hoverRef = useRef(0)
   const hoverTargetRef = useRef(0)
   const [ready, setReady] = useState(false)
+  const glInitializedRef = useRef(false)
   const imgRef = useRef<HTMLImageElement | null>(null)
   const renderRef = useRef<() => void>(() => {})
 
@@ -185,6 +186,13 @@ const RippleImage = forwardRef<RippleImageHandle, Props>(({ src, alt = '', class
 
   renderRef.current = render
 
+  const ensureGL = useCallback(() => {
+    if (glInitializedRef.current) return
+    glInitializedRef.current = true
+    initGL()
+    if (imgRef.current) uploadImage()
+  }, [initGL, uploadImage])
+
   useImperativeHandle(ref, () => ({
     dropAt(x: number, y: number) {
       const r = containerRef.current?.getBoundingClientRect()
@@ -198,32 +206,32 @@ const RippleImage = forwardRef<RippleImageHandle, Props>(({ src, alt = '', class
     setHover(hovering: boolean) {
       hoverTargetRef.current = hovering ? 1 : 0
       if (hovering) {
+        ensureGL()
         dropTimeRef.current = 0 // reset so next dropAt sets fresh time
         cancelAnimationFrame(rafRef.current)
         rafRef.current = requestAnimationFrame(renderRef.current)
       }
     },
-  }), [])
+  }), [ensureGL])
 
   useEffect(() => {
-    initGL()
     startTimeRef.current = performance.now()
 
     const img = new Image()
     img.crossOrigin = 'anonymous'
     img.onload = () => {
       imgRef.current = img
-      uploadImage()
+      if (glInitializedRef.current) uploadImage()
     }
     img.src = src
 
-    const onResize = () => uploadImage()
+    const onResize = () => { if (glInitializedRef.current) uploadImage() }
     window.addEventListener('resize', onResize)
     return () => {
       cancelAnimationFrame(rafRef.current)
       window.removeEventListener('resize', onResize)
     }
-  }, [src, initGL, uploadImage])
+  }, [src, uploadImage])
 
   return (
     <div ref={containerRef} className="absolute inset-0 pointer-events-none">

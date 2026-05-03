@@ -93,10 +93,11 @@ export default function LiquidText({ children, className, style, radius = 0.25 }
   const hoverRef = useRef(0)
   const hoverTargetRef = useRef(0)
   const [canvasReady, setCanvasReady] = useState(false)
+  const [webGLFailed, setWebGLFailed] = useState(false)
 
   const initGL = useCallback(() => {
     const canvas = canvasRef.current; if (!canvas) return
-    const gl = canvas.getContext('webgl', { premultipliedAlpha: true, alpha: true }); if (!gl) return
+    const gl = canvas.getContext('webgl', { premultipliedAlpha: true, alpha: true }); if (!gl) { setWebGLFailed(true); return }
     glRef.current = gl
     const vs = createShader(gl, gl.VERTEX_SHADER, VERTEX_SHADER)
     const fs = createShader(gl, gl.FRAGMENT_SHADER, FRAGMENT_SHADER)
@@ -198,8 +199,8 @@ export default function LiquidText({ children, className, style, radius = 0.25 }
 
   return (
     <div ref={containerRef} className="relative cursor-pointer overflow-visible" onMouseEnter={onEnter} onMouseLeave={onLeave} onMouseMove={onMove}>
-      <div ref={textRef} className={className} style={{ ...style, visibility: canvasReady ? 'hidden' : 'visible' }}>{children}</div>
-      <canvas ref={canvasRef} className="absolute top-0 left-0 pointer-events-none" />
+      <div ref={textRef} className={className} style={{ ...style, visibility: canvasReady && !webGLFailed ? 'hidden' : 'visible' }}>{children}</div>
+      {!webGLFailed && <canvas ref={canvasRef} className="absolute top-0 left-0 pointer-events-none" />}
     </div>
   )
 }
