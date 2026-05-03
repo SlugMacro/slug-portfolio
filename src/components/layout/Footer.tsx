@@ -11,7 +11,7 @@ export default function Footer() {
           <a href="/" className="text-sm text-text-tertiary underline decoration-[#555] underline-offset-4 transition-colors hover:text-text-primary hover:decoration-accent">Projects</a>
           <a href="/profile" className="text-sm text-text-tertiary underline decoration-[#555] underline-offset-4 transition-colors hover:text-text-primary hover:decoration-accent">Information</a>
           <a href="https://www.linkedin.com/in/le-duc-4769bb2a1/" target="_blank" rel="noopener noreferrer" className="text-sm text-text-tertiary underline decoration-[#555] underline-offset-4 transition-colors hover:text-text-primary hover:decoration-accent">LinkedIn</a>
-          <a href="https://github.com/slugmacro" target="_blank" rel="noopener noreferrer" className="text-sm text-text-tertiary underline decoration-[#555] underline-offset-4 transition-colors hover:text-text-primary hover:decoration-accent">GitHub</a>
+
         </div>
       </div>
     </footer>
