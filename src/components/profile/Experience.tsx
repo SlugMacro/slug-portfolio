@@ -18,14 +18,14 @@ export default function Experience({ experience }: ExperienceProps) {
           <div className="space-y-12">
             {experience.map((entry, i) => (
               <div key={i}>
-                <p className="text-xl leading-[1.5] font-normal text-text-primary">
+                <p className="text-base font-medium text-text-primary">
                   {entry.company}
                 </p>
-                <p className="mt-1 text-base text-text-secondary">
-                  {entry.role} · {entry.period}
+                <p className="mt-1 text-sm text-text-tertiary">
+                  {entry.role} · {entry.period}{entry.location ? ` · ${entry.location}` : ''}
                 </p>
                 {entry.description && (
-                  <p className="mt-4 text-base leading-relaxed text-text-primary">
+                  <p className="mt-4 text-base leading-relaxed text-text-secondary">
                     {entry.description}
                   </p>
                 )}

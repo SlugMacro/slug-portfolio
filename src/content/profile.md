@@ -23,7 +23,7 @@ experience:
     role: Lead UX/UI Designer
     company: JoomlArt
     location: Hanoi
-    description: "Led design across multiple products including SaaS platforms, websites, and digital services. Delivered user-centered solutions across diverse industries while maintaining consistency in design systems and product quality."
+    description: "Designed 50+ templates for Joomla, WordPress, and Magento (200K+ users). Led UI/UX across e-commerce, healthcare, travel, and lifestyle verticals. Maintained shared design system spanning 200+ templates."
 clients: []
 recognition:
   - title: Product Design Excellence
