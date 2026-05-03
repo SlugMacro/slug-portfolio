@@ -148,7 +148,7 @@ export default function VibeCodeSection() {
       <div className="grid grid-cols-1 lg:grid-cols-4">
         {/* Col 1: intro blurb */}
         <div className="px-6 py-6 lg:border-r lg:border-border sm:px-8 sm:py-8 lg:px-12 lg:py-12">
-          <p className="mb-4 text-base font-medium tracking-wide text-accent">
+          <p className="mb-4 text-base font-medium text-accent">
             Craft.
           </p>
           <p className="max-w-[30ch] text-xl leading-[1.5] font-normal text-text-primary">
@@ -161,16 +161,16 @@ export default function VibeCodeSection() {
           {sideProjects.map((project, i) => (
             <AnimatedSection key={project.data.slug} delay={i * 0.06}>
               <div
-                className={`group relative cursor-pointer p-6 sm:p-8 lg:p-12${i < sideProjects.length - 1 ? ' border-b border-border' : ''}`}
+                className={`group relative cursor-pointer px-6 py-6 sm:px-8 sm:py-8 lg:px-12 lg:py-12${i < sideProjects.length - 1 ? ' border-b border-border' : ''}`}
                 onClick={() => setSelected(project)}
               >
-                <span className="inline-block text-base font-medium tracking-wide text-text-primary underline decoration-[#333] underline-offset-4 transition-colors duration-300 group-hover:decoration-accent">
+                <span className="inline-block text-base font-medium text-text-primary underline decoration-[#333] underline-offset-4 transition-colors duration-300 group-hover:decoration-accent">
                   {project.data.title}
                 </span>
-                <span className="mt-1 block text-sm tracking-wide text-text-tertiary">
+                <span className="mt-1 block text-sm text-text-tertiary">
                   {project.data.tags.join(' · ')}
                 </span>
-                <span className="mt-4 block text-base leading-relaxed tracking-wide text-text-secondary">
+                <span className="mt-4 block text-base leading-relaxed text-text-secondary">
                   {project.content.split('\n')[0]}
                 </span>
                 <svg

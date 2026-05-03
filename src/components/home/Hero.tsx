@@ -24,7 +24,7 @@ export default function Hero() {
                   window.scrollTo({ top: y, behavior: 'smooth' })
                 }
                 }}
-                className="group inline-flex cursor-pointer items-center gap-3 border border-border px-6 py-4 text-base tracking-wide text-text-primary transition-colors duration-300 hover:border-accent"
+                className="group inline-flex cursor-pointer items-center gap-3 border border-border px-6 py-4 text-base text-text-primary transition-colors duration-300 hover:border-accent"
               >
                 <span>Explore my work</span><span className="text-text-tertiary">/2025-2026</span>
                 <svg

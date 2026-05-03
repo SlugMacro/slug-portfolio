@@ -105,7 +105,7 @@ export default function FeaturedGrid({ work }: FeaturedGridProps) {
           className="aspect-square bg-bg px-6 py-6 sm:px-8 sm:py-8 lg:px-12 lg:py-12"
           style={{ gridColumn: '1 / 2', gridRow: '1 / 2' }}
         >
-          <p className="mb-4 text-base font-medium tracking-wide text-accent">
+          <p className="mb-4 text-base font-medium text-accent">
             Work.
           </p>
           <p className="max-w-[30ch] text-xl leading-[1.5] font-normal text-text-primary">

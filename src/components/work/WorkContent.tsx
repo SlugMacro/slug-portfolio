@@ -31,7 +31,7 @@ export default function WorkContent({ content }: WorkContentProps) {
                 <div className="hidden bg-border md:block" />
               )}
               <div className={i === 0 ? 'md:pr-10' : i < bodySections.length - 1 ? 'border-t border-border pt-10 md:border-t-0 md:pt-0 md:px-10' : 'border-t border-border pt-10 md:border-t-0 md:pt-0 md:pl-10'}>
-                <p className="text-base font-medium tracking-wide text-text-primary">
+                <p className="text-base font-medium text-text-primary">
                   {section.heading}
                 </p>
                 <div className="mt-4">

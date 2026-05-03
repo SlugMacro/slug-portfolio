@@ -34,7 +34,7 @@ export default function ThemeToggle() {
   }, [theme])
 
   return (
-    <div className="flex items-start gap-3 text-sm leading-relaxed tracking-wide">
+    <div className="flex items-start gap-3 text-sm leading-relaxed">
       {/* Labels */}
       <div>
         {themes.map((t) => (

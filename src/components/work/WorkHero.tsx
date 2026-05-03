@@ -31,20 +31,20 @@ export default function WorkHero({ data, content }: WorkHeroProps) {
           {/* Meta: horizontal, left-aligned, below desc */}
           <div className="mt-8 flex flex-wrap gap-x-8 gap-y-2">
             <div>
-              <p className="text-base tracking-wide text-text-secondary">Year</p>
-              <p className="mt-1 text-base tracking-wide text-text-primary">
+              <p className="text-base text-text-secondary">Year</p>
+              <p className="mt-1 text-base text-text-primary">
                 {data.year}
               </p>
             </div>
             <div>
-              <p className="text-base tracking-wide text-text-secondary">Role</p>
-              <p className="mt-1 text-base tracking-wide text-text-primary">
+              <p className="text-base text-text-secondary">Role</p>
+              <p className="mt-1 text-base text-text-primary">
                 {data.role}
               </p>
             </div>
             <div>
-              <p className="text-base tracking-wide text-text-secondary">Type</p>
-              <p className="mt-1 text-base tracking-wide text-text-primary">
+              <p className="text-base text-text-secondary">Type</p>
+              <p className="mt-1 text-base text-text-primary">
                 {data.type}
               </p>
             </div>

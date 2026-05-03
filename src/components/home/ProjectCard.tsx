@@ -65,7 +65,7 @@ export default function ProjectCard({ work, onClick }: ProjectCardProps) {
         <span className="inline-block text-base font-medium text-text-primary underline decoration-[#555] underline-offset-4 transition-colors duration-300 group-hover:decoration-accent">
           {title}
         </span>
-        <span className="mt-1 block text-sm tracking-wide text-text-tertiary">
+        <span className="mt-1 block text-sm text-text-tertiary">
           {year}
         </span>
       </div>

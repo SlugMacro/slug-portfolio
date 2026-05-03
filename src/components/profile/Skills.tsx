@@ -22,7 +22,7 @@ export default function Skills({ skills }: SkillsProps) {
     <section className="border-t border-border py-16 sm:py-24 lg:py-32">
       <div className="grid grid-cols-1 sm:grid-cols-4">
         <div className="px-6 sm:px-8 md:px-12">
-          <p className="text-base font-medium tracking-wide text-accent">
+          <p className="text-base font-medium text-accent">
             Skills.
           </p>
         </div>

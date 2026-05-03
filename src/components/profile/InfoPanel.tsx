@@ -9,7 +9,7 @@ export default function InfoPanel({ data }: InfoPanelProps) {
     <section className="border-t border-border py-16 sm:py-24 lg:py-32">
       <div className="grid grid-cols-1 sm:grid-cols-4">
         <div className="px-6 sm:px-8 md:px-12">
-          <p className="text-base font-medium tracking-wide text-accent">
+          <p className="text-base font-medium text-accent">
             Information.
           </p>
         </div>
@@ -21,7 +21,7 @@ export default function InfoPanel({ data }: InfoPanelProps) {
               <p className="text-xl leading-[1.5] font-normal text-text-primary">
                 {data.name}
               </p>
-              <p className="mt-1 text-base tracking-wide text-text-secondary">
+              <p className="mt-1 text-base text-text-secondary">
                 {data.title}
               </p>
             </div>
@@ -30,7 +30,7 @@ export default function InfoPanel({ data }: InfoPanelProps) {
             <div className="flex flex-col gap-2">
               <a
                 href={`mailto:${data.email}`}
-                className="text-base tracking-wide text-text-primary underline decoration-[#555] underline-offset-4 transition-colors duration-300 hover:decoration-accent"
+                className="text-base text-text-primary underline decoration-[#555] underline-offset-4 transition-colors duration-300 hover:decoration-accent"
               >
                 {data.email}
               </a>
@@ -40,7 +40,7 @@ export default function InfoPanel({ data }: InfoPanelProps) {
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-base tracking-wide text-text-primary underline decoration-[#555] underline-offset-4 transition-colors duration-300 hover:decoration-accent"
+                  className="text-base text-text-primary underline decoration-[#555] underline-offset-4 transition-colors duration-300 hover:decoration-accent"
                 >
                   {link.label}
                 </a>
@@ -49,10 +49,10 @@ export default function InfoPanel({ data }: InfoPanelProps) {
 
             {/* Location */}
             <div>
-              <p className="text-base tracking-wide text-text-secondary">
+              <p className="text-base text-text-secondary">
                 {data.coordinates}
               </p>
-              <p className="text-base tracking-wide text-text-secondary">
+              <p className="text-base text-text-secondary">
                 {data.location}
               </p>
             </div>
@@ -61,7 +61,7 @@ export default function InfoPanel({ data }: InfoPanelProps) {
             <a
               href="/resume.pdf"
               download
-              className="group inline-flex items-center gap-3 border border-border px-6 py-4 text-base tracking-wide text-text-primary transition-colors duration-300 hover:border-accent"
+              className="group inline-flex items-center gap-3 border border-border px-6 py-4 text-base text-text-primary transition-colors duration-300 hover:border-accent"
             >
               <span>Download Resume</span><span className="text-text-tertiary">/PDF</span>
               <svg

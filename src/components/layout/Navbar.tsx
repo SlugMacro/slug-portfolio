@@ -45,7 +45,7 @@ export default function Navbar() {
         <div className="fixed top-0 left-0 z-0 w-full max-w-[var(--container-max)] bg-bg">
           <div className="px-6 sm:px-8 md:px-12">
             <Link to="/" aria-label="Slug Macro — Home" className="block">
-              <motion.div className="pt-12" style={{ opacity: logoOpacity }}>
+              <motion.div className="pt-6 sm:pt-8 lg:pt-12" style={{ opacity: logoOpacity }}>
                 <LiquidText
                   className="select-none font-display text-text-primary leading-[0.8] font-bold cursor-pointer text-display-xl"
                   style={{
@@ -64,27 +64,27 @@ export default function Navbar() {
       <header ref={headerRef as React.RefObject<HTMLElement>} className={cn('sticky top-0 z-50 w-full bg-bg border-t border-border transition-[border-color] duration-300', scrolled ? 'border-b border-b-border' : 'border-b border-b-transparent')}>
         <nav className="grid grid-cols-2 lg:grid-cols-4 [&>div]:transition-[padding] [&>div]:duration-300">
           <div className={cn('px-6 sm:px-8 lg:px-12', scrolled ? 'py-4 lg:py-6' : 'py-4 lg:py-6')}>
-            <span className="block text-base tracking-wide text-text-tertiary">Independent</span>
-            <span className="block text-base tracking-wide text-text-tertiary">Designer</span>
+            <span className="block text-base leading-relaxed text-text-tertiary">Independent</span>
+            <span className="block text-base leading-relaxed text-text-tertiary">Designer</span>
           </div>
 
           <div className={cn('hidden lg:block lg:px-12', 'py-6')}>
-            <Link to="/" className={cn('block text-base tracking-wide text-text-primary underline underline-offset-4 transition-colors duration-300 hover:decoration-accent', location.pathname === '/' ? 'decoration-accent' : 'decoration-[#555]')}>
+            <Link to="/" className={cn('block text-base leading-relaxed text-text-primary underline underline-offset-4 transition-colors duration-300 hover:decoration-accent', location.pathname === '/' ? 'decoration-accent' : 'decoration-[#555]')}>
               Projects
             </Link>
-            <Link to="/profile" className={cn('block text-base tracking-wide text-text-primary underline underline-offset-4 transition-colors duration-300 hover:decoration-accent', location.pathname === '/profile' ? 'decoration-accent' : 'decoration-[#555]')}>
+            <span className="block text-base leading-relaxed text-text-tertiary">Selected work</span>
+          </div>
+
+          <div className={cn('hidden lg:block lg:px-12', 'py-6')}>
+            <Link to="/profile" className={cn('block text-base leading-relaxed text-text-primary underline underline-offset-4 transition-colors duration-300 hover:decoration-accent', location.pathname === '/profile' ? 'decoration-accent' : 'decoration-[#555]')}>
               Information
             </Link>
+            <span className="block text-base leading-relaxed text-text-tertiary">About & experience</span>
           </div>
 
           <div className={cn('hidden lg:block lg:px-12', 'py-6')}>
-            <span className="block text-base tracking-wide text-text-tertiary">Contact</span>
-            <a href="mailto:macroslug@gmail.com" className="block text-base tracking-wide text-text-primary underline decoration-[#555] underline-offset-4 transition-colors duration-300 hover:decoration-accent">macroslug@gmail.com</a>
-          </div>
-
-          <div className={cn('hidden lg:block lg:px-12', 'py-6')}>
-            <span className="block text-base tracking-wide text-text-tertiary">20°58′N 105°49′E</span>
-            <span className="block text-base tracking-wide text-text-tertiary">Hanoi, Vietnam</span>
+            <a href="mailto:macroslug@gmail.com" className="block text-base leading-relaxed text-text-primary underline decoration-[#555] underline-offset-4 transition-colors duration-300 hover:decoration-accent">macroslug@gmail.com</a>
+            <span className="flex items-center gap-2 text-base leading-relaxed text-text-tertiary"><span className="inline-block h-1.5 w-1.5 rounded-full bg-accent animate-pulse" /> Available for work</span>
           </div>
 
           <button

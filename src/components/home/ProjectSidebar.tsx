@@ -120,7 +120,7 @@ export default function ProjectSidebar({ work, onClose }: ProjectSidebarProps) {
               </svg>
             </button>
 
-            <div className="p-6 sm:p-8 lg:p-32">
+            <div className="px-6 py-6 sm:px-8 sm:py-8 lg:px-32 lg:py-32">
               {/* Title */}
               <LiquidText
                 radius={0.2}
@@ -139,15 +139,15 @@ export default function ProjectSidebar({ work, onClose }: ProjectSidebarProps) {
               {/* Meta */}
               <div className="mt-6 flex flex-wrap gap-x-8 gap-y-2">
                 <div>
-                  <p className="text-base tracking-wide text-text-tertiary">Year</p>
+                  <p className="text-base text-text-tertiary">Year</p>
                   <p className="mt-1 text-base text-text-primary">{work.data.year}</p>
                 </div>
                 <div>
-                  <p className="text-base tracking-wide text-text-tertiary">Role</p>
+                  <p className="text-base text-text-tertiary">Role</p>
                   <p className="mt-1 text-base text-text-primary">{work.data.role}</p>
                 </div>
                 <div>
-                  <p className="text-base tracking-wide text-text-tertiary">Type</p>
+                  <p className="text-base text-text-tertiary">Type</p>
                   <p className="mt-1 text-base text-text-primary">{work.data.type}</p>
                 </div>
               </div>
@@ -169,7 +169,7 @@ export default function ProjectSidebar({ work, onClose }: ProjectSidebarProps) {
                         <div className="hidden bg-border lg:block" />
                       )}
                       <div className={i === 0 ? 'lg:pr-10' : i < bodySections.length - 1 ? 'border-t border-border pt-10 lg:border-t-0 lg:pt-0 lg:px-10' : 'border-t border-border pt-10 lg:border-t-0 lg:pt-0 lg:pl-10'}>
-                        <p className="text-base font-medium tracking-wide text-text-primary">
+                        <p className="text-base font-medium text-text-primary">
                           {section.heading}
                         </p>
                         <div className="mt-4">
