@@ -83,7 +83,7 @@ export default function Navbar() {
           </div>
 
           <div className={cn('hidden lg:block lg:px-12', 'py-6')}>
-            <a href="mailto:macroslug@gmail.com" className="inline-block text-base leading-relaxed text-text-primary link-underline">macroslug@gmail.com</a>
+            <a href="mailto:slugmacro@gmail.com" className="inline-block text-base leading-relaxed text-text-primary link-underline">slugmacro@gmail.com</a>
             <span className="flex items-center gap-2 text-base leading-relaxed text-text-tertiary"><span className="inline-block h-1.5 w-1.5 rounded-full bg-accent animate-pulse" /> Available for work</span>
           </div>
 

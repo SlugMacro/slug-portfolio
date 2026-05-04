@@ -3,7 +3,7 @@ name: Slug Macro
 title: Product Designer
 location: Hanoi, Vietnam
 coordinates: "20°58′N 105°49′E"
-email: macroslug@gmail.com
+email: slugmacro@gmail.com
 availability: available
 socialLinks:
   - label: LinkedIn
