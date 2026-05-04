@@ -164,7 +164,7 @@ export default function VibeCodeSection() {
                 className={`group relative cursor-pointer px-6 py-6 sm:px-8 sm:py-8 lg:px-12 lg:py-12${i < sideProjects.length - 1 ? ' border-b border-border' : ''}`}
                 onClick={() => setSelected(project)}
               >
-                <span className="inline-block text-base font-medium text-text-primary underline decoration-[#333] underline-offset-4 transition-colors duration-300 group-hover:decoration-accent">
+                <span className="inline-block text-base font-medium text-text-primary link-underline link-underline-group">
                   {project.data.title}
                 </span>
                 <span className="mt-1 block text-sm text-text-tertiary">

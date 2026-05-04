@@ -50,7 +50,7 @@ export default function MobileMenu({ open, onClose, links }: MobileMenuProps) {
                   <Link
                     to={link.to}
                     onClick={onClose}
-                    className={`text-2xl font-normal text-text-primary ${isActive ? 'underline decoration-accent underline-offset-4' : ''}`}
+                    className={`text-2xl font-normal text-text-primary link-underline ${isActive ? 'link-underline-active' : ''}`}
                   >
                     {link.label}
                   </Link>

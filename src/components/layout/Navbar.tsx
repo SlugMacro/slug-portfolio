@@ -69,21 +69,21 @@ export default function Navbar() {
           </div>
 
           <div className={cn('hidden lg:block lg:px-12', 'py-6')}>
-            <Link to="/" className={cn('block text-base leading-relaxed text-text-primary underline underline-offset-4 transition-colors duration-300 hover:decoration-accent', location.pathname === '/' ? 'decoration-accent' : 'decoration-[#555]')}>
+            <Link to="/" className={cn('inline-block text-base leading-relaxed text-text-primary link-underline', location.pathname === '/' && 'link-underline-active')}>
               Projects
             </Link>
             <span className="block text-base leading-relaxed text-text-tertiary">Selected work</span>
           </div>
 
           <div className={cn('hidden lg:block lg:px-12', 'py-6')}>
-            <Link to="/profile" className={cn('block text-base leading-relaxed text-text-primary underline underline-offset-4 transition-colors duration-300 hover:decoration-accent', location.pathname === '/profile' ? 'decoration-accent' : 'decoration-[#555]')}>
+            <Link to="/profile" className={cn('inline-block text-base leading-relaxed text-text-primary link-underline', location.pathname === '/profile' && 'link-underline-active')}>
               Information
             </Link>
             <span className="block text-base leading-relaxed text-text-tertiary">About & experience</span>
           </div>
 
           <div className={cn('hidden lg:block lg:px-12', 'py-6')}>
-            <a href="mailto:macroslug@gmail.com" className="block text-base leading-relaxed text-text-primary underline decoration-[#555] underline-offset-4 transition-colors duration-300 hover:decoration-accent">macroslug@gmail.com</a>
+            <a href="mailto:macroslug@gmail.com" className="inline-block text-base leading-relaxed text-text-primary link-underline">macroslug@gmail.com</a>
             <span className="flex items-center gap-2 text-base leading-relaxed text-text-tertiary"><span className="inline-block h-1.5 w-1.5 rounded-full bg-accent animate-pulse" /> Available for work</span>
           </div>
 

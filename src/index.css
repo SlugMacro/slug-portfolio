@@ -128,7 +128,53 @@
     100% { top: 100%; }
   }
 
-/* Reduced motion */
+/* Animated underline — sweeps accent from left on hover, reverses on leave */
+  .link-underline {
+    position: relative;
+    text-decoration: none;
+  }
+
+  .link-underline::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #222;
+  }
+
+  .link-underline::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--color-accent);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+  }
+
+  .link-underline:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  /* Active state — accent always visible */
+  .link-underline-active::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  /* Group-hover variant — parent .group triggers the animation */
+  .group:hover .link-underline-group::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  /* Reduced motion */
   @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
