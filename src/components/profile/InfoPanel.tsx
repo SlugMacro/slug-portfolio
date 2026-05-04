@@ -30,7 +30,7 @@ export default function InfoPanel({ data }: InfoPanelProps) {
             <div className="flex flex-col gap-2">
               <a
                 href={`mailto:${data.email}`}
-                className="text-base text-text-primary link-underline"
+                className="self-start text-base text-text-primary link-underline"
               >
                 {data.email}
               </a>
@@ -40,7 +40,7 @@ export default function InfoPanel({ data }: InfoPanelProps) {
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-base text-text-primary link-underline"
+                  className="self-start text-base text-text-primary link-underline"
                 >
                   {link.label}
                 </a>
