@@ -1,5 +1,22 @@
 @import "tailwindcss";
 
+/* ── Self-hosted Fonts ──────────────────────────────────── */
+@font-face {
+  font-family: 'Bodoni Moda';
+  font-style: normal;
+  font-weight: 400 900;
+  font-display: swap;
+  src: url('/fonts/BodoniModa-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Bodoni Moda';
+  font-style: italic;
+  font-weight: 400 900;
+  font-display: swap;
+  src: url('/fonts/BodoniModa-Italic.woff2') format('woff2');
+}
+
 /* ── Design System ──────────────────────────────────────── */
 @theme {
   /* ── Colors ── */
@@ -14,7 +31,6 @@
   /* ── Font Families ── */
   --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Bodoni Moda", serif;
-  --font-pixel: "Press Start 2P", monospace;
 
   /* ── Font Sizes ──
    * xs/sm/base = fixed    → UI chrome, labels, body

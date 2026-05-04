@@ -60,10 +60,11 @@ export default function InfoPanel({ data }: InfoPanelProps) {
             {/* Resume */}
             <a
               href="/Duc-Le-Resume.pdf"
-              download
+              target="_blank"
+              rel="noopener noreferrer"
               className="group inline-flex items-center gap-3 border border-border px-6 py-4 text-base text-text-primary transition-colors duration-300 hover:border-accent"
             >
-              <span>Download Resume</span><span className="text-text-tertiary">/PDF</span>
+              <span>View Resume</span><span className="text-text-tertiary">/PDF</span>
               <svg
                 width="14"
                 height="14"
@@ -71,10 +72,10 @@ export default function InfoPanel({ data }: InfoPanelProps) {
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="1.5"
-                className="text-accent transition-transform duration-300 group-hover:translate-y-0.5"
+                className="text-accent transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
               >
-                <path d="M12 5v14" />
-                <path d="M19 12l-7 7-7-7" />
+                <path d="M7 17L17 7" />
+                <path d="M7 7h10v10" />
               </svg>
             </a>
 
