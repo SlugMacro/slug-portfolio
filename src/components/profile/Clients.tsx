@@ -13,7 +13,7 @@ export default function Clients({ clients }: ClientsProps) {
             Clients.
           </p>
         </div>
-        <div className="col-span-1 mt-4 px-6 sm:col-span-2 sm:mt-0 sm:px-8 md:px-12">
+        <div className="col-span-1 mt-4 px-6 sm:col-span-3 sm:mt-0 sm:px-8 md:px-12 lg:col-span-2">
           <div className="flex flex-wrap gap-x-6 gap-y-2">
             {clients.map((client) => (
               <span

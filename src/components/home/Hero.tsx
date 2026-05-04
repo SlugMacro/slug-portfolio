@@ -7,7 +7,7 @@ export default function Hero() {
   return (
     <section className="border-b border-border py-16 sm:py-24 lg:py-32">
       <AnimatedSection>
-        <div className="px-6 sm:px-8 lg:px-12">
+        <div className="px-6 sm:px-8 md:px-12">
           <div>
             <p className="max-w-full lg:max-w-[50%] text-xl leading-[1.5] font-normal text-text-primary">
               {profile.data.homeIntro || profile.content}

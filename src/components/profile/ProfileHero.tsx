@@ -11,7 +11,7 @@ export default function ProfileHero({ content }: ProfileHeroProps) {
             About.
           </p>
         </div>
-        <div className="col-span-1 mt-4 px-6 sm:col-span-2 sm:mt-0 sm:px-8 md:px-12 space-y-6">
+        <div className="col-span-1 mt-4 px-6 sm:col-span-3 sm:mt-0 sm:px-8 md:px-12 lg:col-span-2 space-y-6">
           {content.split('\n\n').map((para, i) => (
             <p key={i} className="max-w-[55ch] text-xl leading-[1.5] font-normal text-text-primary">
               {para}

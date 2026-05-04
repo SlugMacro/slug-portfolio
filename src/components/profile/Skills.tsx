@@ -27,7 +27,7 @@ export default function Skills({ skills }: SkillsProps) {
           </p>
         </div>
 
-        <div className="col-span-1 mt-4 px-6 sm:col-span-2 sm:mt-0 sm:px-8 md:px-12">
+        <div className="col-span-1 mt-4 px-6 sm:col-span-3 sm:mt-0 sm:px-8 md:px-12 lg:col-span-2">
           <div className="space-y-2">
             {skills.items.map((item, i) => (
               <p
