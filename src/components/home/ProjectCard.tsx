@@ -39,7 +39,7 @@ export default function ProjectCard({ work, onClick }: ProjectCardProps) {
     >
       {/* Background image — static on mobile, animated on desktop */}
       {thumbnailImage && (
-        <div className={`absolute inset-0 ${isDesktop ? 'grayscale opacity-50 transition-all duration-500 group-hover:opacity-100 group-hover:grayscale-0 group-hover:scale-[1.03]' : 'opacity-70'}`}>
+        <div className={`absolute inset-0 ${isDesktop ? 'grayscale opacity-70 transition-all duration-500 group-hover:opacity-100 group-hover:grayscale-0 group-hover:scale-[1.03]' : 'opacity-85'}`}>
           {isDesktop ? (
             <RippleImage
               ref={rippleRef}
@@ -58,7 +58,7 @@ export default function ProjectCard({ work, onClick }: ProjectCardProps) {
       )}
 
       {/* Gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-bg/95 via-bg/40 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-bg/80 via-bg/25 to-transparent" />
 
       {/* Title + meta — bottom-left */}
       <div className="relative z-10 p-6 sm:p-8 md:p-12">
